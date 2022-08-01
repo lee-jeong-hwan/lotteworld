@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이용문의</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+function view() {
+	if($(".moremenu").css('display')=='none') {
+		if($(".moremenu2").css('display')=='block') {
+			$(".moremenu2").slideUp();
+		}
+		if($(".moremenu3").css('display')=='block') {
+			$(".moremenu3").slideUp();
+		}
+		if($(".sharesub").css('display')=='block'){
+			$(".sharesub").slideUp();
+		}
+	} else if($(".moremenu").css('display')=='block'){
+	}
+	$(".moremenu").slideToggle();
+}
+function view2() {
+	if($(".moremenu2").css('display')=='none') {
+		if($(".moremenu").css('display')=='block') {
+			$(".moremenu").slideUp();
+		}
+		if($(".moremenu3").css('display')=='block') {
+			$(".moremenu3").slideUp();
+		}
+		if($(".sharesub").css('display')=='block'){
+			$(".sharesub").slideUp();
+		}
+	} else if($(".moremenu2").css('display')=='block'){
+	}
+		$(".moremenu2").slideToggle();
+}
+function view3() {
+	if($(".moremenu3").css('display')=='none'){
+		if($(".moremenu").css('display')=='block'){
+			$(".moremenu").slideUp();
+		}
+		if($(".moremenu2").css('display')=='block'){
+			$(".moremenu2").slideUp();
+		}
+		if($(".sharesub").css('display')=='block'){
+			$(".sharesub").slideUp();
+		}
+	} else if($(".moremenu3").css('display')=='block'){
+	}
+	$(".moremenu3").slideToggle();
+}
+function shareview() {
+	if($(".sharesub").css('display')=='none'){
+		if($(".moremenu").css('display')=='block'){
+			$(".moremenu").slideUp();
+		}
+		if($(".moremenu2").css('display')=='block'){
+			$(".moremenu2").slideUp();
+		}
+		if($(".moremenu3").css('display')=='block'){
+			$(".moremenu3").slideUp();
+		}
+	} else if($(".sharesub").css('display')=='block'){
+	}
+	$(".sharesub").slideToggle();
+}
+function copy() {
+	var url = '';    // <a>태그에서 호출한 함수인 clip 생성
+    var textarea = document.createElement("textarea");  
+    //url 변수 생성 후, textarea라는 변수에 textarea의 요소를 생성
+    
+    document.body.appendChild(textarea); //</body> 바로 위에 textarea를 추가(임시 공간이라 위치는 상관 없음)
+    url = window.document.location.href;  //url에는 현재 주소값을 넣어줌
+    textarea.value = url;  // textarea 값에 url를 넣어줌
+    textarea.select();  //textarea를 설정
+    document.execCommand("copy");   // 복사
+    document.body.removeChild(textarea); //extarea 요소를 없애줌
+    
+    alert("복사되었습니다.")  // 알림창
+}
+$(function() {
+	var select = $(".moremenu2box").text();
+	var list = $(".moremenu2List");
+	for(var i = 0; i <= 3; i++){
+		if(list.eq(i).text() == select){
+			list.eq(i).css('font-family', 'NotoSans-bold');
+			list.eq(i).css('color', '#000');
+			break;
+		}
+	}
+	
+	var select2 = $(".moremenu3box");
+	var list2 = $(".moremenu3List");
+	select2.css({'font-family': 'NotoSans-bold','color': '#000' });
+	for(var i = 0; i <= 2; i++){
+		if(list2.eq(i).text() == select2.text()){
+			list2.eq(i).css('font-family', 'NotoSans-bold');
+			list2.eq(i).css('color', '#000');
+			break;
+		}
+	}
+	$(".menu").load("lotte/Menu.jsp");
+	$(".footer").load("lotte/Footer.html");
+	});
+</script>
+<style>
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+@font-face {
+	font-family: "NotoSans-Light";
+	src: url(font/NotoSansKR-Light.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Bold";
+	src: url(font/NotoSansKR-Bold.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Medium";
+	src: url(font/NotoSansKR-Medium.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Regular";
+	src: url(font/NotoSansKR-Regular.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Black";
+	src: url(font/NotoSansKR-Black.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Thin";
+	src: url(font/NotoSansKR-Thin.otf);
+}
+
+#wrapper {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+#cBody {
+	position: relative;
+	width: 100%;
+}
+
+.subWrap {
+	position: relative;
+	padding: 0 0 130px;
+	width: 100%;
+}
+
+body {
+	position: relative;
+	font-size: 16px;
+	color: #555;
+	letter-spacing: -0.6px;
+	height: 100%;
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	line-height: 1;
+	font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+}
+
+h2 {
+	font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	font-size: 50px;
+	color: #000;
+	text-align: center;
+	padding-top: 40px;
+}
+
+.container1 {
+	position: relative;
+	width: 1170px;
+	margin: 0 auto;
+}
+
+.applyDiv {
+	margin-top: 80px;
+	margin-bottom: 50px;
+}
+
+.inquiryTop {
+	padding: 42px 50px 35px;
+	border: 1px solid #e4e4e4;
+	background: #f9f9f9 url(Img/inquiry_top_bg.png) no-repeat right bottom;
+	color: #000;
+}
+
+.inquiryTop .txt {
+	font-size: 24px;
+	font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	line-height: 36px;
+	margin-bottom: 27px;
+}
+
+.container1 ul,
+.container1 ol,
+.container1 li {
+	list-style: none;
+	margin-left: 0px;
+}
+
+.inquiryTop .dotList li {
+	font-size: 16px;
+	color: #555;
+	line-height: 26px;
+	margin-bottom: 10px;
+	position: relative;
+	padding-left: 19px;
+}
+
+.inquiryTop .dotList .dotTit:before {
+	display: block;
+	content: "";
+	position: absolute;
+	top: 12px;
+	left: 0;
+	width: 4px;
+	height: 4px;
+	background: #b2b2b2;
+	border-radius: 2px;
+}
+
+.underline {
+	border-bottom: 1px solid #e1e1e1;
+	height: 74px;
+}
+
+ul li .left {
+	display: table-cell;
+	vertical-align: middle;
+	width: 150px;
+	padding: 0px 20px;
+}
+
+.tit {
+	font-size: 16px;
+	font-family: 'NotoSans-Medium', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	color: #000;
+	line-height: 26px;
+}
+
+.inputArea {
+	padding: 13px 0;
+}
+.container1 ul li {
+	list-style: none;
+	margin-left: 0px;
+	display: table;
+}
+
+a {
+	text-decoration: none;
+	color: #555;
+}
+
+.type2_1 {
+	width: 420px;
+	background-position: 387px center;
+	height: 45px;
+	font-size: 20px;
+	margin-bottom: 0px;
+	border: 1px solid #e1e1e1;
+}
+
+.inputArea .tit select {
+	width: 420px;
+	height: 54px;
+	margin-left: 4px;
+	margin-bottom: 0px;
+	padding: 0 20px;
+	line-height: 46px;
+	font-size: 16px;
+	color: #555;
+	font-family: 'NotoSans-Medium', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: url(Img/select_arrow.png) no-repeat 144px center;
+}
+
+option {
+	padding: 3px 10px;
+}
+
+.inputArea select {
+	width: 420px;
+	height: 54px;
+	margin-left: 4px;
+	margin-bottom: 0px;
+	padding: 0 20px;
+	line-height: 46px;
+	font-size: 16px;
+	color: #555;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: url(Img/select_arrow.png) no-repeat 384px center;
+	border: 1px solid #e1e1e1;
+}
+
+.name {
+	width: 148px;
+	height: 53px;
+	margin-left: 4px;
+	margin-bottom: 0px;
+	padding: 0 20px;
+	line-height: 46px;
+	font-size: 16px;
+	color: #555;
+	font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	border: 1px solid #e1e1e1;
+}
+
+textarea.type2_1 {
+	height: 198px;
+	width: 940px;
+}
+
+.topline {
+	border-top: 2px solid black;
+	margin-left: 0px;
+}
+
+.fileChoice {
+	width: 100px;
+	height: 14px;
+	float: left;
+	position: relative;
+	text-align: center;
+	padding: 18px 0 22px;
+	background: #777;
+	color: #fff;
+	font-size: 16px;
+	overflow: hidden;
+	font-size: 16px;
+	font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+}
+
+.fileChoice>input {
+	height: 80px !important;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+.captchaImg {
+	width: 178px;
+	height: 49px;
+	float: left;
+	border: 1px solid #e1e1e1;
+	margin-right: 5px;
+	overflow: hidden;
+}
+.cPurple {
+    color: #550adf !important;
+    margin-top: 15px;
+}
+.againBt {
+	margin-left: 1px;
+	background: #777 url(Img/captcha_icon1.gif) no-repeat center center;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	vertical-align: bottom;
+}
+
+.listenBt {
+	background: #777 url(Img/captcha_icon2.gif) no-repeat center center;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	vertical-align: bottom;
+}
+
+input.type3 {
+	width: 378px;
+}
+
+input.type3_2 {
+	width: 378px;
+	height: 49px;
+	font-size: 16px;
+	padding: 0 20px;
+}
+
+::placeholder {
+	color: #cfcfcf;
+}
+
+.agreeTxt {
+	height: 198px;
+	width: 910px;
+	padding: 20px;
+	line-height: 26px;
+	font-size: 16px;
+	border: 1px solid #e1e1e1;
+	overflow-y: scroll;
+}
+
+.fMed {
+	font-family: 'NotoSans-Medium', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.right1.inputArea {
+	padding: 13px 0;
+}
+
+.right1 {
+	display: table-cell;
+	vertical-align: middle;
+	width: 970px;
+	padding: 27px 0;
+}
+
+.point {
+	display: inline;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 18px;
+	background: #fdff7b;
+}
+
+.check {
+	text-align: right;
+	margin-top: 18px;
+}
+
+.check input[type="checkbox"] {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border-radius: 0;
+	border: 0;
+	margin: 0;
+	margin-right: 5px;
+	padding: 0;
+	cursor: pointer;
+	background: url(Img/check_icon.gif) no-repeat 0 0;
+}
+
+.check label {
+	font-size: 16px;
+	line-height: 20px;
+	font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	color: #555;
+	vertical-align: middle;
+}
+
+.purpleBtn {
+	display: inline-block;
+	padding: 0 70px;
+	height: 56px;
+	line-height: 54px;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+	border-radius: 28px;
+	background: linear-gradient(to bottom right, rgba(111, 35, 249, 1) 0%,
+		rgba(85, 10, 223, 1) 100%);
+}
+input[type="checkbox"] {
+    border: 0;
+    padding: 0;
+    height: auto;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.check input[type="checkbox"]:checked {
+    background: url(Img/check_icon_on.gif) no-repeat 0 0;
+}
+input, select {
+    vertical-align: middle;
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+    color: #555;
+    letter-spacing: -0.6px;
+    border-radius: 0;
+    font-size: 16px;
+}
+.bPurpleBtn {
+	display: inline-block;
+	padding: 0 68px;
+	height: 52px;
+	line-height: 50px;
+	font-size: 18px;
+	color: #550adf;
+	text-align: center;
+	border: 2px solid #550adf;
+	border-radius: 30px;
+	font-family: 'NotoSans-Medium', '맑은 고딕', 'Malgun Gothic', sans-serif;
+}
+
+.btnArea {
+	text-align: center;
+	margin-top: 60px;
+}
+.topline input[type="text"]:nth-child(1),
+.topline input[type="text"]:nth-child(2),
+.topline input[type="text"]:nth-child(3) {
+	width: 138px;
+}
+.topline textarea {
+	width: 910px;
+	height: 198px;
+    padding: 20px;
+}
+a {
+		    text-decoration: none;
+		    color: #555;
+		}
+		a:-webkit-any-link {
+		    cursor: pointer;
+		}
+		.topsubIn a {
+			font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		}
+		.topsub {
+		    position: relative;
+		    max-width: 1170px;
+		    margin: 0 auto;
+		    padding-top: 30px;
+		}
+		.topsub:after {
+		    content: '';
+		    display: block;
+		    clear: both;
+		}
+		.topsub .topsubIn {
+		    float: left;
+		    padding-top: 10px;
+		}
+		.topsub .topsubIn:after {
+		    content: '';
+		    display: block;
+		    clear: both;
+		}
+		.topsub .topsubIn .home {
+		    float: left;
+		    display: block;
+		    width: 36px;
+		    height: 30px;
+		    border-right: 1px solid #e1e1e1;
+		    background: url(https://adventure.lotteworld.com/common/images/btn/home_btn.png) no-repeat 0 50%;
+		}
+		.topsub .topsubIn > div.one {
+		    margin-left: 26px;
+		}
+		.topsub .topsubIn > div {
+		    float: left;
+		    position: relative;
+		    margin-left: 20px;
+		}
+		.topsub .topsubIn > div > a {
+		    display: block;
+		    padding-right: 42px;
+		    height: 30px;
+		    font-size: 16px;
+		    color: #555;
+		    line-height: 28px;
+		    background: url(https://adventure.lotteworld.com/common/images/icon/lnb_icon.png) no-repeat right 0 top 50%;
+		}
+		.topsub .topsubIn > div > div {
+	    	position: absolute;
+		    top: 50px;
+		    left: -26px;
+		    padding: 25px;
+		    border: 1px solid #e1e1e1;
+		    background: #fff;
+		    display: none
+		}
+		.topsub .topsubIn > div > div a:first-child {
+		    margin-top: 0;
+		}
+		.topsub .topsubIn > div > div a {
+		    display: block;
+		    font-size: 16px;
+		    color: #555;
+		    white-space: nowrap;
+		    margin-top: 17px;
+		}
+		.shareprint {
+			float: right;
+		}
+		.shareprint a {
+			display: block;
+		    width: 50px;
+		    height: 50px;
+		}
+		.share {
+			position: relative;
+			float : left;
+		}
+		.shareimg {
+			background: url(https://adventure.lotteworld.com/common/images/btn/share_btn.png) no-repeat 50% 50%;
+		}
+		.shareimg:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/share_btn_on.png) no-repeat 50% 50%;
+		}
+		.print {
+			float : left;
+			margin-left: 10px;
+			background: url(https://adventure.lotteworld.com/common/images/btn/print_btn.png) no-repeat 50% 50%;
+		}
+		.sharesub {
+			position: absolute;
+		    top: 50px;
+		    left: 0;
+		    display: none;
+		}
+		.sharesub a {
+			margin-top: 10px;
+		}
+		.facebook {
+			background: url(https://adventure.lotteworld.com/common/images/btn/facebook_btn.png) no-repeat 50% 50%;
+		}
+		.facebook:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/facebook_btn_on.png) no-repeat 50% 50%;
+		}
+		.twiter {
+			background: url(https://adventure.lotteworld.com/common/images/btn/twitter_btn.png) no-repeat 50% 50%;
+		}
+		.twiter:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/twitter_btn_on.png) no-repeat 50% 50%;
+		}
+		.copy {
+			background: url(https://adventure.lotteworld.com/common/images/btn/link_btn.png) no-repeat 50% 50%;
+		}
+		.copy:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/link_btn_on.png) no-repeat 50% 50%;
+		}
+		.shareprint:after {
+			content: '';
+		    display: block;
+		    clear: both;
+		}
+</style>
+</head>
+<body>
+	<div id="wrapper">
+		<div class="menu"></div>
+		<div id="cBody">
+		<div class="topsub">
+				<div class="topsubIn">
+					<a href="LotteController?command=lotteMain" class="home"></a>
+						<div class="one">
+							<a href="javascript:void(0)" onclick="view()" class="moremenuclick">소통서비스</a>
+							<div class="moremenu" style="z-index : 15; display : none;">
+								<a href="LotteController?command=Attraction" class="moremenulist" style="margin-top : 0px;">즐길거리</a>
+								<a href="LotteController?command=Charge" class="moremenulist">요금/우대혜택</a>
+	 							<a href="LotteController?command=Performance" class="moremenulist">참여프로그램</a>
+								<a href="LotteController?command=Suspension" class="moremenulist">이용가이드</a>
+								<a href="LotteController?command=Notice" class="moremenulist">소통서비스</a>
+							</div>
+						</div>
+						<div class="two">
+							<a class="moremenu2box" href="javascript:void(0)" onclick="view2()">고객소리함</a>
+							<div class="moremenu2" style="z-index : 15; display : none;">
+								<a href="LotteController?command=Notice" class="moremenu2List" style="margin-top : 0px;">공지사항</a>
+	 							<a href="LotteController?command=Faq" class="moremenu2List">FAQ</a>
+								<a href="LotteController?command=Inquiry" class="moremenu2List">고객소리함</a>
+							</div>
+						</div>
+						<div class="three">
+							<a class="moremenu3box" href="javascript:void(0)" onclick="view3()">이용문의</a>
+							<div class="moremenu3" style="z-index : 15; display : none">
+								<a class="moremenu3List" href="LotteController?command=Inquiry" style="margin-top : 0px;">이용문의</a>
+		 						<a class="moremenu3List" href="LotteController?command=Missing">분실물 센터</a>
+							</div>
+						</div>
+				</div> <!-- topsubIn -->
+				<div class="shareprint">
+					<div class="share">
+					<a href="javascript:void(0)" onclick="shareview()"class="shareimg"></a>
+						<div class="sharesub" style="z-index:15; display:none;">
+							<a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fsharer%3Fu%3Dhttps%253A%252F%252Fadventure.lotteworld.com%252Fkor%252Fenjoy%252Frestaurant%252Flist.do&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=ko_KR" class="facebook" target="_blank"></a>
+							<a href="https://twitter.com/intent/tweet?text=&url=https%3A%2F%2Fadventure.lotteworld.com%2Fkor%2Fenjoy%2Frestaurant%2Flist.do" class="twiter" target="_blank"></a>
+							<a href="javascript:void(0)" onclick="copy()" class="copy"></a>
+						</div>
+					</div> <!-- share -->
+					<a href="javascript:void(0)" onclick="window.print()" class="print"></a>
+				</div> <!-- shareprint -->
+			</div> <!-- topsub -->
+			<h2>이용문의</h2>
+			<div class="subWrap">
+				<div class="container1">
+					<div class="applyDiv">
+						<div class="inquiryTop">
+							<p class="txt">
+								롯데월드를 이용하기 전 <br> 궁금한 사항에 대한 문의를 남겨주세요.
+							</p>
+							<ul class="dotList">
+								<li class="dotTit">답변은 이메일 주소로 발송됩니다</li>
+								<li class="dotTit">접수 후 1주 이내 회신을 드리기 위해 노력하고 있습니다. 의견 접수가
+									많거나,<br> 공휴일에 접수될 경우 답변에 시간이 소요될 수 있으니 양해 부탁드립니다.
+								</li>
+								<li class="dotTit">불건전한 내용(개인정보보안, 귀책사유에 대한 개인 음해성 비방의 글 등)
+									또는<br> 광고성 게시글은 사전 통보없이 삭제될 수 있습니다
+								</li>
+							</ul>
+						</div>
+					</div>
+					<ul class="topline">
+						<li class="underline">
+							<div class="left">
+								<p class="tit">문의유형</p>
+							</div>
+							<div class="right1 inputArea">
+								<select class="type2_1" id="categCd" name="categCd" title="문의유형">
+									<option value="">전체</option>
+									<option value="A2308">전통혼례 문의</option>
+									<option value="A2309">소셜 티켓 문의</option>
+									<option value="A2310">요금 문의</option>
+									<option value="A2311">제휴 할인</option>
+									<option value="A2313">온라인 예매</option>
+									<option value="A2314">일반 우대행사</option>
+									<option value="A2315">연간이용</option>
+									<option value="A2316">단체 문의</option>
+									<option value="A2317">파크 내 공연</option>
+									<option value="A2318">파크 내 이벤트</option>
+									<option value="A2319">파크 내 축제</option>
+									<option value="A2320">이용 문의</option>
+									<option value="A2321">민속관</option>
+									<option value="A2322">아이스링크</option>
+									<option value="A2327">교통-지리-주차요금</option>
+									<option value="A2328">기타문의</option>
+								</select> <input class="type3 notRequired" id="reservNum"
+									name="reservNum" type="text" placeholder="예매번호를 입력하세요."
+									style="display: none" maxlength="16">
+							</div>
+						</li>
+						<li class="underline">
+							<div class="left">
+								<p class="tit">이름</p>
+							</div>
+							<div class="right1 inputArea">
+								<input type="text" class="name" id="usrNm" name="usrNm"
+									placeholder="홍길동" title="이름" maxlength="15">
+							</div>
+						</li>
+						<li class="underline">
+							<div class="left">
+								<p class="tit">이메일</p>
+							</div>
+							<div class="right1 inputArea">
+								<input type="text" class="name" id="usrEmailFrt"
+									name="usrEmailFrt" placeholder="abcdef" title="이메일"
+									maxlength="15"> <span>@</span> <input type="text"
+									class="name" id="usrEmailEnd" name="usrEmailEnd" title="이메일"
+									maxlength="20"> <select class="email" id="emailSel"
+									name="emailSel"
+									style="width: 190px; background: url(Img/select_arrow.png) no-repeat 152px center;">
+									<option value="">직접입력</option>
+									<option value="hanmail.net">hanmail.net</option>
+									<option value="hotmail.com">hotmail.com</option>
+									<option value="nate.com">nate.com</option>
+									<option value="yahoo.co.kr">yahoo.co.kr</option>
+									<option value="naver.com">naver.com</option>
+									<option value="hanmir.com">hanmir.com</option>
+									<option value="korea.com">korea.com</option>
+									<option value="orgio.net">orgio.net</option>
+									<option value="shinbiro.com">shinbiro.com</option>
+									<option value="lycos.co.kr">lycos.co.kr</option>
+									<option value="netian.com">netian.com</option>
+								</select> <input type="hidden" name="email" id="usrEmail" title="이메일"
+									value="" class="emailChk">
+							</div>
+						</li>
+						<li class="underline">
+							<div class="left">
+								<p class="tit">제목</p>
+							</div>
+							<div class="right1 inputArea">
+								<input type="text" class="type2_1" id="title" name="title"
+									title="제목" maxlength="50" style="width:910px; padding: 0 20px;">
+							</div>
+						</li>
+						<li class="underline">
+							<div class="left">
+								<p class="tit">내용</p>
+							</div>
+							<div class="right1 inputArea">
+								<textarea class="type2_1" id="cont" name="cont" title="내용"
+									maxlength="2000"></textarea>
+							</div>
+						</li>
+						<li class="underline">
+							<div class="left">
+								<p class="tit">첨부파일</p>
+							</div>
+							<div class="right1 inputArea">
+								<div class="fileDiv">
+									<p class="fileChoice">
+										파일 선택 <input type="file" id="atchFile" name="temp_file"
+											class="type3 notRequired" style="text-indent: -9999em;">
+									</p>
+								</div>
+								<div class="fileArea" id="fileArea" style="display: none;"></div>
+								<div id="tmpFileList" style="display: none;">
+									<!--선택한 파일 전달을 위한 목록-->
+								</div>
+							</div>
+						</li>
+						<li class="underline">
+							<div class="left">
+								<p class="tit">자동등록방지</p>
+							</div>
+							<div class="right1 inputArea">
+								<div class="captchaDiv">
+									<p class="captchaImg"></p>
+									<a href="javascript:" class="againBt" id="btn_reset_captcha"></a>
+									<a href="javascript:" class="listenBt" id="btn_listen_captcha"></a>
+									<input type="tel" class="type3_2" id="captchaTxt"
+										name="captchaTxt" placeholder="숫자를 공백없이 입력하시기 바랍니다."
+										title="자동등록방지" maxlength="5" inputmode="numeric">
+								</div>
+								<p class="cPurple">롯데월드 게시판은 게시물이 자동으로 등록되는 것을 방지하기 위해서
+									보안절차를 거치고 있습니다.</p>
+							</div>
+						</li>
+					</ul>
+					<div style="margin-top: 50px; border-bottom: 2px solid black;"></div>
+					<ul>
+						<li class="tableNo" style ="border-bottom: 1px solid #e1e1e1;;">
+							<div class="left">
+								<p class="tit">
+									개인정보 수집,<br> 이용동의서
+								</p>
+							</div>
+							<div class="right1 inputArea">
+								<style>
+								.point {
+									display: inline;
+									font-style: normal;
+									font-weight: bold;
+									font-size: 18px;
+									background: #fdff7b;
+								}
+								
+								@media ( max-width : 758px) {
+									.point {
+										font-size: 15px;
+									}
+								}
+								</style>
+								<div class="agreeTxt"><!-- 2018-05-25 수정 -->
+									<p class="fMed">개인 정보 수집, 이용 동의서</p>
+									본인은 방문 전 이용문의 작성과 관련하여 귀사가 아래와 같이 본인의 개인정보를 수집, 이용하는데 동의합니다.<br><br>
+									<p class="fMed">개인정보 수집, 이용에 관한 사항</p><br>
+									1.개인정보의 수집, 이용 목적<br>
+									<p class="fMed">&nbsp; &nbsp;고객의 요청ㆍ문의사항 확인, 사실조사를 위한 연락ㆍ통지, 처리결과 통보 등의 목적</p><br>
+									2.수집하는 개인정보의 항목<br>
+									<p class="fMed">&nbsp; &nbsp;ㆍ필수입력사항</p>
+									&nbsp; &nbsp;이름, E-mail<br>
+									<p class="fMed">&nbsp; &nbsp;ㆍ서비스 이용과정이나 사업처리 과정에서 아래와 같은 정보들이 생성되어 수집될 수 있습니다.</p>
+									&nbsp; &nbsp;접속로그, 쿠키, 접속IP정보<br><br>
+									3.개인정보의 보유, 이용기간<br>
+									<p class="fMed point">&nbsp; &nbsp;수집, 이용에 관한 동의일로부터 1년(이후에는 작성내용만 보관됩니다.)</p><br>
+									※ 귀하는 개인정보 수집, 이용에 대한 동의를 거부하실 권리가 있으며, 동의를 거부하실 경우 서비스 이용이 제한됩니다.
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="check">
+						<input type="checkbox" id="agreeChk" name="agreeChk"
+							title="개인정보 수집 및 이용 "> <label>개인정보 수집 및 이용에
+							동의합니다.</label>
+					</div>
+					<div class="btnArea">
+						<a href="javascript:" class="purpleBtn submit" id="btn_insert">등록</a>
+						<a href="javascript:" class="bPurpleBtn" id="btn_cancel">취소</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer"></div>
+	</div><!-- #wrapper -->
+</body>
+</html>

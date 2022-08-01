@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script src="js/jquery-3.6.0.min.js"></script>
+<style>
+		@font-face { 
+			font-family: "NotoSans-Bold";
+			src: url("font/NotoSansKR-Bold.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Black";
+			src: url("font/NotoSansKR-Black.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Light";
+			src: url("font/NotoSansKR-Light.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Medium";
+			src: url("font/NotoSansKR-Medium.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Regular";
+			src: url("font/NotoSansKR-Regular.otf");
+		}
+		body {
+		    display: block;
+		    margin-top: 0;
+		}
+		html, body {
+		    height: 100%;
+		    font-family: 'Noto Sans', sans-serif;
+		    font-weight: 400;
+		    font-size: 15px;
+		    color: #333;
+		    -webkit-text-size-adjust: none;
+		    -moz-text-size-adjust: none;
+		    -ms-text-size-adjust: none;
+		    -webkit-overflow-scrolling: touch;
+		}
+		body {
+		    background-image: url(https://mticket.lotteworld.com/images/adventure/bg_pc_visual.png);
+		    background-repeat: no-repeat;
+		    background-position: 50% 0;
+		}
+		html, body {
+		    font-size: 14px;
+		}
+		body {
+		    overflow-x: hidden !important;
+		}
+		body header {
+			margin-bottom: 0;
+		}
+		body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, select, input, textarea, p, blockquote, th, td, figure, figcaption {
+		    margin: 0;
+		    padding: 0;
+		}
+		ul, ol, li {
+		    list-style-type: none;
+		    box-sizing: border-box;
+		    -moz-box-sizing: border-box;
+		    -webkit-box-sizing: border-box;
+		    -ms-box-sizing: border-box;
+		}
+		ul {
+			margin: 0;
+		    display: block;
+		}
+		.topmenu {
+			display: block;
+			overflow: hidden;
+    		width: 100%;
+    		background: #f8f8f8;
+    		padding-left: 0;
+		}
+		.topmenu li {
+			width: 20%;
+			display: block !important;
+		    float: left;
+		    margin: 0;
+		    padding: 5px 0 7px;
+		    border-right: 1px solid #cfcfcf;
+		    box-sizing: border-box;
+		    text-align: center;
+		}
+		.topmenu li.on {
+			background: #e12f36;
+		}
+		a, a:link, a:visited, a:active {
+		    color: #333;
+		    text-decoration: none;
+		}
+		.topmenu li a {
+			color: #666;
+		}
+		.topmenu li.on a {
+			color: #fff;
+		}
+		header {
+			display: block;
+		}
+		.all_header {
+			height: 62px;
+			position: relative;
+		    top: 0;
+		    left: 0;
+		    width: 100%;
+		    /* height: 48px; */
+		    z-index: 100;
+		    background: #fff;
+		   /*  -moz-box-shadow: 0 1px 5px rgba(0, 0, 0,0.4); */
+		    -webkit-box-shadow: 0 1px 5px rgb(0 0 0 / 40%);
+		    box-shadow: 0 1px 5px rgb(0 0 0 / 40%);
+		    /* position: static; */
+		    /* height: 0; */
+		}
+		.topmenu2body {
+			width: 900px;
+		    margin: 0 auto;
+		    padding-top: 0;
+		    display: block !important;
+		    overflow: visible;
+		    position: relative;
+		    left: auto;
+		    z-index: 100;
+		    /* padding-top: 25px; */
+		    /* -webkit-transition: none; */
+		    transition: none;
+		    box-sizing: border-box;
+		    top: 0;
+		}
+		.topmenu2body:after {
+			content: "";
+			display: block;
+			clear: both;
+			height: 0;
+			visibility: hidden;
+		}
+		section {
+			position: static;
+		    width: auto;
+		    height: auto;
+		    background: transparent;
+		}
+		.topmenu2body section {
+		    z-index: 1100;
+		}
+		section h1 {
+		    margin-left: 0;
+		}
+		section h1 {
+		    float: left;
+		    position: relative;
+		    z-index: 200;
+		    width: 205px;
+		    height: auto;
+		    padding-top: 0;
+		    background: none;
+		    font-size: 16px;
+		    text-align: left;
+		}
+		section h1 {
+		    height: auto;
+		    padding-top: 13px;
+		    background: url(/images/adventure/bg_allmenu_new02.png) no-repeat;
+		    background-size: 100% 100%;
+		    text-align: center;
+		}
+		h1, h2, h3, h4, h5, h6 {
+		    font-weight: 700;
+		    font-size: 18px;
+		}
+		section h1 a, section h1 a.on {
+		    display: block;
+		    padding-right: 0;
+		    background-image: none;
+		    background-position-y: 45%;
+		    background-size: auto;
+		    color: #e12f36;
+		    letter-spacing: -0.05em;
+		    text-align: center;
+		}
+		section h1 a {
+		    display: inline-block;
+		    background: none;
+		    background-size: 12px 8px;
+		    font-size: 16px;
+		    color: #fff;
+		}
+		a, a:link, a:visited, a:active {
+		    color: #333;
+		    text-decoration: none;
+		}
+		img, legend, fieldset, button {
+		    border: 0 none;
+		    max-width: 100%;
+		}
+		section h1 a img {
+		    display: block;
+		}
+		section h1 img {
+		    display: inline-block;
+		    margin: 5px auto 0;
+		    vertical-align: middle;
+		}
+		section h1 img {
+		    display: inline-block;
+		    margin: -10px auto 0;
+		    vertical-align: middle;
+		}
+		.login {
+			top: 18px;
+    		right: -85px;
+		}
+		.login {
+		    position: absolute;
+		    z-index: 100;
+		    height: auto;
+		    margin-right: -9px;
+		    background: none;
+		    padding: 0 10px;
+		}
+		ul, ol, li {
+		    list-style-type: none;
+		    box-sizing: border-box;
+		    -moz-box-sizing: border-box;
+		    -webkit-box-sizing: border-box;
+		    -ms-box-sizing: border-box;
+		}
+		.login ul {
+		    padding-top: 0;
+		}
+		.login li .reallogin {
+		    position: static;
+		}
+		.login li .reallogin {
+	 	   position: static;
+	    	bottom: 13px;
+	    	left: 10px;
+	    	font-size: 14px;
+		}
+		.reallogin > a {
+			margin-top: -21px !important;
+		}
+		.login ul {
+		    padding-top: 12px;
+		    margin-right: -9px;
+		}
+		.login li {
+		    float: left;
+		    position: relative;
+		}
+		li {
+		    display: list-item;
+		    text-align: -webkit-match-parent;
+		}
+		.login .text {
+		    display: none;
+		}
+		.login p {
+		    color: #777;
+		}
+		.login li.reallogin a {
+		    margin: 0;
+		    padding: 0 9px;
+		    border: none;
+		    background: transparent;
+		    border-radius: 0;
+		    font-size: 14px;
+		    color: #505050;
+		}
+		.login li a {
+		    display: inline-block;
+		    vertical-align: middle;
+		}
+		.login ul:after {
+		    content: "";
+		    display: block;
+		    clear: both;
+		    height: 0;
+		    visibility: hidden;
+		}
+		.list {
+		    position: absolute;
+		    width: 100%;
+		}
+		.list nav {
+		    position: relative;
+		}
+		.menulist {
+		    margin-left: 225px;
+		    background: transparent;
+		}
+		.menulist > li {
+		    width: 16%;
+		}
+		.menulist > li {
+		    float: left;
+		    width: 16%;
+		    border: none;
+		    text-align: center;
+		}
+		.menulist > li > a {
+		    padding: 18px 0 20px;
+		    background: none;
+		    font-weight: 500;
+		    font-size: 16px;
+		    color: #222;
+		}
+		.menulist > li a {
+		    display: block;
+		}
+		.menulist .submenulist {
+		    padding: 20px 0 0 0;
+		    background: inherit;
+		}
+		.menulist .submenulist > li a {
+		    padding: 5px 0;
+		    background: none;
+		    font-size: 14px;
+		    color: #505050;
+		}
+		.menulist .submenulist > li a:hover{
+			color: #e12f36;
+		}
+		.all_header:after {
+		    content: "";
+		    display: block;
+		    clear: both;
+		    height: 0;
+		    visibility: hidden;
+		}
+		.menulist:after {
+			content: "";
+		    display: block;
+		    clear: both;
+		    height: 0;
+		    visibility: hidden;
+		}
+		.active.on:before {
+		    content: "";
+		    display: block;
+		    clear: both;
+		    position: absolute;
+		    top: 62px;
+		    left: -100%;
+		    z-index: -1;
+		    width: 1000%;
+		    height: 95%;
+		    border-top: 1px solid #dcdcdc;
+		    background: #f5f5f5;
+		    -moz-box-shadow: 0px 3px 2px -2px rgba(0, 0, 0,0.4);
+		    -webkit-box-shadow: 0px 3px 2px -2px rgb(0 0 0 / 40%);
+		    box-shadow: 0px 3px 2px -2px rgb(0 0 0 / 40%);
+		}
+		.close {
+		    display: block;
+		    right: 0;
+		    overflow: hidden;
+		    position: absolute;
+		    right: 15px;
+		    bottom: -32px;
+		    z-index: 150;
+		    width: 20px;
+		    height: 20px;
+		    background: url(https://mticket.lotteworld.com/images/adventure/btn_mega_close.png) no-repeat 50% 50%;
+		}
+		
+</style>
+	<script>
+		$(function() {
+			$(".submenulist").css("display", "none");
+			$(".close").css("display", "none");
+			
+			$(".menuname").click(function() {
+				$(".submenulist").css("display", "block");
+				$(".close").css("display", "block");	
+				$(".active").addClass("on");
+			});
+			
+			$(".topmenu").find("li").eq(0).addClass('on');
+			
+			$(".topmenu").find("li").find("a").click(function() {
+				$(".topmenu li").removeClass('on');
+				$(this).parent().addClass('on');
+			});
+			
+			$(".munename").click(function(){
+				$("nav").show("active");
+				$(".submenulist").css('display', 'on');
+				$(".close").css('display', 'on3');
+			});
+			
+			$(".close").click(function() {
+				$("nav").removeClass("on");
+				$(".submenulist").css('display', 'none');
+				$(".close").css('display', 'none');
+			});
+			
+			
+		});
+	</script>
+</head>
+<body>
+<div class="body">
+	<ul class="topmenu">
+		<li>
+			<a href="javascript:void(0)">롯데월드 어드벤처</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">롯데월드 어드벤처 부산</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">롯데 워터파크</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">롯데월드 아쿠아리움</a>
+		</li>
+		<li>
+			<a href="javascript:void(0)">롯데월드 SEOUL SKY</a>
+		</li>
+	</ul>		
+	<div class="topmenu2">
+		<header class="all_header">
+			<div class="topmenu2body">
+				<section>
+					<h1>
+						<a class="homeButton" href="LotteController?command=lotteMain" class="home">
+							<img class="homeImg" src="https://mticket.lotteworld.com/images/adventure/img_pc_logo_ad.png" alt="롯데월드로고"/>
+						</a>
+					</h1>
+					<div class="login">
+						<ul>
+							<li class="reallogin">
+								<p class="text">로그인을 해주세요.</p>
+								<a href="javascript:void(0)" onclick="">로그인</a>
+						</li>
+					</ul>
+				</div>
+				<div class="list">
+					<nav class="active">
+						<ul class="menulist">
+							<li>
+								<a class="menuname" href="javascript:void(0)">예매</a>
+								<ul class="submenulist">
+									<li>
+										<a href="javascript:void(0)">티켓예매</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)">운휴정보</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)">단체예약문의</a>
+									</li>
+								</ul>								
+							</li>
+							<li>
+								<a class="menuname" href="javascript:void(0)">쿠폰</a>
+								<ul class="submenulist"> 
+									<li>
+										<a href="javascript:void(0)">내 쿠폰함</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)">쿠폰 받기</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)">쿠폰 등록</a>
+									</li>
+								</ul>
+							</li>
+							<li style="margin-left: 24px;">
+								<a class="menuname" href="javascript:void(0)">마이페이지</a>
+								<ul class="submenulist">
+									<li>
+										<a href="javascript:void(0)">결제내역</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)">임직원 인증</a>
+									</li>
+								</ul>
+							</li>
+							<li style="margin-left: 53px;">
+								<a class="menuname" href="javascript:void(0)">앱다운로드</a>
+							</li>
+						</ul>
+						<button class="close">
+							<span class="blind"></span>
+						</button>
+					</nav>
+				</div>
+			</section>
+		</div>
+	</header>
+</div> <!-- topmenu2 ---------------------------------------------------------------------------------------->
+</body>
+</html>

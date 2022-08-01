@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>권종별 기본가격</title>
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500&display=swap" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<style>
+		@font-face {
+			font-family: "NotoSans-Bold";
+			src: url("font/NotoSansKR-Bold.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Black";
+			src: url("font/NotoSansKR-Black.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Light";
+			src: url("font/NotoSansKR-Light.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Medium";
+			src: url("font/NotoSansKR-Medium.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Regular";
+			src: url("font/NotoSansKR-Regular.otf");
+		}
+		.body {
+	    	position: relative;
+		    width: 100%;
+		}
+		div {
+  		  	display: block;
+		}
+		* {
+		    margin: 0;
+		    padding: 0;
+		}
+		body {
+		    position: relative;
+		    font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		    font-size: 16px;
+		    color: #555;
+		    letter-spacing: -1.2px;
+		    height: 100%;
+		    -webkit-text-size-adjust: 100%;
+		    -moz-text-size-adjust: 100%;
+		    -ms-text-size-adjust: 100%;
+		    line-height: 1;
+		}
+		.wrap {
+			position: relative;
+		    padding: 0 0 130px;
+		    width: 100%;
+		}
+		a {
+		    text-decoration: none;
+		    color: #555;
+		}
+		a:-webkit-any-link {
+		    cursor: pointer;
+		}
+		.topsubIn a {
+			font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		}
+		.topsub {
+		    position: relative;
+		    max-width: 1170px;
+		    margin: 0 auto;
+		    padding-top: 30px;
+		}
+		.topsub:after {
+		    content: '';
+		    display: block;
+		    clear: both;
+		}
+		.topsub .topsubIn {
+		    float: left;
+		    padding-top: 10px;
+		}
+		.topsub .topsubIn:after {
+		    content: '';
+		    display: block;
+		    clear: both;
+		}
+		.topsub .topsubIn .home {
+		    float: left;
+		    display: block;
+		    width: 36px;
+		    height: 30px;
+		    border-right: 1px solid #e1e1e1;
+		    background: url(https://adventure.lotteworld.com/common/images/btn/home_btn.png) no-repeat 0 50%;
+		}
+		.topsub .topsubIn > div.one {
+		    margin-left: 26px;
+		}
+		.topsub .topsubIn > div {
+		    float: left;
+		    position: relative;
+		    margin-left: 20px;
+		}
+		.topsub .topsubIn > div > a {
+		    display: block;
+		    padding-right: 42px;
+		    height: 30px;
+		    font-size: 16px;
+		    color: #555;
+		    line-height: 28px;
+		    background: url(https://adventure.lotteworld.com/common/images/icon/lnb_icon.png) no-repeat right 0 top 50%;
+		}
+		.topsub .topsubIn > div > div {
+	    	position: absolute;
+		    top: 50px;
+		    left: -26px;
+		    padding: 25px;
+		    border: 1px solid #e1e1e1;
+		    background: #fff;
+		    display: none
+		}
+		.topsub .topsubIn > div > div a:first-child {
+		    margin-top: 0;
+		}
+		.topsub .topsubIn > div > div a {
+		    display: block;
+		    font-size: 16px;
+		    color: #555;
+		    white-space: nowrap;
+		    margin-top: 17px;
+		}
+		.shareprint {
+			float: right;
+		}
+		.shareprint a {
+			display: block;
+		    width: 50px;
+		    height: 50px;
+		}
+		.share {
+			position: relative;
+			float : left;
+		}
+		.shareimg {
+			background: url(https://adventure.lotteworld.com/common/images/btn/share_btn.png) no-repeat 50% 50%;
+		}
+		.shareimg:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/share_btn_on.png) no-repeat 50% 50%;
+		}
+		.print {
+			float : left;
+			margin-left: 10px;
+			background: url(https://adventure.lotteworld.com/common/images/btn/print_btn.png) no-repeat 50% 50%;
+		}
+		.sharesub {
+			position: absolute;
+		    top: 50px;
+		    left: 0;
+		    display: none;
+		}
+		.sharesub a {
+			margin-top: 10px;
+		}
+		.facebook {
+			background: url(https://adventure.lotteworld.com/common/images/btn/facebook_btn.png) no-repeat 50% 50%;
+		}
+		.facebook:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/facebook_btn_on.png) no-repeat 50% 50%;
+		}
+		.twiter {
+			background: url(https://adventure.lotteworld.com/common/images/btn/twitter_btn.png) no-repeat 50% 50%;
+		}
+		.twiter:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/twitter_btn_on.png) no-repeat 50% 50%;
+		}
+		.copy {
+			background: url(https://adventure.lotteworld.com/common/images/btn/link_btn.png) no-repeat 50% 50%;
+		}
+		.copy:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/link_btn_on.png) no-repeat 50% 50%;
+		}
+		.shareprint:after {
+			content: '';
+		    display: block;
+		    clear: both;
+		}
+		h2 {
+			font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		    font-size: 50px;
+		    color: #000;
+		    text-align: center;
+		    padding-top: 40px;
+		}
+		.top {
+			position: relative;
+		    width: 1170px;
+		    margin: 0 auto;
+		}
+		.top2 {
+			display: table;
+		    table-layout: fixed;
+		    width: 1170px;
+		    border-left: 1px solid #e1e1e1;
+		    margin: 80px auto 0;
+			
+		}
+		.top a {
+			height: 65px;
+		}
+		.top a {
+		    padding: 20px 0;
+		    display: table-cell;
+		    vertical-align: middle;
+		    height: 100%;
+		    box-sizing: border-box;
+		    border: 1px solid #e1e1e1;
+		    border-left: 0;
+		    border-top: 0;
+		    background: #fff;
+		    font-size: 18px;
+		    color: #000;
+		    text-align: center;
+		}
+		.top a:nth-child(-n+6) {
+		    border-top: 1px solid #e1e1e1;
+		}
+		.tops a:first-child, .tabBtn a:nth-child(7) {
+		    border-left: 1px solid #e1e1e1;
+		}
+		.topFirst.on {
+			border-color: #550adf !important;
+		    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		    color: #fff;
+		    background: rgb(111, 35, 249);
+		    background: -ms-linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+		    background: -o-linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+		    background: -moz-linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+		    background: -webkit-linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+		    background: linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+		}
+		.topFirst span {
+			line-height: 21px;
+    		word-break: keep-all;
+		}
+		.main {
+			position: relative;
+		    width: 1170px;
+		    margin: 0 auto;
+			margin-top: 80px;
+		}
+		.main .mainTitle {
+			margin-bottom: 60px;
+		    font-size: 20px;
+		    color: #333;
+		    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		}
+		.mainTitle {
+			font-size: 18px;
+		    color: #555;
+		    line-height: 30px;
+		    text-align: center;
+		    margin-top: 28px;
+		}
+		.firstBox {
+			border: 1px solid #e1e1e1;
+		    margin-top: 30px;
+		    position: relative;
+		}
+		.firstBoxTop {
+			background: #f8f8f8;
+		    min-height: 70px;
+		    padding: 70px 50px 50px 324px;
+		}
+		.firstBoxName {
+			font-size: 24px;
+		    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		    color: #000;
+		}
+		ul, ol, li {
+		    list-style: none;
+		}
+		.firstBoxTop ul {
+			margin-top: 30px;
+		}
+		.firstBoxTop ul li:first-child, .firstBoxTop ul li:nth-of-type(2) {
+		    margin-top: 0;
+		}
+		.firstBoxTop ul li {
+		    background: url(https://adventure.lotteworld.com/common/images/icon/dot_bg.png) repeat-x center left;
+		    margin-top: 20px;
+		}
+		.firstBoxTop ul li p {
+			float: left;
+		    font-size: 18px;
+		    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		    padding-right: 10px;
+		    background: #f8f8f8;
+		}
+		.firstBoxTop ul li p:nth-of-type(even) {
+			float: right;
+    		padding-left: 10px;
+    		padding-right: 0
+		}
+		.firstBoxTop ul li:after {
+		    content: "";
+		    display: block;
+		    clear: both;
+		}
+		.firstBoxBottom {
+			font-size: 16px;
+		    color: #777;
+		    line-height: 24px;
+		    background: #fff;
+		    padding: 40px 50px 50px 324px;
+		}
+		.firstBoxBottom p {
+			text-indent: -8px;
+    		padding-left: 8px;
+		}
+		.firstBoxImg {
+			position: absolute;
+		    top: calc(50% - 122px);
+		    left: 90px;
+		}
+		.firstBoxImg img {
+			border: none;
+    		vertical-align: top;
+		}
+		.secondBox {
+		    border: 1px solid #e1e1e1;
+		    margin-top: 30px;
+		    position: relative;
+		}
+		.secondBoxTop {
+			background: #f8f8f8;
+		    min-height: 70px;
+		    padding: 70px 50px 50px 324px;
+		}
+		.secondBoxName {
+			font-size: 24px;
+		    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		    color: #000;
+		}
+		.secondBox ul {		
+			margin-top: 30px;
+		}
+		.secondBox ul:after {
+			content: "";
+		    display: block;
+		    clear: both;
+		}
+		.secondBox ul li:first-child, .secondBox ul li:nth-of-type(2) {
+			margin-top: 0;
+		}
+		.secondBox ul li {
+			float: left;
+		    width: 380px;
+		    background: url(https://adventure.lotteworld.com/common/images/icon/dot_bg.png) repeat-x center left;
+		    margin-top: 20px;
+		}
+		li {
+		    display: list-item;
+		    text-align: -webkit-match-parent;
+		}
+		.secondBox ul li p {
+			float: left;
+		    font-size: 18px;
+		    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		    padding-right: 10px;
+		    background: #f8f8f8;
+		}
+		.secondBox ul li span {
+			font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif !important;
+		}
+		.secondBox ul li p:nth-of-type(even) {
+		    float: right;
+		    padding-left: 10px;
+		    padding-right: 0;
+		}
+		.secondBox ul li:after {
+		    content: "";
+		    display: block;
+		    clear: both;
+		}
+		.secondBox ul li:nth-of-type(even) {
+		    float: right;
+		}
+		.secondBoxBottom {
+		    font-size: 16px;
+		    color: #777;
+		    line-height: 24px;
+		    background: #fff;
+		    padding: 40px 50px 50px 324px;
+		}
+		.secondBoxBottom p {
+			text-indent: -8px;
+    		padding-left: 8px;
+		}
+		.secondBoxImg {
+			position: absolute;
+		    top: calc(50% - 122px);
+		    left: 90px;
+		}
+		.secondBoxImg img {
+			border: none;
+    		vertical-align: top;
+		}
+		.bottom p {
+			font-size: 15px;
+		    color: #000;
+		    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;		
+		}
+		/* p {
+		    display: block;
+		    margin-block-start: 1em;
+		    margin-block-end: 1em;
+		    margin-inline-start: 0px;
+		    margin-inline-end: 0px;
+		} */
+	</style>
+	<script>
+		function view() {
+			if($(".moremenu").css('display')=='none') {
+				if($(".moremenu2").css('display')=='block') {
+					$(".moremenu2").slideUp();
+				}
+				if($(".moremenu3").css('display')=='block') {
+					$(".moremenu3").slideUp();
+				}
+				if($(".sharesub").css('display')=='block'){
+					$(".sharesub").slideUp();
+				}
+			} else if($(".moremenu").css('display')=='block'){
+			}
+			$(".moremenu").slideToggle();
+		}
+		function view2() {
+			if($(".moremenu2").css('display')=='none') {
+				if($(".moremenu").css('display')=='block') {
+					$(".moremenu").slideUp();
+				}
+				if($(".moremenu3").css('display')=='block') {
+					$(".moremenu3").slideUp();
+				}
+				if($(".sharesub").css('display')=='block'){
+					$(".sharesub").slideUp();
+				}
+			} else if($(".moremenu2").css('display')=='block'){
+			}
+				$(".moremenu2").slideToggle();
+	/*			$(".moremenu").css('display', 'none');
+			$(".moremenu3").css('display', 'none');
+			$(".sharesub").css('display', 'none'); */
+		}
+		function view3() {
+			if($(".moremenu3").css('display')=='none'){
+				if($(".moremenu").css('display')=='block'){
+					$(".moremenu").slideUp();
+				}
+				if($(".moremenu2").css('display')=='block'){
+					$(".moremenu2").slideUp();
+				}
+				if($(".sharesub").css('display')=='block'){
+					$(".sharesub").slideUp();
+				}
+			} else if($(".moremenu3").css('display')=='block'){
+			}
+			$(".moremenu3").slideToggle();
+		}
+		function shareview() {
+			if($(".sharesub").css('display')=='none'){
+				if($(".moremenu").css('display')=='block'){
+					$(".moremenu").slideUp();
+				}
+				if($(".moremenu2").css('display')=='block'){
+					$(".moremenu2").slideUp();
+				}
+				if($(".moremenu3").css('display')=='block'){
+					$(".moremenu3").slideUp();
+				}
+			} else if($(".sharesub").css('display')=='block'){
+			}
+			$(".sharesub").slideToggle();
+		}
+		function copy() {
+			var url = '';    // <a>태그에서 호출한 함수인 clip 생성
+	        var textarea = document.createElement("textarea");  
+	        //url 변수 생성 후, textarea라는 변수에 textarea의 요소를 생성
+	        
+	        document.body.appendChild(textarea); //</body> 바로 위에 textarea를 추가(임시 공간이라 위치는 상관 없음)
+	        url = window.document.location.href;  //url에는 현재 주소값을 넣어줌
+	        textarea.value = url;  // textarea 값에 url를 넣어줌
+	        textarea.select();  //textarea를 설정
+	        document.execCommand("copy");   // 복사
+	        document.body.removeChild(textarea); //extarea 요소를 없애줌
+	        
+	        alert("복사되었습니다.")  // 알림창
+		}
+		$(function() {
+			var select = $(".moremenu2box").text();
+			var list = $(".moremenu2List");
+			for(var i = 0; i <= 3; i++){
+				if(list.eq(i).text() == select){
+					list.eq(i).css('font-family', 'NotoSans-bold');
+					list.eq(i).css('color', '#000');
+					break;
+				}
+			}
+			
+			var select2 = $(".moremenu3box");
+			var list2 = $(".moremenu3List");
+			select2.css({'font-family': 'NotoSans-bold','color': '#000' });
+			for(var i = 0; i <= 2; i++){
+				if(list2.eq(i).text() == select2.text()){
+					list2.eq(i).css('font-family', 'NotoSans-bold');
+					list2.eq(i).css('color', '#000');
+					break;
+				}
+			}
+			
+			$(".topFirst").eq(0).toggleClass('on');
+			
+			$(".menu").load("lotte/Menu.jsp");
+			$(".footer").load("lotte/Footer.html");
+		});
+	</script>
+</head>
+<body>
+<div id="wrapper">
+	<div class="menu"></div>
+	<div class="body">
+		<div class="wrap">
+			<div class="topsub">
+				<div class="topsubIn">
+					<a href="LotteController?command=lotteMain" class="home"></a>
+						<div class="one">
+							<a href="javascript:void(0)" onclick="view()" class="moremenuclick">요금/우대혜택</a>
+							<div class="moremenu" style="z-index : 15; display : none;">
+								<a href="LotteController?command=Attraction" class="moremenulist" style="margin-top : 0px;">즐길거리</a>
+								<a href="LotteController?command=Charge" class="moremenulist">요금/우대혜택</a>
+	 							<a href="LotteController?command=Performance" class="moremenulist">참여프로그램</a>
+								<a href="LotteController?command=Suspension" class="moremenulist">이용가이드</a>
+								<a href="LotteController?command=Notice" class="moremenulist">소통서비스</a>
+							</div>
+						</div>
+						<div class="two">
+							<a class="moremenu2box" href="javascript:void(0)" onclick="view2()">연간이용</a>
+							<div class="moremenu2" style="z-index : 15; display : none;">
+								<a href="LotteController?command=Charge" class="moremenu2List" style="margin-top : 0px;">이용요금</a>
+								<a href="LotteController?command=Price" class="moremenu2List">연간이용</a>
+							</div>
+						</div>
+						<div class="three">
+							<a class="moremenu3box" href="javascript:void(0)" onclick="view3()">권종별 기본가격</a>
+							<div class="moremenu3" style="z-index : 15; display : none">
+								<a class="moremenu3List" href="LotteController?command=Price" style="margin-top : 0px;">권종별 기본가격</a>
+	 							<a class="moremenu3List" href="javascript:notReady()">할인정보</a>
+		 						<a class="moremenu3List" href="javascript:notReady()">특별혜택</a>
+							</div>
+						</div>
+				</div> <!-- topsubIn -->
+				<div class="shareprint">
+					<div class="share">
+					<a href="javascript:void(0)" onclick="shareview()"class="shareimg"></a>
+						<div class="sharesub" style="z-index:15; display:none;">
+							<a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fsharer%3Fu%3Dhttps%253A%252F%252Fadventure.lotteworld.com%252Fkor%252Fenjoy%252Frestaurant%252Flist.do&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=ko_KR" class="facebook" target="_blank"></a>
+							<a href="https://twitter.com/intent/tweet?text=&url=https%3A%2F%2Fadventure.lotteworld.com%2Fkor%2Fenjoy%2Frestaurant%2Flist.do" class="twiter" target="_blank"></a>
+							<a href="javascript:void(0)" onclick="copy()" class="copy"></a>
+						</div>
+					</div> <!-- share -->
+					<a href="javascript:void(0)" onclick="window.print()" class="print"></a>
+				</div> <!-- shareprint -->
+			</div> <!-- topsub -->
+			<h2 class="title">연간이용</h2>
+			<div class="top">
+				<div class="top2">
+					<a id="one" class="topFirst" href="javascript:void(0)">
+						<span class="subtitle">권종별 기본가격</span>
+					</a>
+					<a id="two" class="topFirst" href="javascript:notReady()">
+						<span class="subtitle">할인정보</span>
+					</a>
+					<a id="three" class="topFirst" href="javascript:notReady()">
+						<span class="subtitle">특별혜택</span>
+					</a>
+				</div> <!-- top2 -->
+			</div> <!-- top -->
+			<div class="main">
+				<p class="mainTitle">연간이용권을 가입하시면 유효기간 동안 자유롭게 롯데월드를 이용하며 특별한 혜택을 누리실 수 있습니다!</p>
+				<div class="boxwrap">
+					<div class="firstBox">
+						<div class="firstBoxTop">
+							<p class="firstBoxName">골드권</p>
+							<ul>
+								<li>
+									<p>전대상</p>
+									<p>290,000원</p>
+								</li>
+							</ul>
+						</div>
+						<div class="firstBoxBottom">
+							<p>- 무료주차 12회/년(12회 모두 차감 시 1,000원/시간, 최대 8,000원/일, 주차 키오스크에서 연간이용권 바코드 인식 후 정산 가능)</p>
+							<p>- 모바일 매직패스 1일 3종 예약가능(반드시 입장 후 이용)<br/>
+							※ 각 어트랙션별 예약 가능한 매직패스는 한정되어 있으며, 일부 어트랙션은 조기에 예약이 종료될 수 있습니다.</p>
+						</div>
+						<div class="firstBoxImg">
+							<img src="https://adventure.lotteworld.com/common/images/icon/memberList2_img2.png"/>
+						</div>
+					</div>
+					<div class="secondBox">
+						<div class="secondBoxTop">
+							<p class="secondBoxName">그린권</p>
+							<ul>
+								<li>
+									<p>어른/청소년<span>(만 13세이상)</span></p>
+									<p>250,000원</p>
+								</li>
+								<li>
+									<p>어린이<span>(36개월 이상 ~ 만 12세 이하)</span></p>
+									<p>180,000원</p>
+								</li>
+								<li>
+									<p>시니어<span>(만 65세 이상)</span></p>
+									<p>170,000원</p>
+								</li>
+								<li>
+									<p>베이비<span>(12개월 이상 ~ 만 36개월 미만)</span></p>
+									<p>110,000원</p>
+								</li>
+							</ul>
+						</div> <!-- secondBoxTop -->
+						<div class="secondBoxBottom">
+							<p>- 주차할인 (1,000원/시간, 최대 8,000원/일, 주차 키오스크에서 연간이용권 바코드 인식 후 정산 가능)</p>
+							<p>- 재가입 할인 (월별 프로모션에 따라 다름)</p>
+							<p>- 베이비권 어드벤처 내 유모차 대여(6회/년, 손님상담실에서 이용가능)</p>
+							<p>- 모바일 매직패스 1일 3종 예약가능(반드시 입장 후 이용)<br/>
+								※ 각 어트랙션별 예약 가능한 매직패스는 한정되어 있으며, 일부 어트랙션은 조기에 예약이 종료될 수 있습니다.</p>
+							<p>- 시니어, 어린이, 베이비는 가입시 증빙서류를 지참해 주세요.</p>
+						</div> <!-- secondBoxBottom -->
+						<div class=secondBoxImg>
+							<img src="https://adventure.lotteworld.com/common/images/icon/memberList2_img3.png"/>
+						</div> <!-- secondBoxImg -->
+					</div> <!-- secondBox -->
+					<div class="bottom" style="margin-top: 14px;">
+						<p>· 구매처 : 연간이용센터(02-411-4865)</p>
+						<p>· 위 치 : 어드벤처 B1F 정문 좌측 50m</p>
+					</div>
+				</div>
+			</div>
+		</div> <!-- wrap -->
+	</div> <!-- body -->
+	<div class="footer"></div>
+</div><!-- wrapper -->
+</body>
+</html>

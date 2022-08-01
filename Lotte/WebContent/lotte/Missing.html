@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>분실물 센터 | 롯데월드 어드벤처</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+function view() {
+	if($(".moremenu").css('display')=='none') {
+		if($(".moremenu2").css('display')=='block') {
+			$(".moremenu2").slideUp();
+		}
+		if($(".moremenu3").css('display')=='block') {
+			$(".moremenu3").slideUp();
+		}
+		if($(".sharesub").css('display')=='block'){
+			$(".sharesub").slideUp();
+		}
+	} else if($(".moremenu").css('display')=='block'){
+	}
+	$(".moremenu").slideToggle();
+}
+function view2() {
+	if($(".moremenu2").css('display')=='none') {
+		if($(".moremenu").css('display')=='block') {
+			$(".moremenu").slideUp();
+		}
+		if($(".moremenu3").css('display')=='block') {
+			$(".moremenu3").slideUp();
+		}
+		if($(".sharesub").css('display')=='block'){
+			$(".sharesub").slideUp();
+		}
+	} else if($(".moremenu2").css('display')=='block'){
+	}
+		$(".moremenu2").slideToggle();
+/*			$(".moremenu").css('display', 'none');
+	$(".moremenu3").css('display', 'none');
+	$(".sharesub").css('display', 'none'); */
+}
+function view3() {
+	if($(".moremenu3").css('display')=='none'){
+		if($(".moremenu").css('display')=='block'){
+			$(".moremenu").slideUp();
+		}
+		if($(".moremenu2").css('display')=='block'){
+			$(".moremenu2").slideUp();
+		}
+		if($(".sharesub").css('display')=='block'){
+			$(".sharesub").slideUp();
+		}
+	} else if($(".moremenu3").css('display')=='block'){
+	}
+	$(".moremenu3").slideToggle();
+}
+function shareview() {
+	if($(".sharesub").css('display')=='none'){
+		if($(".moremenu").css('display')=='block'){
+			$(".moremenu").slideUp();
+		}
+		if($(".moremenu2").css('display')=='block'){
+			$(".moremenu2").slideUp();
+		}
+		if($(".moremenu3").css('display')=='block'){
+			$(".moremenu3").slideUp();
+		}
+	} else if($(".sharesub").css('display')=='block'){
+	}
+	$(".sharesub").slideToggle();
+}
+function copy() {
+	var url = '';    // <a>태그에서 호출한 함수인 clip 생성
+    var textarea = document.createElement("textarea");  
+    //url 변수 생성 후, textarea라는 변수에 textarea의 요소를 생성
+    
+    document.body.appendChild(textarea); //</body> 바로 위에 textarea를 추가(임시 공간이라 위치는 상관 없음)
+    url = window.document.location.href;  //url에는 현재 주소값을 넣어줌
+    textarea.value = url;  // textarea 값에 url를 넣어줌
+    textarea.select();  //textarea를 설정
+    document.execCommand("copy");   // 복사
+    document.body.removeChild(textarea); //extarea 요소를 없애줌
+    
+    alert("복사되었습니다.")  // 알림창
+}
+$(function() {
+	var select = $(".moremenu2box").text();
+	var list = $(".moremenu2List");
+	for(var i = 0; i <= 3; i++){
+		if(list.eq(i).text() == select){
+			list.eq(i).css('font-family', 'NotoSans-bold');
+			list.eq(i).css('color', '#000');
+			break;
+		}
+	}
+	
+	var select2 = $(".moremenu3box");
+	var list2 = $(".moremenu3List");
+	select2.css({'font-family': 'NotoSans-bold','color': '#000' });
+	for(var i = 0; i <= 2; i++){
+		if(list2.eq(i).text() == select2.text()){
+			list2.eq(i).css('font-family', 'NotoSans-bold');
+			list2.eq(i).css('color', '#000');
+			break;
+		}
+	}
+	$(".menu2").load("lotte/Menu.jsp");
+	$(".footer").load("lotte/Footer.html");	
+});
+</script>
+<style>
+body {
+    position: relative;
+    font-size: 16px;
+    color: #555;
+    letter-spacing: -0.6px;
+    height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    line-height: 1;
+}
+h2 {
+    font-family: 'NotoSans-Bold','맑은 고딕','Apple SD Gothic Neo',AppleGothic,Dotum,'돋움',sans-serif;
+    font-size: 50px;
+    color: #000;
+    text-align: center;
+    padding-top: 40px;
+}
+a {
+    text-decoration: none;
+    color: #555;
+}
+ul, ol, li {
+    list-style: none;
+}
+input, select {
+    vertical-align: middle;
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+    color: #555;
+    letter-spacing: -0.6px;
+    border-radius: 0;
+    font-size: 16px;
+}
+</style>
+<style>
+.container1 {
+    position: relative;
+    width: 1170px;
+    margin: 0 auto;
+    padding: 0 0 130px;
+}
+.inquiryDiv {
+    margin-top: 80px;
+}
+.lostTop {
+    padding: 42px 50px 50px;
+    border: 1px solid #e1e1e1;
+    background: #f8f8f8 url(Img/lost_top_bg.png) no-repeat right bottom;
+    color: #000;
+    margin-bottom: 48px;
+}
+.lostTop .txt {
+    font-size: 24px;
+    font-family: 'NotoSans-Bold','맑은 고딕',sans-serif;
+    line-height: 36px;
+    margin-bottom: 27px;
+}
+
+.lostTop .lostList li {
+    font-size: 16px;
+    color: #555;
+    line-height: 26px;
+    margin-bottom: 10px;
+    margin-left : 0px;
+}
+.lostTop .lostList li > span {
+    font-family: 'NotoSans-Bold','맑은 고딕','Apple SD Gothic Neo',AppleGothic,Dotum,'돋움',sans-serif;
+    margin-right: 20px;
+    font-weight: 700;
+}
+.lostTop .processBt {
+    display: inline-block;
+    padding: 0 20px;
+    height: 32px;
+    line-height: 30px;
+    font-size: 15px;
+    font-family: 'NotoSans-Medium','맑은 고딕',sans-serif;
+    color: #550adf;
+    text-align: center;
+    border: 2px solid #550adf;
+    border-radius: 30px;
+    margin-top: 28px;
+}
+.button1{
+	height: 54px;
+	width: 52px;
+	background: url(Img/calen_btn.png) no-repeat center center;
+	border: 1px solid #e1e1e1;
+	float: left;
+}
+.button2{
+	height: 53.5px;
+    width: 52px;
+    background: url(Img/calen_btn.png) no-repeat center center;
+    border: 1px solid #e1e1e1;
+    margin-left: -5px;
+    position: relative;
+    top: 0px;
+}
+.date1{
+	 height: 52px;
+     float: left;
+	 vertical-align: middle;
+	 background: #fff;
+	 border: 1px solid #e1e1e1;
+	 font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	 color: #555;
+	 letter-spacing: -0.6px;
+	 border-radius: 0;
+	 font-size: 16px;
+	 border-right: none;
+	 background: #f8f8f8;
+}
+.datebox .date2{
+	width: 139px;
+    height: 46px;
+	 vertical-align: middle;
+	 background: #fff;
+	 border: 1px solid #e1e1e1;
+	 font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	 color: #555;
+	 letter-spacing: -0.6px;
+	 border-radius: 0;
+	 font-size: 16px;
+	 margin-bottom: 42px;
+	 border-right: none;
+	 background: #f8f8f8;
+}
+.middle{
+	display: inline-block;
+    vertical-align: middle;
+    margin: -43px 6px 0 7px;
+}
+.menu{
+	height: 54px;
+    width: 171px;
+	float: right;
+    margin-right: 410px;
+    border : 1px solid #e1e1e1;
+    padding: 0px 17px;
+    font-size: 16px;
+}
+.datebox .input {
+    float: left;
+    width: 348px;
+    height: 52px;
+    border: 1px solid #e1e1e1;
+    border-right: 0;
+    position: relative;
+    top: -96px;
+    left: 768px;
+}
+.datebox .input input {
+    padding: 3px 56px 3px 20px;
+    width: 307px;
+    height: 46px;
+    border: 0;
+    
+}
+.datebox .input .srchXbt {
+    position: absolute;
+    top: 17px;
+    right: 20px;
+    display: none;
+}
+img, fieldset {
+    border: none;
+    vertical-align: top;
+}
+.datebox .srchBtn1 {
+    position : absolute;
+    right: 0px;
+}
+.listType1 {
+    border-top: 2px solid #000;
+    margin-top: 50px;
+    position: relative;
+    top: -50px;
+}
+.listType1 .listHead {
+    display: table;
+    width: 100%;
+    padding: 22px 0;
+    border-bottom: 1px solid #cacaca;
+    overflow: hidden;
+}
+.listType1 .listHead p {
+    display: table-cell;
+    position: relative;
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'NotoSans-Medium', '맑은 고딕', 'Malgun Gothic', sans-serif;
+}
+.listType1 .listHead p:first-child:before {
+    display: none;
+}
+
+.listType1 .listHead .sort {
+    width: 142px;
+}
+.listType1 .listHead .find {
+    width: 319px;
+}	
+.listType1 .listHead p:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -2px;
+    width: 4px;
+    height: 4px;
+    background: #b2b2b2;
+    border-radius: 2px;
+}
+.listType1 .listHead .place {
+    width: 318px;
+}
+.listType1 .listHead .date2 {
+    width: 180px;
+}
+.listType1 .listHead .result {
+    width: 211px;
+}
+.listType1 ul li {
+    display: table;
+    width: 1166px;
+    padding: 17px 0;
+    border-bottom: 1px solid #e1e1e1;
+    overflow: hidden;
+    min-height: 30px;
+    margin-left: 0px;
+}
+.listType1 ul li .sort {
+    width: 142px;
+    color: #555;
+}
+.listType1 ul li .find {
+    padding-left: 95px;
+    width: 224px;
+    text-align: left;
+    font-size: 18px;
+    font-family: 'NotoSans-Regular', '맑은 고딕', 'Malgun Gothic', sans-serif;
+}
+.listType1 ul li .place {
+    padding-left: 100px;
+    width: 218px;
+    max-width: 218px;
+    text-align: left;
+    position: relative;
+}
+.listType1 ul li .place span {
+    width: 14px;
+    height: 24px;
+    background: url(Img/map_icon_on.png) no-repeat 0 0;
+    position: absolute;
+    top: 7px;
+    left: 76px;
+}
+.listType1 ul li .date2 {
+    width: 180px;
+    color: #555;
+}
+.listType1 ul li .result {
+    width: 211px;
+    color: #555;
+}
+.listType1 ul li p {
+    display: table-cell;
+    font-size: 16px;
+    color: #000;
+    text-align: center;
+    vertical-align: middle;
+}
+ul, ol, li {
+    list-style: none;
+}
+
+.paging {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 80px;
+}
+.paging .first {
+    border: 0;
+    width: auto;
+    height: auto;
+    line-height: 12px;
+    border-radius: 0;
+    background: none;
+    margin-top: 19px;
+    margin-right: 17px;
+}
+.paging .prev {
+    border: 0;
+    width: auto;
+    height: auto;
+    line-height: 12px;
+    border-radius: 0;
+    background: none;
+    margin-top: 19px;
+    margin-right: 17px;
+}
+.paging .active {
+    border: 1px solid #5c11e6;
+    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+    font-size: 16px;
+    color: #fff;
+    background: linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+}
+.paging a {
+    display: inline-block;
+    margin-left: 10px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #dadada;
+    line-height: 46px;
+    font-weight: 300;
+    font-size: 16px;
+    color: #555;
+    text-align: center;
+    vertical-align: top;
+    background: #fff;
+    border-radius: 25px;
+}
+.paging .next {
+    border: 0;
+    width: auto;
+    height: auto;
+    line-height: 12px;
+    border-radius: 0;
+    background: none;
+    margin-top: 19px;
+    margin-left: 27px;
+}
+.paging .last {
+    border: 0;
+    width: auto;
+    height: auto;
+    line-height: 12px;
+    border-radius: 0;
+    background: none;
+    margin-top: 19px;
+    margin-left: 17px;
+}
+input.date1 {
+	width: 139px !important;
+    height: 46px;
+    float: left;
+    background: #f8f8f8 !important;
+}
+		a {
+	    text-decoration: none;
+	    color: #555;
+		}
+		a:-webkit-any-link {
+		    cursor: pointer;
+		}
+		.topsubIn a {
+			font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		}
+		.topsub {
+		    position: relative;
+		    max-width: 1170px;
+		    margin: 0 auto;
+		    padding-top: 30px;
+		}
+		.topsub:after {
+		    content: '';
+		    display: block;
+		    clear: both;
+		}
+		.topsub .topsubIn {
+		    float: left;
+		    padding-top: 10px;
+		}
+		.topsub .topsubIn:after {
+		    content: '';
+		    display: block;
+		    clear: both;
+		}
+		.topsub .topsubIn .home {
+		    float: left;
+		    display: block;
+		    width: 36px;
+		    height: 30px;
+		    border-right: 1px solid #e1e1e1;
+		    background: url(https://adventure.lotteworld.com/common/images/btn/home_btn.png) no-repeat 0 50%;
+		}
+		.topsub .topsubIn > div.one {
+		    margin-left: 26px;
+		}
+		.topsub .topsubIn > div {
+		    float: left;
+		    position: relative;
+		    margin-left: 20px;
+		}
+		.topsub .topsubIn > div > a {
+		    display: block;
+		    padding-right: 42px;
+		    height: 30px;
+		    font-size: 16px;
+		    color: #555;
+		    line-height: 28px;
+		    background: url(https://adventure.lotteworld.com/common/images/icon/lnb_icon.png) no-repeat right 0 top 50%;
+		}
+		.topsub .topsubIn > div > div {
+	    	position: absolute;
+		    top: 50px;
+		    left: -26px;
+		    padding: 25px;
+		    border: 1px solid #e1e1e1;
+		    background: #fff;
+		    display: none
+		}
+		.topsub .topsubIn > div > div a:first-child {
+		    margin-top: 0;
+		}
+		.topsub .topsubIn > div > div a {
+		    display: block;
+		    font-size: 16px;
+		    color: #555;
+		    white-space: nowrap;
+		    margin-top: 17px;
+		}
+		.shareprint {
+			float: right;
+		}
+		.shareprint a {
+			display: block;
+		    width: 50px;
+		    height: 50px;
+		}
+		.share {
+			position: relative;
+			float : left;
+		}
+		.shareimg {
+			background: url(https://adventure.lotteworld.com/common/images/btn/share_btn.png) no-repeat 50% 50%;
+		}
+		.shareimg:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/share_btn_on.png) no-repeat 50% 50%;
+		}
+		.print {
+			float : left;
+			margin-left: 10px;
+			background: url(https://adventure.lotteworld.com/common/images/btn/print_btn.png) no-repeat 50% 50%;
+		}
+		.sharesub {
+			position: absolute;
+		    top: 50px;
+		    left: 0;
+		    display: none;
+		}
+		.sharesub a {
+			margin-top: 10px;
+		}
+		.facebook {
+			background: url(https://adventure.lotteworld.com/common/images/btn/facebook_btn.png) no-repeat 50% 50%;
+		}
+		.facebook:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/facebook_btn_on.png) no-repeat 50% 50%;
+		}
+		.twiter {
+			background: url(https://adventure.lotteworld.com/common/images/btn/twitter_btn.png) no-repeat 50% 50%;
+		}
+		.twiter:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/twitter_btn_on.png) no-repeat 50% 50%;
+		}
+		.copy {
+			background: url(https://adventure.lotteworld.com/common/images/btn/link_btn.png) no-repeat 50% 50%;
+		}
+		.copy:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/link_btn_on.png) no-repeat 50% 50%;
+		}
+		.shareprint:after {
+			content: '';
+		    display: block;
+		    clear: both;
+		}
+	</style>
+</head>
+<body>
+<div id="wrapper">
+	<div class="menu2"></div>
+	<div class="topsub">
+				<div class="topsubIn">
+					<a href="LotteController?command=lotteMain" class="home"></a>
+						<div class="one">
+							<a href="javascript:void(0)" onclick="view()" class="moremenuclick">소통서비스</a>
+							<div class="moremenu" style="z-index : 15; display : none;">
+								<a href="LotteController?command=Attraction" class="moremenulist" style="margin-top : 0px;">즐길거리</a>
+								<a href="LotteController?command=Charge" class="moremenulist">요금/우대혜택</a>
+	 							<a href="LotteController?command=Performance" class="moremenulist">참여프로그램</a>
+								<a href="LotteController?command=Suspension" class="moremenulist">이용가이드</a>
+								<a href="LotteController?command=Notice" class="moremenulist">소통서비스</a>
+							</div>
+						</div>
+						<div class="two">
+							<a class="moremenu2box" href="javascript:void(0)" onclick="view2()">고객소리함</a>
+							<div class="moremenu2" style="z-index : 15; display : none;">
+								<a href="LotteController?command=Notice" class="moremenu2List" style="margin-top : 0px;">공지사항</a>
+	 							<a href="LotteController?command=Faq" class="moremenu2List">FAQ</a>
+								<a href="LotteController?command=Inquiry" class="moremenu2List">고객소리함</a>
+							</div>
+						</div>
+						<div class="three">
+							<a class="moremenu3box" href="javascript:void(0)" onclick="view3()">분실물 센터</a>
+							<div class="moremenu3" style="z-index : 15; display : none">
+								<a class="moremenu3List" href="LotteController?command=Inquiry" style="margin-top : 0px;">이용문의</a>
+		 						<a class="moremenu3List" href="LotteController?command=Missing">분실물 센터</a>
+							</div>
+						</div>
+				</div> <!-- topsubIn -->
+				<div class="shareprint">
+					<div class="share">
+					<a href="javascript:void(0)" onclick="shareview()"class="shareimg"></a>
+						<div class="sharesub" style="z-index:15; display:none;">
+							<a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fsharer%3Fu%3Dhttps%253A%252F%252Fadventure.lotteworld.com%252Fkor%252Fenjoy%252Frestaurant%252Flist.do&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=ko_KR" class="facebook" target="_blank"></a>
+							<a href="https://twitter.com/intent/tweet?text=&url=https%3A%2F%2Fadventure.lotteworld.com%2Fkor%2Fenjoy%2Frestaurant%2Flist.do" class="twiter" target="_blank"></a>
+							<a href="javascript:void(0)" onclick="copy()" class="copy"></a>
+						</div>
+					</div> <!-- share -->
+					<a href="javascript:void(0)" onclick="window.print()" class="print"></a>
+				</div> <!-- shareprint -->
+			</div> <!-- topsub -->
+	<h2>분실물 센터</h2>
+	<div class = "container1">
+		<div class= "inquiryDiv">
+			<div class="lostTop">
+      			<p class="txt">
+				        손님의 잃어버린 소중한 물건을 분실물 센터에서<br>
+				        보관하고 있습니다.
+		      	</p>
+	      		<ul class="lostList">
+			        <!-- 20200630 수정 -->
+			        <li><span>운영시간</span>매일 10:00~21:00</li>
+			        <li><span>전화번호</span>02-411-2111</li>
+			        <li><span>위치정보</span>1층 만남의 광장 뒤편 손님상담실</li>
+		      	</ul>
+ 				<a href="javascript:" class="processBt">분실물 처리절차 보기</a>
+    		</div>
+		</div>
+		<div style = "margin-top : 30px;">
+		</div>
+		<div class= "datebox">
+			<input type = "text" name = "date1" class= "date1"/>
+			<button type =  "button" name = "date1" class= "button1"></button>
+			<span class= "middle">~</span> 
+			<input type = "text" name = "date2" class= "date2"/>			
+			<button type = "button" name = "date2" class= "button2"></button>
+			<select class="menu" id="categCd" name="categCd" title="종류">
+				<option value="">전체</option>
+				<option value="A2308">전체</option>
+				<option value="A2309">귀금속</option>
+				<option value="A2310">카메라</option>
+				<option value="A2311">지갑</option>
+				<option value="A2312">가방</option>
+				<option value="A2313">휴대폰</option>
+				<option value="A2314">의류</option>
+				<option value="A2315">기타</option>
+				<option value="A2316">안경</option>
+				<option value="A2317">카드</option>
+			</select>
+			<div class="input">
+            <input type="text" class="notRequired" id="q" name="q" value="" placeholder="검색어를 입력해주세요." maxlength="50">
+            <a href="javascript:" class="srchXbt" style="display: none;"><img src="Img/srch_x_btn.gif" alt=""></a>
+          </div>
+			<a href="javascript:" class="srchBtn1" id="btn_search"><img src="Img/srch_btn.gif" alt="검색"></a>
+		</div>
+		<div class="listType1">
+      <div class="listHead">
+        <p class="sort">분류</p>
+        <p class="find">습득물</p>
+        <p class="place">습득장소</p>
+        <p class="date2">습득일</p>
+        <p class="result">처리결과</p>
+      </div>
+      <ul>
+        <li>
+                <p class="sort">기타</p><!-- 2018-04-24 수정 -->
+                <p class="find">호텔키</p>
+                <p class="place"><span></span>신밧드의 모험</p><!-- 2018-05-02 span 수정 -->
+                <p class="date2">2022.06.09</p>
+                <p class="result">보관중</p>
+              </li>
+            <li>
+                <p class="sort">기타</p><!-- 2018-04-24 수정 -->
+                <p class="find">교복 넥타이</p>
+                <p class="place"><span></span>언더랜드 화장실</p><!-- 2018-05-02 span 수정 -->
+                <p class="date2">2022.06.09</p>
+                <p class="result">보관중</p>
+              </li>
+            <li>
+                <p class="sort">핸드폰</p><!-- 2018-04-24 수정 -->
+                <p class="find">삼성(검정색)</p>
+                <p class="place"><span></span>파크내</p><!-- 2018-05-02 span 수정 -->
+                <p class="date2">2022.06.09</p>
+                <p class="result">방문수령</p>
+              </li>
+            <li>
+                <p class="sort">카드</p><!-- 2018-04-24 수정 -->
+                <p class="find">토스(이*희)</p>
+                <p class="place"><span></span>후르츠 월드</p><!-- 2018-05-02 span 수정 -->
+                <p class="date2">2022.06.09</p>
+                <p class="result">보관중</p>
+              </li>
+            <li>
+                <p class="sort">안경</p><!-- 2018-04-24 수정 -->
+                <p class="find">동그란검정색 안경</p>
+                <p class="place"><span></span>파크내</p><!-- 2018-05-02 span 수정 -->
+                <p class="date2">2022.06.09</p>
+                <p class="result">보관중</p>
+              </li>
+            <li>
+                <p class="sort">지갑</p><!-- 2018-04-24 수정 -->
+                <p class="find">라이언하늘색 카드지갑</p>
+                <p class="place"><span></span>1층 게임팩토리</p><!-- 2018-05-02 span 수정 -->
+                <p class="date2">2022.06.09</p>
+                <p class="result">보관중</p>
+              </li>
+            <li>
+                <p class="sort">지갑</p><!-- 2018-04-24 수정 -->
+                <p class="find">학생증(민*준)</p>
+                <p class="place"><span></span>혜성특급 앞</p><!-- 2018-05-02 span 수정 -->
+                <p class="date2">2022.06.09</p>
+                <p class="result">보관중</p>
+              </li>
+            <li class = "underline">
+                <p class="sort">기타</p><!-- 2018-04-24 수정 -->
+                <p class="find">에어팟 프로 케이스 </p>
+                <p class="place"><span></span>회전목마앞</p><!-- 2018-05-02 span 수정 -->
+                <p class="date2">2022.06.09</p>
+                <p class="result">방문수령</p>
+              </li>
+            <li>
+                <p class="sort">의류</p><!-- 2018-04-24 수정 -->
+                <p class="find">검정 집업</p>
+                <p class="place"><span></span>드래곤 와일드 슈팅</p><!-- 2018-05-02 span 수정 -->
+                <p class="date2">2022.06.09</p>
+                <p class="result">방문수령</p>
+              </li>
+            <li>
+                <p class="sort">의류</p><!-- 2018-04-24 수정 -->
+                <p class="find">검정 가디건</p>
+                <p class="place"><span></span>헤성특급 스테이션</p><!-- 2018-05-02 span 수정 -->
+                <p class="date2">2022.06.09</p>
+                <p class="result">보관중</p>
+              </li>
+            </ul>
+   	 	</div>
+   	 	<div class="paging">
+        <ul class="pagination">
+          <a href="javascript:" data-page="first" class="first" onclick="commonCtrl.pagination(1); return false;">
+          <img src="Img/paging_first.png" alt="처음"></a>
+          <a href="javascript:" data-page="prev" class="prev" onclick="commonCtrl.pagination(1); return false;">
+          <img src="Img/paging_prev.png" alt="이전"></a>
+          <a href="javascript:" data-page="1" class="active" onclick="return false;">1</a>
+          <a href="javascript:" data-page="2" onclick="commonCtrl.pagination(2); return false;">
+          	<span>2</span>
+          </a>
+          <a href="javascript:" data-page="3" onclick="commonCtrl.pagination(3); return false;">
+          	<span>3</span>
+          </a>
+          <a href="javascript:" data-page="4" onclick="commonCtrl.pagination(4); return false;">
+          	<span>4</span>
+          </a>
+          <a href="javascript:" data-page="5" onclick="commonCtrl.pagination(5); return false;">
+          	<span>5</span>
+          </a>
+          <a href="javascript:" data-page="next" class="next" onclick="commonCtrl.pagination(6); return false;">
+          	<img src="Img/paging_next.png" alt="다음"></a>
+          <a href="javascript:" data-page="last" class="last" onclick="commonCtrl.pagination(690); return false;">
+          	<img src="Img/paging_last.png" alt="마지막"></a>
+	</ul>
+      </div>
+	</div>
+	<div class="footer"></div>
+</div>
+</body>
+</html>

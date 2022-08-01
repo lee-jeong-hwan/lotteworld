@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>가이드맵</title>
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500&display=swap" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<style>
+		@font-face {
+			font-family: "NotoSans-Bold";
+			src: url("font/NotoSansKR-Bold.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Black";
+			src: url("font/NotoSansKR-Black.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Light";
+			src: url("font/NotoSansKR-Light.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Medium";
+			src: url("font/NotoSansKR-Medium.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Regular";
+			src: url("font/NotoSansKR-Regular.otf");
+		}
+		.body {
+	    	position: relative;
+		    width: 100%;
+		}
+		div {
+  		  	display: block;
+		}
+		* {
+		    margin: 0;
+		    padding: 0;
+		}
+		body {
+		    position: relative;
+		    font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		    font-size: 16px;
+		    color: #555;
+		    letter-spacing: -0.6px;
+		    height: 100%;
+		    -webkit-text-size-adjust: 100%;
+		    -moz-text-size-adjust: 100%;
+		    -ms-text-size-adjust: 100%;
+		    line-height: 1;
+		}
+		.wrap {
+			position: relative;
+		    padding: 0 0 130px;
+		    width: 100%;
+		}
+		a {
+		    text-decoration: none;
+		    color: #555;
+		}
+		a:-webkit-any-link {
+		    /*color: -webkit-link;*/
+		    cursor: pointer;
+		    /*text-decoration: underline;*/
+		}
+		.topsubIn a {
+			font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		}
+		.topsub {
+		    position: relative;
+		    max-width: 1170px;
+		    margin: 0 auto;
+		    padding-top: 30px;
+		}
+		.topsub:after {
+		    content: '';
+		    display: block;
+		    clear: both;
+		}
+		.topsub .topsubIn {
+		    float: left;
+		    padding-top: 10px;
+		}
+		.topsub .topsubIn:after {
+		    content: '';
+		    display: block;
+		    clear: both;
+		}
+		.topsub .topsubIn .home {
+		    float: left;
+		    display: block;
+		    width: 36px;
+		    height: 30px;
+		    border-right: 1px solid #e1e1e1;
+		    background: url(https://adventure.lotteworld.com/common/images/btn/home_btn.png) no-repeat 0 50%;
+		}
+		.topsub .topsubIn > div.one {
+		    margin-left: 26px;
+		}
+		.topsub .topsubIn > div {
+		    float: left;
+		    position: relative;
+		    margin-left: 20px;
+		}
+		.topsub .topsubIn > div > a {
+		    display: block;
+		    padding-right: 42px;
+		    height: 30px;
+		    font-size: 16px;
+		    color: #555;
+		    line-height: 28px;
+		    background: url(https://adventure.lotteworld.com/common/images/icon/lnb_icon.png) no-repeat right 0 top 50%;
+		}
+		.topsub .topsubIn > div > div {
+	    	position: absolute;
+		    top: 50px;
+		    left: -26px;
+		    padding: 25px;
+		    border: 1px solid #e1e1e1;
+		    background: #fff;
+		    display: none
+		}
+		.topsub .topsubIn > div > div a:first-child {
+		    margin-top: 0;
+		}
+		.topsub .topsubIn > div > div a {
+		    display: block;
+		    font-size: 16px;
+		    color: #555;
+		    white-space: nowrap;
+		    margin-top: 17px;
+		}
+		.shareprint {
+			float: right;
+		}
+		.shareprint a {
+			display: block;
+		    width: 50px;
+		    height: 50px;
+		}
+		.share {
+			position: relative;
+			float : left;
+		}
+		.shareimg {
+			background: url(https://adventure.lotteworld.com/common/images/btn/share_btn.png) no-repeat 50% 50%;
+		}
+		.shareimg:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/share_btn_on.png) no-repeat 50% 50%;
+		}
+		.print {
+			float : left;
+			margin-left: 10px;
+			background: url(https://adventure.lotteworld.com/common/images/btn/print_btn.png) no-repeat 50% 50%;
+		}
+		.sharesub {
+			position: absolute;
+		    top: 50px;
+		    left: 0;
+		    display: none;
+		}
+		.sharesub a {
+			margin-top: 10px;
+		}
+		.facebook {
+			background: url(https://adventure.lotteworld.com/common/images/btn/facebook_btn.png) no-repeat 50% 50%;
+		}
+		.facebook:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/facebook_btn_on.png) no-repeat 50% 50%;
+		}
+		.twiter {
+			background: url(https://adventure.lotteworld.com/common/images/btn/twitter_btn.png) no-repeat 50% 50%;
+		}
+		.twiter:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/twitter_btn_on.png) no-repeat 50% 50%;
+		}
+		.copy {
+			background: url(https://adventure.lotteworld.com/common/images/btn/link_btn.png) no-repeat 50% 50%;
+		}
+		.copy:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/link_btn_on.png) no-repeat 50% 50%;
+		}
+		.shareprint:after {
+			content: '';
+		    display: block;
+		    clear: both;
+		}
+		.title {
+			font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		    font-size: 50px;
+		    color: #000;
+		    text-align: center;
+		    padding-top: 40px;
+		}
+		.img1 {
+			position: absolute;
+		    bottom: 0;
+		    left: 0;
+		    width: 100%;
+		    height: 100%;
+		    z-index: -1;
+		    background: url(https://adventure.lotteworld.com/common/images/icon/guideMapBg.png) no-repeat 50% 100%;
+		}
+		.main {
+			text-align: center;
+			position: relative;
+		    width: 1170px;
+		    margin: 0 auto;
+		}
+		.download {
+			margin-top: 50px;
+    		padding: 0 60px;
+    		display: inline-block;
+		    height: 56px;
+		    line-height: 54px;
+		    font-size: 18px;
+		    color: #fff;
+		    text-align: center;
+		    border-radius: 28px;
+		    background: rgb(111, 35, 249);
+		    background: -ms-linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+		    background: -o-linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+		    background: -moz-linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+		    background: -webkit-linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+		    background: linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+		}
+		.download span {
+			padding-right: 25px;
+		    background: url(https://adventure.lotteworld.com/common/images/icon/downBtn_icon.png) no-repeat right center;
+		}
+		.content {
+			border: 1px solid #e1e1e1;
+		    background: #fff;
+		    padding: 100px 0;
+		    margin-top: 80px;
+		    text-align: center;
+		}
+		.top {
+			font-size: 38px;
+		    font-family: 'NotoSans-Black', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		    color: #000;
+		    line-height: 50px;
+		}
+		.top span {
+			color: #550adf !important;
+		}
+		.middle {
+			font-size: 18px;
+		    line-height: 28px;
+		    margin-top: 20px;
+		}
+		.bottom {
+			margin-top: 40px;
+		}
+		.bottom img {
+			border: none;
+    		vertical-align: top;
+		}
+	</style>
+	<script>
+		function view() {
+			if($(".moremenu").css('display')=='none') {
+				if($(".moremenu2").css('display')=='block') {
+					$(".moremenu2").slideUp();
+				}
+				if($(".sharesub").css('display')=='block'){
+					$(".sharesub").slideUp();
+				}
+			} else if($(".moremenu").css('display')=='block'){
+			}
+			$(".moremenu").slideToggle();
+		}
+		function view2() {
+			if($(".moremenu2").css('display')=='none') {
+				if($(".moremenu").css('display')=='block') {
+					$(".moremenu").slideUp();
+				}
+				if($(".sharesub").css('display')=='block'){
+					$(".sharesub").slideUp();
+				}
+			} else if($(".moremenu2").css('display')=='block'){
+			}
+				$(".moremenu2").slideToggle();
+		}
+		function shareview() {
+			if($(".sharesub").css('display')=='none'){
+				if($(".moremenu").css('display')=='block'){
+					$(".moremenu").slideUp();
+				}
+				if($(".moremenu2").css('display')=='block'){
+					$(".moremenu2").slideUp();
+				}
+			} else if($(".sharesub").css('display')=='block'){
+			}
+			$(".sharesub").slideToggle();
+		}
+		function copy() {
+			var url = '';    // <a>태그에서 호출한 함수인 clip 생성
+	        var textarea = document.createElement("textarea");  
+	        //url 변수 생성 후, textarea라는 변수에 textarea의 요소를 생성
+	        
+	        document.body.appendChild(textarea); //</body> 바로 위에 textarea를 추가(임시 공간이라 위치는 상관 없음)
+	        url = window.document.location.href;  //url에는 현재 주소값을 넣어줌
+	        textarea.value = url;  // textarea 값에 url를 넣어줌
+	        textarea.select();  //textarea를 설정
+	        document.execCommand("copy");   // 복사
+	        document.body.removeChild(textarea); //extarea 요소를 없애줌
+	        
+	        alert("복사되었습니다.")  // 알림창
+		}
+		$(function () {
+			var select = $(".moremenu2box").text();
+			var child = $(".moremenu2List");
+			for(var i = 0; i <= 4; i++){
+				if(child.eq(i).text() == select){
+					child.eq(i).css('font-family','NotoSans-bold');
+					child.eq(i).css('color', '#000');
+					break;
+				}
+			}
+			$(".menu").load("lotte/Menu.jsp");
+			$(".footer").load("lotte/Footer.html");
+		});
+	</script>
+</head>
+<body>
+<div id="wrapper">
+	<div class="menu"></div>
+	<div class="body">
+		<div class="wrap">
+			<div class="topsub">
+				<div class="topsubIn">
+					<a href="LotteController?command=lotteMain" class="home"></a>
+						<div class="one">
+							<a href="javascript:void(0)" onclick="view()" class="moremenuclick">이용가이드</a>
+							<div class="moremenu" style="z-index : 15; display : none;">
+								<a href="LotteController?command=Attraction" class="moremenulist" style="margin-top : 0px;">즐길거리</a>
+								<a href="LotteController?command=Charge" class="moremenulist">요금/우대혜택</a>
+	 							<a href="LotteController?command=Performance" class="moremenulist">참여프로그램</a>
+								<a href="LotteController?command=Suspension" class="moremenulist">이용가이드</a>
+								<a href="LotteController?command=Notice" class="moremenulist">소통서비스</a>
+							</div>
+						</div>
+						<div class="two">
+							<a class="moremenu2box" href="javascript:void(0)" onclick="view2()">가이드맵</a>
+							<div class="moremenu2" style="z-index : 15; display : none;">
+								<a class="moremenu2List" href="LotteController?command=Suspension" style="margin-top : 0px;">운영/운휴</a>
+	 							<a class="moremenu2List" href="LotteController?command=Park">파크 이용안내</a>
+								<a class="moremenu2List" href="LotteController?command=Facility">편의시설/제도</a>
+								<a class="moremenu2List" href="LotteController?command=Comming">오시는 길</a>
+								<a class="moremenu2List" href="LotteController?command=Guidemap">가이드맵</a>
+							</div>
+						</div>
+				</div> <!-- topsubIn -->
+				<div class="shareprint">
+					<div class="share">
+					<a href="javascript:void(0)" onclick="shareview()"class="shareimg"></a>
+						<div class="sharesub" style="z-index:15; display:none;">
+							<a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fsharer%3Fu%3Dhttps%253A%252F%252Fadventure.lotteworld.com%252Fkor%252Fenjoy%252Frestaurant%252Flist.do&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=ko_KR" class="facebook" target="_blank"></a>
+							<a href="https://twitter.com/intent/tweet?text=&url=https%3A%2F%2Fadventure.lotteworld.com%2Fkor%2Fenjoy%2Frestaurant%2Flist.do" class="twiter" target="_blank"></a>
+							<a href="javascript:void(0)" onclick="copy()" class="copy"></a>
+						</div>
+					</div> <!-- share -->
+					<a href="javascript:void(0)" onclick="window.print()" class="print"></a>
+				</div> <!-- shareprint -->
+			</div> <!-- topsub -->
+			<h2 class="title">가이드맵</h2>
+			<div class="img1"></div>
+			<div class="main">
+				<a class="download" href="https://adventure.lotteworld.com/cmm/download.do?subPath=2022_Guidemap.pdf" download="https://adventure.lotteworld.com/kor/usage-guide/service/guide-map/contentsid/375/index.do">
+					<span>롯데월드 가이드 맵 다운로드</span>
+				</a>
+				<div class="content">
+					<p class="top">보다 편하게, 보다 알차게<br/>
+						<span>모험을 즐기세요!</span>
+					</p>
+					<p class="middle">지금 바로 롯데월드 가이드 맵을 다운받으세요!<br/>
+						어트랙션, 다이닝, 쇼핑 가이드를 한 눈에 확인 할 수 있습니다.
+					</p>
+					<p class="bottom">
+						<img src="https://adventure.lotteworld.com/common/images/icon/guideMapDiv_img.jpg"/>
+					</p>	
+				</div>
+			</div>
+		</div> <!-- wrap -->
+	</div> <!-- body -->
+	<div class="footer"></div>
+</div>
+</body>
+</html>

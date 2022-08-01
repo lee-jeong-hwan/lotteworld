@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<style>
+		@font-face {
+			font-family: "NotoSans-Medium";
+			src: url("font/NotoSansKR-Medium.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Light";
+			src: url("font/NotoSansKR-Light.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Bold";
+			src: url("font/NotoSansKR-Bold.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Regular";
+			src: url("font/NotoSansKR-Regular.otf");
+		}
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		body {
+		    position: relative;
+		    font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		    font-size: 16px;
+		    color: #555;
+		    letter-spacing: -0.6px;
+		    height: 100%;
+		    line-height: 1;
+		}
+		a {
+			text-decoration: none;
+			color: #555;
+		}
+		img {
+		    border: none;
+		    vertical-align: top;
+		}
+		ul, ol, li {
+		    list-style: none;
+		}
+		strong {
+		    font-weight: normal;
+		}
+		input[type="text"] {
+		    width: 278px;
+		    background: #fff;
+		    -webkit-appearance: none;
+		    box-shadow: none;
+		}
+		input, select {
+		    vertical-align: middle;
+		    background: #fff;
+		    border: 1px solid #e1e1e1;
+		    font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		    color: #555;
+		    letter-spacing: -0.6px;
+		    border-radius: 0;
+		    font-size: 16px;
+		}
+		input {
+		    padding: 3px 10px;
+		    height: 32px;
+		}
+		#wrapper {
+		    position: relative;
+		    width: 100%;
+		    overflow: hidden;
+		}
+		.container {
+			position: relative;
+			width: 1170px;
+			margin: 0 auto;
+		}
+		#footer {
+		    border-top: 1px solid #d9d9d9;
+		}
+		#footer .container {
+		    padding: 50px 0 160px;
+		}
+		#footer .container .top1 {
+		    padding-bottom: 30px;
+		    border-bottom: 1px solid #e0e0e0;
+		    overflow: hidden;
+		}
+		#footer .container .bottom1 {
+		    margin-top: 30px;
+		    position: relative;
+		}
+		#footer .container .bottom1:after {
+		    content: '';
+		    display: block;
+		    clear: both;
+		}
+		#footer .container .top1 .links {
+		    float: left;
+		    overflow: hidden;
+		}
+		#footer .container .top1 .sns {
+		    float: right;
+		    overflow: hidden;
+		}
+		#footer .container .top1 .links a {
+		    float: left;
+		    display: inline-block;
+		    font-size: 16px;
+		    color: #333;
+		    line-height: 30px;
+		    margin-left: 20px;
+		}
+		#footer .container .top1 .links a:first-child {
+		    margin-left: 0;
+		}
+		#footer .container .top1 .links a.cRed {
+		    color: #e10000;
+		}
+		#footer .container .top1 .sns a:first-child {
+		    margin-left: 0;
+		}
+		#footer .container .top1 .sns a {
+		    float: left;
+		    margin-left: 10px;
+		}
+		.lotteon-banner {
+		    position: absolute;
+		    top: 75px;
+		    right: 0;
+		}
+		#footer .container .bottom1 .left {
+		    float: left;
+		}
+		#footer .container .bottom1 .isms {
+		    position: absolute;
+		    bottom: -70px;
+		    left: 140px;
+		}
+		#footer .container .bottom1 .isms.newST {
+		    left: 430px;
+		}
+		#footer .container .bottom1 .familySite {
+		    float: right;
+		    position: relative;
+		    width: 210px;
+		    height: 46px;
+		}
+		.lotteon-banner .pc-img {
+		    display: block;
+		}
+		#footer .container .bottom1 .left .logo {
+		    float: left;
+		}
+		#footer .container .bottom1 .left div {
+		    padding-left: 140px;
+		}
+		#footer .container .bottom1 .left div p:first-child {
+		    margin-top: 0;
+		}
+		#footer .container .bottom1 .left div p {
+		    font-size: 15px;
+		    color: #555;
+		    margin-top: 10px;
+		}
+		#footer .container .bottom1 .left div p.copyright {
+		    font-size: 13px;
+		    color: #777;
+		    margin-top: 30px;
+		}
+		#footer .container .bottom1 .left div p span {
+		    display: inline-block;
+		    position: relative;
+		    margin-left: 11px;
+		    padding-left: 11px;
+		}
+		#footer .container .bottom1 .left div p span:first-child {
+		    margin-left: 0;
+		    padding-left: 0;
+		}
+		#footer .container .bottom1 .left div p span:before {
+		    content: '';
+		    position: absolute;
+		    top: 50%;
+		    left: 0;
+		    width: 1px;
+		    height: 13px;
+		    margin-top: -6.5px;
+		    background: #e0e0e0;
+		}
+		#footer .container .bottom1 .left div p span:first-child:before {
+		    display: none;
+		}
+		#footer .container .bottom1 .isms a {
+		    display: block;
+		    padding-top: 3px;
+		    padding-left: 55px;
+		    height: 37px;
+		    background: url(images/isms_icon.png) no-repeat 0 50%;
+		}
+		#footer .container .bottom1 .isms a > p {
+		    position: relative;
+		    display: block;
+		    font-size: 12px;
+		    color: #333;
+		    line-height: 16px;
+		}
+		#footer .container .bottom1 .isms a > p span:first-child {
+		    position: relative;
+		    padding-right: 9px;
+		    margin-right: 6px;
+		}
+		#footer .container .bottom1 .isms a > p span:first-child:after {
+		    content: '';
+		    position: absolute;
+		    top: 50%;
+		    right: 0;
+		    margin-top: -5.5px;
+		    width: 1px;
+		    height: 11px;
+		    background: #e1e1e1;
+		}
+		#footer .container .bottom1 .isms.newST p {
+		    padding-top: 0;
+		    padding-left: 68px;
+		    height: 40px;
+		    background: url(images/isms_icon2.jpg) no-repeat 0 50%;
+		}
+		#footer .container .bottom1 .isms.newST p span {
+		    position: relative;
+		    display: block;
+		    font-size: 12px;
+		    color: #333;
+		    line-height: 40px;
+		}
+</style>
+</head>
+<body>
+	<div id="footer">
+			<div class="container">
+				<div class="top1">
+					<div class="links">
+						<a href="#">롯데월드 소개</a>
+						<a href="#">기업 제휴 및 입점 문의</a>
+						<a href="#">이용약관</a>
+						<a href="#" class="cRed">개인정보처리방침</a>
+						<a href="#">이메일무단수집거부</a>
+						<a href="#">Compliance Program</a>
+						<a href="#">사이트맵</a>
+						<a href="#" target="_blank">인재채용</a>
+						<a href="#" class="prpopup">그룹PR</a>
+					</div>
+					<div class="sns">
+						<a href="#" target="_blank">
+							<img src="images/sns_fb.png"/>
+						</a>
+						<a href="#" target="_blank">
+							<img src="images/sns_ins.png"/>
+						</a>
+						<a href="#" target="_blank">
+							<img src="images/sns_you.png"/>
+						</a>
+					</div>
+				</div>
+				<div class="bottom1">
+					<div class="lotteon-banner">
+						<a id="adv_main_bn1" style="block" href="#" target="_blank">
+							<img class="pc-img" src="images/img_lotthotel_pc.jpg"/>
+						</a>
+					</div>
+					<div class="left">
+						<p class="logo">
+							<img src="images/footer_logo.png"/>
+						</p>
+						<div>
+							<p>
+								<span>서울특별시 송파구 올림픽로 240 호텔롯데 롯데월드</span>
+								<span>대표자 : 최홍훈</span>
+							</p>
+							<p>
+								<span>사업자등록번호 : 219-85-00014</span>
+								<span>통신판매업신고번호 : 송파 제5513호</span>
+								<span>전화 : 1661-2000</span>
+							</p>
+							<p class="copyright">COPYRIGHT 2018 LOTTEWORLD. ALL RIGHTS RESERVED.</p>
+						</div>
+					</div>
+					<div class="isms">
+						<a href="#" target="_blank">
+							<p>
+								<span>인증범위</span>
+								<span>온라인 예매 서비스 운영(롯데월드)</span>
+							</p>
+							<p>
+								<span>유효기간</span>
+								<span>2020.11.18~2023.11.17</span>
+							</p>
+						</a>
+					</div>
+					<div class="isms newST">
+						<p>
+							<span>한국서비스대상 명예의전당</span>
+						</p>
+					</div>
+					<div class="familySite"></div>
+				</div>
+			</div>
+		</div><!-- footer -->
+</body>
+</html>

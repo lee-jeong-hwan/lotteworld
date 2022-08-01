@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>공지사항 | 롯데월드 어드벤처</title>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style>
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+@font-face {
+	font-family: "NotoSans-Light";
+	src: url(font/NotoSansKR-Light.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Bold";
+	src: url(font/NotoSansKR-Bold.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Medium";
+	src: url(font/NotoSansKR-Medium.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Regular";
+	src: url(font/NotoSansKR-Regular.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Black";
+	src: url(font/NotoSansKR-Black.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Thin";
+	src: url(font/NotoSansKR-Thin.otf);
+}
+
+#wrapper {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+#cBody {
+	position: relative;
+	width: 100%;
+}
+
+.subWrap {
+	position: relative;
+	padding: 0 0 130px;
+	width: 100%;
+}
+
+h2 {
+	font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	font-size: 50px;
+	color: #000;
+	text-align: center;
+	padding-top: 40px;
+}
+
+body {
+	position: relative;
+	font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	font-size: 16px;
+	color: #555;
+	letter-spacing: -0.6px;
+	height: 100%;
+	-webkit-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	line-height: 1;
+}
+
+.container {
+	position: relative;
+	width: 1170px;
+	margin: 0 auto;
+}
+
+.viewType1 {
+	border-top: 1px solid #000;
+	margin-top: 80px;
+}
+
+.viewType1 .titArea {
+	padding: 14px 30px;
+	display: table;
+	vertical-align: middle;
+	overflow: hidden;
+}
+
+.viewType1 .titArea .label {
+	display: table-cell;
+	width: 60px;
+	vertical-align: middle;
+	padding-right: 20px;
+	font-size: 18px;
+}
+
+.viewType1 .titArea .tit {
+	display: table-cell;
+	vertical-align: middle;
+	width: 963px;
+	padding-right: 20px;
+	font-family: 'NotoSans-Medium', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	font-size: 20px;
+	color: #000;
+	line-height: 30px;
+}
+
+.viewType1 .titArea .date {
+	display: table-cell;
+	vertical-align: middle;
+	width: 71px;
+	font-size: 16px;
+	color: #555;
+	line-height: 30px;
+}
+
+.viewType1 .txtArea {
+	padding: 50px 30px 65px;
+	border-top: 1px solid #cacaca;
+	font-size: 16px;
+	color: #555;
+	line-height: 28px;
+}
+
+img, fieldset {
+	border: none;
+	vertical-align: top;
+}
+
+.viewType1 .fileArea {
+	padding: 30px 0;
+	overflow: hidden;
+}
+
+.viewType1 .prevNext {
+	border-top: 1px solid #e1e1e1;
+	border-bottom: 1px solid #e1e1e1;
+}
+
+.viewType1 .prevNext .prev {
+	border-bottom: 1px solid #e1e1e1;
+}
+
+.viewType1 .prevNext .prev span:first-child {
+	padding-left: 0;
+	padding-right: 30px;
+	width: 45px;
+	font-family: 'NotoSans-Medium', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	font-size: 16px;
+	color: #000;
+	background: url(Img/prev_icon.gif) no-repeat right 0 top 50%;
+}
+
+.viewType1 .prevNext .prev span {
+	display: inline-block;
+	width: calc(100% - 128px);
+	padding-left: 50px;
+	vertical-align: middle;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #555;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.viewType1 .prevNext>div {
+	padding: 22px 30px;
+}
+
+.viewType1 .prevNext>div>a {
+	display: block;
+	width: 100%;
+	vertical-align: middle;
+}
+
+.viewType1 .prevNext .next span:first-child {
+	padding-left: 0;
+	padding-right: 30px;
+	width: 45px;
+	font-family: 'NotoSans-Medium', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	font-size: 16px;
+	color: #000;
+	background: url(Img/next_icon.gif) no-repeat right 0 top 50%;
+}
+
+.viewType1 .prevNext .next span {
+	display: inline-block;
+	width: calc(100% - 128px);
+	padding-left: 50px;
+	vertical-align: middle;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #555;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.btnArea {
+	text-align: center;
+	margin-top: 60px;
+}
+
+.purpleBtn {
+	display: inline-block;
+	padding: 0 70px;
+	height: 56px;
+	line-height: 54px;
+	font-size: 18px;
+	color: #fff;
+	text-align: center;
+	border-radius: 28px;
+	background: linear-gradient(to bottom right, rgba(111, 35, 249, 1) 0%,
+		rgba(85, 10, 223, 1) 100%);
+}
+
+a {
+	text-decoration: none;
+	color: #555;
+}
+/* footer*/
+#footer .container {
+	padding: 50px 0px 160px;
+}
+
+#footer .container .top {
+	padding-bottom: 30px;
+	border-bottom: 1px solid #e0e0e0;
+	overflow: hidden;
+}
+
+#footer .container .top .links {
+	float: left;
+	overflow: hidden;
+}
+
+#footer .container .top .links a:first-child {
+	margin-left: 0;
+}
+
+#footer .container .top .links a {
+	float: left;
+	display: inline-block;
+	font-size: 16px;
+	color: #333;
+	line-height: 30px;
+	margin-left: 20px;
+}
+
+#footer .container .top .sns {
+	float: right;
+	overflow: hidden;
+}
+
+#footer .container .top .sns a:first-child {
+	margin-left: 0;
+}
+
+#footer .container .top .sns a {
+	float: left;
+	margin-left: 10px;
+}
+
+#footer .container .bottom {
+	margin-top: 30px;
+	position: relative;
+	height: 83px;
+}
+
+.hotel {
+	position: absolute;
+	top: 75px;
+	right: 0;
+}
+
+.hotel .pc-img {
+	display: inline-block;
+}
+
+#footer .container .bottom .left {
+	float: left;
+}
+
+#footer .container .bottom .left .logo {
+	float: left;
+	margin: 0px 0px 0px 0px;
+}
+
+#footer .container .bottom .left div {
+	padding-left: 140px;
+}
+
+#footer .container .bottom .left div p:first-child {
+	margin: 0;
+}
+
+#footer .container .bottom .left div p {
+	font-size: 15px;
+	color: #555;
+	margin: 10px 0px 0px 0px;
+}
+
+#footer .container .bottom .left div p span:first-child {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+#footer .container .bottom .left div p span {
+	display: inline-block;
+	position: relative;
+	margin-left: 11px;
+	padding-left: 11px;
+}
+
+#footer .container .bottom .left div p.copyright {
+	font-size: 13px;
+	color: #777;
+	margin-top: 30px;
+}
+
+#footer .container .bottom .isms {
+	position: absolute;
+	bottom: -70px;
+	left: 140px;
+}
+
+#footer .container .bottom .isms a {
+	display: block;
+	padding-top: 3px;
+	padding-left: 55px;
+	height: 37px;
+	background: url(Img/isms_icon.png) no-repeat 0 50%;
+}
+
+#footer .container .bottom .isms a>p {
+	position: relative;
+	display: block;
+	font-size: 12px;
+	color: #333;
+	line-height: 16px;
+	margin: 0px;
+}
+
+#footer .container .bottom .isms a>p span:first-child {
+	position: relative;
+	padding-right: 9px;
+	margin-right: 6px;
+}
+
+#footer .container .bottom .isms a>p span:first-child:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 0;
+	margin-top: -5.5px;
+	width: 1px;
+	height: 11px;
+	background: #e1e1e1;
+}
+
+#footer .container .bottom .left div p span:before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 1px;
+	height: 13px;
+	margin-top: -6.5px;
+	background: #e0e0e0;
+}
+
+#footer .container .bottom .isms.newST {
+	left: 430px;
+}
+
+#footer .container .bottom .isms.newST p {
+	padding-top: 0;
+	padding-left: 68px;
+	height: 40px;
+	background: url(Img/isms_icon2.jpg) no-repeat 0 50%;
+	margin: 0px;
+}
+
+#footer .container .bottom .isms.newST p span {
+	position: relative;
+	display: block;
+	font-size: 12px;
+	color: #333;
+	line-height: 40px;
+}
+
+#footer .container .bottom .familySite {
+	float: right;
+	position: relative;
+	width: 210px;
+	height: 46px;
+}
+
+#footer .container .bottom .familySite>select {
+	width: 210px;
+	padding-left: 20px;
+	height: 45px;
+	padding-right: 35px;
+	border: 1px solid #e0e0e0;
+	font-size: 15px;
+	color: #555;
+	background: url(Img/sel_icon.png) no-repeat right 17px top 50%;
+	font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	font-size: 15px;
+	color: #555;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.noticeWrap{
+	margin: 0 auto; padding:70px 40px; max-width: 800px; border:16px solid #651eec; color: #000; line-height: 1; box-sizing: border-box;
+}
+
+.noticeTitle{
+	text-align: left; font-size: 70px; font-weight: bold; line-height: 1; 
+}
+
+.noticeCont{
+	margin-top: 100px;  width: min-width:320px; line-height: 1.7; letter-spacing: -0.025em; font-size: 20px; font-weight: 800;
+}
+
+.workTime{
+	margin-bottom: 40px; 
+}
+
+.workTime .headTxt{
+	font-size: 26px; color: #651eec; margin: 38px 0 0 0; font-weight: bold; 
+}
+
+.workTime p{
+	font-size: 20px; color: #651eec; font-weight: bold;
+}
+
+.workTime span{
+	font-size: 16px; color: #651eec;
+}
+.fBold {
+    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif !important;
+}
+#footer .container .bottom .left div p span:first-child:before{
+background: none;
+}
+	.noticeWrap{margin: 0 auto; padding:70px 40px; max-width: 800px; border:16px solid #651eec; color: #000; line-height: 1; box-sizing: border-box;}
+			.noticeTitle{text-align: left; font-size: 60px; font-weight: bold; line-height: 1; }
+			.noticeCont{margin-top: 100px;  width: min-width:320px; line-height: 1.7; letter-spacing: -0.025em; font-size: 20px; font-weight: 800;}
+			.workTime{margin-bottom: 40px; }
+			.workTime .headTxt{font-size: 26px; color: #651eec; margin: 38px 0 0 0; font-weight: bold; }
+			.workTime p{font-size: 20px; color: #651eec; font-weight: bold;}
+			.workTime span{font-size: 16px; color: #651eec;}
+			@media all and (max-width:450px){
+				.noticeTitle{font-size: 35px;}
+				.noticeCont{margin-top: 65px; font-size: 14px;}
+				.workTime{line-height: 1.2;}
+			}
+	/*테이블*/
+	table.priceTable{
+		border-top: 2px solid #000;
+		border-bottom: 1px solid #e1e1e1;
+		width: 100%;
+		display: table;
+		box-sizing: border-box;
+		background-color: white;
+		padding:0; border-spacing:0px; border-collapse:collapse;
+	font-family: &#39;NotoSans-Light&#39;, &#39;맑은 고딕&#39;, &#39;Malgun Gothic&#39;, sans-serif;
+	letter-spacing: -0.025em;
+	font-size: 16px;
+	}
+	table.priceTable thead {
+background: #550adf;
+	color: #fff;}
+	table.priceTable tr th, td {
+		text-align: center;
+		padding: 10px 0px;
+		font-size: 16px;
+		color: #555;
+		border-right: 1px solid #e1e1e1;
+	}
+	table.priceTable tr td:last-child{
+		border-right: 0;
+	}
+	table.priceTable th{
+		background: #f8f8f8;
+	font-family: &#39;NotoSans-Bold&#39;, &#39;맑은 고딕&#39;, &#39;Malgun Gothic&#39;, sans-serif!important;
+	color: #333;
+	font-weight: bold;
+	}
+	table.priceTable th:last-child{
+		border-right: 0;
+	}
+	table.priceTable tr {border-top: 1px solid #e1e1e1;}
+	table.priceTable tbody tr th {
+		background: #fff;
+		color: #550adf;
+		font-size: 16px;
+		font-weight: bold;
+	}
+	.priceCh{color: #550adf!important; font-weight: bold!important;}
+</style>
+</head>
+<body>
+	<div id="wrapper">
+		<div id="cBody">
+			<div class="subWrap">
+				<h2>공지사항</h2>
+				<div class="container" data-controller="controller/COCommonController controller/lwf/lwfa/LWFANoticeBoardController" data-type="view">
+					<div class="viewType1">
+						<div class="titArea">
+							<div class="label"><p>공지</p></div>
+							<p class="tit" style="word-wrap: break-word;">
+								이용요금 조정&nbsp;안내</p>
+							<p class="date">
+								2022.03.18</p>
+						</div>
+						<div class="txtArea" style="word-wrap: break-word;">
+							<div class="noticeWrap">
+								<p class="noticeTitle fBold">
+									<span style="font-size:48px;">이용요금 조정&nbsp;안내
+									</span>
+								</p>
+								<div class="noticeCont">
+									<p><span style="font-size: 18px;">모험과 신비의 나라, 롯데월드 어드벤처에&nbsp;관심가져주시는&nbsp;모든 손님께<br>
+									감사의 말씀을 드립니다.<br>
+									<br>
+									당사는 롯데월드 어드벤처를&nbsp;방문해 주시는 모든 손님께 특별한 하루를 선사하기 위해<br>
+									지속적인 신규투자로 새로운 시설을 도입하고 새로운 콘텐츠를 준비하여<br>
+									매년 새로운 모습으로 손님들을 맞이하고 있습니다.<br>
+									<br>
+									또한 코로나19 팬데믹 상황 속에서도 운영 효율화 및 적극적 비용 절감을 통해<br>
+									이용 요금을 동결해왔습니다.<br>
+									그러나, 지속적인 물가 상승 요인 등으로 부득이하게&nbsp;이용 요금을 인상하게 되었습니다.<br>
+									<br>
+									이번 요금 인상을 통해 보다 나은 상품과 서비스로 보답드릴 수 있도록 노력하겠습니다.<br>
+									손님 여러분들의 더욱&nbsp;많은 관심 부탁드립니다.<br>
+									<br>
+									감사합니다.</span><br>
+									<span style="font-size: 18px; color:#550adf!important; ">※ 이용 요금 조정일 : 2022년 4월 1일(금)</span><br>
+									&nbsp;
+									</p>
+									<div class="btnArea castBt"><span style="color: rgb(85, 10, 223);">종합이용권</span>
+									</div>
+								</div>
+								<div class="priceChange">
+									<div class="pricetableWrap" style="margin-top: 20px;">
+										<table class="priceTable">
+											<colgroup>
+												<col width="25%">
+												<col width="25%">
+												<col width="25%">
+												<col width="25%">
+											</colgroup>
+											<thead>
+												<tr>
+													<th colspan="2">구분</th>
+													<th>기존</th>
+													<th class="priceCh">변경</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th rowspan="4">1일권</th>
+													<td>어른</td>
+													<td>59,000원</td>
+													<td class="priceCh">62,000원</td>
+												</tr>
+												<tr>
+													<td>청소년</td>
+													<td>52,000원</td>
+													<td class="priceCh">54,000원</td>
+												</tr>
+												<tr>
+													<td>어린이</td>
+													<td>47,000원</td>
+													<td>47,000원</td>
+												</tr>
+												<tr>
+													<td>베이비</td>
+													<td>15,000원</td>
+													<td>15,000원</td>
+												</tr>
+												<tr>
+													<th rowspan="4">After4</th>
+													<td>어른</td>
+													<td>48,000원</td>
+													<td class="priceCh">50,000원</td>
+												</tr>
+												<tr>
+													<td>청소년</td>
+													<td>42,000원</td>
+													<td class="priceCh">43,000원</td>
+												</tr>
+												<tr>
+													<td>어린이</td>
+													<td>36,000원</td>
+													<td>36,000원</td>
+												</tr>
+												<tr>
+													<td>베이비</td>
+													<td>15,000원</td>
+													<td>15,000원</td>
+												</tr>
+											</tbody>
+										</table>
+				<!-- priceTable --></div>
+									<div class="pricetableWrap" style="margin-top: 20px;">
+										<p style="padding: 10px 0px; font-size: 18px; font-weight: bold;">
+											<span style="color: rgb(85, 10, 223);">파크이용권</span>
+										</p>
+									
+										<table class="priceTable">
+											<colgroup>
+												<col width="25%">
+												<col width="25%">
+												<col width="25%">
+												<col width="25%">
+											</colgroup>
+											<thead>
+												<tr>
+													<th colspan="2">구분</th>
+													<th>기존</th>
+													<th class="priceCh">변경</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th rowspan="4">1일권</th>
+													<td>어른</td>
+													<td>56,000원</td>
+													<td class="priceCh">59,000원</td>
+												</tr>
+												<tr>
+													<td>청소년</td>
+													<td>50,000원</td>
+													<td class="priceCh">52,000원</td>
+												</tr>
+												<tr>
+													<td>어린이</td>
+													<td>46,000원</td>
+													<td>46,000원</td>
+												</tr>
+												<tr>
+													<td>베이비</td>
+													<td>15,000원</td>
+													<td>15,000원</td>
+												</tr>
+												<tr>
+													<th rowspan="4">After4</th>
+													<td>어른</td>
+													<td>45,000원</td>
+													<td class="priceCh">47,000원</td>
+												</tr>
+												<tr>
+													<td>청소년</td>
+													<td>40,000원</td>
+													<td class="priceCh">41,000원</td>
+												</tr>
+												<tr>
+													<td>어린이</td>
+													<td>35,000원</td>
+													<td>35,000원</td>
+												</tr>
+												<tr>
+													<td>베이비</td>
+													<td>15,000원</td>
+													<td>15,000원</td>
+												</tr>
+											</tbody>
+										</table>
+				<!-- priceTable --></div>
+									<div class="pricetableWrap" style="margin-top: 20px;">
+										<p style="padding: 10px 0px; font-size: 18px; font-weight: bold;">
+											<span style="color: rgb(85, 10, 223);">연간이용권</span>
+										</p>
+										<table class="priceTable">
+											<colgroup>
+												<col width="25%">
+												<col width="25%">
+												<col width="25%">
+												<col width="25%">
+											</colgroup>
+											<thead>
+												<tr>
+													<th colspan="2">구분</th>
+													<th>기존</th>
+													<th class="priceCh">변경</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th colspan="2">골드권</th>
+													<td>290,000원</td>
+													<td>290,000원</td>
+												</tr>
+												<tr>
+													<th rowspan="4">그린권</th>
+													<td>어른 및 청소년</td>
+													<td>220,000원</td>
+													<td class="priceCh">250,000원</td>
+												</tr>
+												<tr>
+													<td>어린이</td>
+													<td>170,000원</td>
+													<td class="priceCh">180,000원</td>
+												</tr>
+												<tr>
+													<td>시니어</td>
+													<td>170,000원</td>
+													<td>170,000원</td>
+												</tr>
+												<tr>
+													<td>베이비</td>
+													<td>110,000원</td>
+													<td>110,000원</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+		<!-- pricetableWrap --></div>
+							</div>
+						</div>
+						<div class="fileArea"></div>
+						<div class="prevNext">
+							<div class="prev">
+								<a href="Notice-08.html">
+									<span>이전글</span>
+									<span>
+										제네바유람선, 호반보트 운영안내</span>
+								</a>
+							</div>
+							<div class="next">
+								<a href="Notice-10.html">
+									<span>다음글</span>
+									<span> 
+										롯데월드 어드벤처 코로나19 방역 및 예방 활동 현황</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="btnArea">
+						<a href="Notice.html" class="purpleBtn">목록</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- footer -->
+		<div id="footer" style= "border-top: 1px solid #d9d9d9;">
+			<div class ="container">
+				<div class="top">
+					<div class="links">
+						<a href="">롯데월드 소개</a> <a href="">기업 제휴 및 입점 문의</a> <a href="">이용약관</a>
+						<a href="" style="color: #e10000;">개인정보처리방침</a> <a href="">이메일무단수집거부</a>
+						<a href="">Compliance Program</a> <a href="">사이트맵</a> <a href="">인재채용</a>
+						<a href="">그룹PR</a>
+					</div>
+					<div class="sns">
+						<a href="https://ko-kr.facebook.com/" alt="페이스북 바로가기"> <img
+							src="Img/sns_btn1.png">
+						</a> <a href="https://www.instagram.com/" alt="인스타그램 바로가기"> <img
+							src="Img/sns_btn2.png">
+						</a> <a href="https://www.youtube.com/" alt="유튜브 바로가기"> <img
+							src="Img/sns_btn3.png">
+						</a>
+					</div>
+				</div>
+			<!-- 제일 하단 부분 -->
+				<div class="bottom">
+					<div class="hotel">
+						<a style="display: block"
+							href="https://www.lottehotel.com/global/ko/hotel-offers/packages/2022-03/LOTTE_FAMILY_DAY.html?utm_source=affiliate&utm_medium=referral&utm_campaign=lotteworld_pkg_banner_202203&utm_content=lottehotels"
+							title="롯데호텔 예약하기 바로가기"> <img class="pc-img" src="Img/img_lotthotel_pc.jpg">
+						</a>
+					</div>
+					<div class="left">
+						<p class="logo">
+							<img src="Img/footer_logo.png">
+						</p>
+						<div>
+							<p>
+								<span>서울특별시 송파구 올림픽로 240 호텔롯데 롯데월드</span> <span>대표자 : 최홍훈</span>
+							</p>
+							<p>
+								<span>사업자등록번호 : 219-85-00014</span> <span>통신판매업신고번호 : 송파 제
+									5513호</span> <span>전화 : 1661-2000</span>
+							</p>
+							<p class="copyright">COPYRIGHT 2018 LOTTEWORLD. ALL RIGHTS
+								RESERVED.</p>
+						</div>
+					</div>
+					<div class="isms">
+						<a href="https://isms.kisa.or.kr/main/ispims/issue/?certificationMode=list&crtfYear=&searchCondition=2&searchKeyword=%EB%A1%AF%EB%8D%B0%EC%9B%94%EB%93%9C&__encrypted=U8oaEwTLg12yqNDZuCwRPMiDRLgcrZjlbxomU5uctoZc1kXWONBhXaf0KhG%2BaV6wpp2zSeTry6yKT1QpQPP4n6Wl4JbzPyTKSn7s1FoRr90UnnwTp%2BW928V1TpyMuwFVMU8D270RkIg564CRAF0bUnkvpnfyAxjhbyn0pSpjvw%2BMlXuoQnR3oJUfvVi%2B1dac8Gnd7jHhSmiDLOX09CuWhVRPx40RuMcaT%2FHbItyyZvQECWvcAvRb36C1zB%2FnwnWRJNfv74iaCKBgpNE%2BERnypNyBfcqQSKf%2BfDsW9aHcpTOO1K747YgBrg%3D%3D"
+							target="_blank">
+							<p>
+								<span> 인증범위 </span> <span>온라인 예매 서비스 운영(롯데월드)</span>
+							</p>
+							<p>
+								<span> 유효기간 </span> <span>2020.11.18 ~ 2023.11.17</span>
+							</p>
+	
+						</a>
+					</div>
+					<div class="isms newST">
+						<p>
+							<span>한국서비스대상 명예의전당</span>
+						</p>
+					</div>
+					<div class="familySite">
+						<select id="selectFamilySite" title="계열사 관련 사이트 새창열기">
+							<option value="">계열사 관련 사이트</option>
+							<option value="http://www.lotte.co.kr/">롯데그룹</option>
+							<option value="http://www.lpoint.com">L.POINT</option>
+							<option value="https://recruit.lotte.co.kr/">롯데그룹채용</option>
+							<option value="http://lotteconf.co.kr/">롯데제과</option>
+							<option value="http://www.pepero.co.kr">- 빼빼로</option>
+							<option value="http://www.lottehealth1.com/">- 헬스원</option>
+	
+							<option value="http://company.lottechilsung.co.kr/">
+								롯데칠성음료</option>
+							<option value="http://mall.lottechilsung.co.kr/index.html">-
+								롯데칠성몰</option>
+	
+							<option value="http://www.lotteria.com/">롯데리아</option>
+							<option value="http://www.lotteriamall.com">- 롯데리아몰</option>
+							<option value="http://www.angelinus.co.kr/">엔제리너스</option>
+							<option value="http://shop.angelinus.co.kr/">- 엔제리너스몰</option>
+	
+							<option value="http://www.natuur.co.kr">나뚜루</option>
+							<!-- <option value="http://www.tgif.co.kr" >T.G.I.Friday's</option> -->
+							<option value="http://www.krispykreme.co.kr">크리스피크림도넛</option>
+	
+							<option value="http://www.lottefood.co.kr/">롯데푸드</option>
+							<option value="http://www.pasteur.co.kr/main.asp">- 파스퇴르</option>
+							<option value="http://www.pasteurmall.com">- 파스퇴르몰</option>
+							<option value="http://www.pasteuri.com">- 파스퇴르아이</option>
+							<option value="http://www.chefood.co.kr/">- 쉐푸드</option>
+							<option value="http://www.en-nature.co.kr">- 엔네이처</option>
+							<option value="http://www.lottevienna.co.kr.co.kr">-
+								롯데비엔나</option>
+							<option value="http://www.kisstick.co.kr">- 키스틱</option>
+							<option value="http://www.uiseongham.co.kr">- 의성마늘햄</option>
+							<!-- 								<option value="http://www.benecol.co.kr" >- 베네콜</option> -->
+	
+							<!-- <option value="http://www.lotteliquor.com/" >롯데주류BG </option> -->
+							<option value="http://www.wine.co.kr/">-WINE</option>
+							<!-- 								<option value="http://www.kloudbeer.com/" >-클라우드 </option> -->
+	
+							<option value="http://www.lotteasahi.co.kr/">롯데아사히주류</option>
+							<option value="http://www.lotteliquor.com/">롯데칠성주류</option>
+	
+							<option value="http://store.lotteshopping.com">롯데백화점</option>
+							<option value="http://www.ellotte.com/">- 엘롯데</option>
+							<option
+								value="http://store.lotteshopping.com/handler/Main-Start?subBrchCd=021&amp;gubun=2">-
+								영플라자</option>
+							<option
+								value="http://store.lotteshopping.com/handler/Main-Start?subBrchCd=054&amp;gubun=1">-
+								프리미엄아울렛</option>
+							<option value="http://www.lotteoutlets.com">- 롯데아울렛</option>
+							<option value="http://buying.lotteshopping.com/">- 상품본부</option>
+							<!-- 								<option value="http://lotteedi.dpt.co.kr/" >- EDI시스템</option> -->
+	
+							<option value="https://www.lotteshopping.com/main/main">에비뉴엘</option>
+							<option value="http://www.lottemart.com/">롯데마트</option>
+							<option value="http://company.lottemart.com/">- 롯데마트 홍보</option>
+	
+							<option value="http://www.e-himart.co.kr/index.jsp">롯데하이마트</option>
+							<option value="http://www.himart.co.kr/index.jsp">-
+								롯데하이마트 홍보</option>
+	
+							<option value="http://toysrus.lottemart.com">토이저러스</option>
+	
+							<option value="http://www.lottesuper.co.kr/">롯데슈퍼</option>
+							<option value="http://www.vic-market.com">롯데빅마켓</option>
+							<option value="http://www.lottecinema.co.kr/">롯데시네마</option>
+							<option value="http://www.lotteimall.com/">롯데홈쇼핑</option>
+							<option value="http://www.7-eleven.co.kr/">코리아세븐</option>
+							<option value="https://store-kr.uniqlo.com/">유니클로</option>
+							<option value="http://www.muji.com">무인양품</option>
+							<option value="http://www.lotteintl.co.kr/">롯데상사</option>
+							<option value="http://www.lotte.com/">롯데닷컴</option>
+							<option value="http://lottelhp.com/">롯데유통사업본부</option>
+							<option value="http://www.charlottetheater.co.kr/">샤롯데씨어터</option>
+							<option value="http://www.lohbs.co.kr/">H&amp;B(롭스)</option>
+							<option value="http://www.lottefitin.com/">롯데피트인</option>
+	
+							<option value="http://www.lottehotel.com/">롯데호텔</option>
+	
+							<option value="http://kr.lottedfs.com/">롯데면세점</option>
+							<option value="http://www.lottedfs.com/">롯데인터넷면세점</option>
+							<option value="http://www.busanlottedfs.com/">부산롯데인터넷면세점</option>
+	
+							<option value="http://www.lotteworld.com/">롯데월드</option>
+							<option value="http://www.lotteworld.com/waterpark/index.asp">-
+								워터파크</option>
+							<option value="http://www.lotteworld.com/aquarium/index.asp">-
+								아쿠아리움</option>
+							<option value="http://www.lottecorp.com/">롯데물산</option>
+							<option value="http://www.lwt.co.kr/">롯데월드타워&amp;몰</option>
+							<option value="http://gimpoairport.lottemall.co.kr">롯데몰
+								김포공항점</option>
+							<option value="http://www.lottejtb.com/">롯데제이티비</option>
+	
+							<option value="http://www.lotteins.co.kr/">롯데손해보험</option>
+							<option value="http://www.3655.co.kr/">- 롯데하우머치</option>
+	
+							<option value="http://www.lottecard.co.kr/">롯데카드</option>
+							<option value="http://www.lottecap.com/">롯데캐피탈</option>
+	
+							<option value="http://www.lottecon.co.kr/">롯데건설</option>
+							<option value="http://www.lotteapt.net/">- 롯데캐슬</option>
+	
+							<option value="http://www.fujifilm.co.kr/">한국후지필름</option>
+							<option value="http://shop.fujifilm.co.kr/">- 후지필름쇼핑몰</option>
+	
+							<option value="http://www.lotteal.co.kr/">롯데알미늄</option>
+							<option value="http://www.lotteelife.co.kr/">- 롯데이라이프</option>
+	
+							<option value="http://www.lottechem.com/">롯데케미칼</option>
+							<option value="http://www.lottemrc.co.kr/">롯데엠시시</option>
+							<option value="http://www.canon-bs.co.kr/">캐논코리아 비즈니스솔루션</option>
+							<option value="http://www.lottelem.co.kr/">롯데기공</option>
+							<option value="http://www.lotteacademy.co.kr/">롯데인재개발원</option>
+							<option value="http://ez.lotteacademy.co.kr">사이버 인재개발원</option>
+							<option value="http://www.ldcc.co.kr/">롯데정보통신</option>
+							<option value="http://www.giantsclub.com/">롯데자이언츠</option>
+							<option value="http://www.skyhill.co.kr/">롯데스카이힐C.C</option>
+							<option value="http://www.lottebuyeoresort.com/">롯데리조트 부여</option>
+							<option value="http://www.lottejejuresort.com/">롯데리조트 제주</option>
+							<option value="https://www.lotteresortsokcho.com">롯데리조트
+								속초</option>
+							<option value="http://www.daehong.com/">대홍기획</option>
+							<option value="http://www.mybi.co.kr/">마이비</option>
+							<option value="http://www.lotternd.com/">롯데중앙연구소</option>
+							<option value="http://green.lotte.co.kr/">롯데환경경영</option>
+							<option value="http://www.llc.co.kr/">롯데로지스틱스</option>
+							<option value="http://www.lottefoundation.or.kr/">롯데재단</option>
+							<option value="https://www.lotterentacar.net">롯데렌터카</option>
+							<option value="http://www.lotteconcerthall.com/">롯데콘서트홀</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

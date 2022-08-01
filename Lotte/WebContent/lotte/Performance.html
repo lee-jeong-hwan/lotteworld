@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script type="text/javacript" charset="utf-8" async data-requirecontext="_" data-requiremodule="comtroller/COSrchController" src="/common/js/controller/COSrchController/js?bust=1654585790582"></script>
+<script>
+function view() {
+	if($(".moremenu").css('display')=='none') {
+		if($(".moremenu2").css('display')=='block') {
+			$(".moremenu2").slideUp();
+		}
+		if($(".sharesub").css('display')=='block'){
+			$(".sharesub").slideUp();
+			}
+		} else if($(".moremenu").css('display')=='block'){
+	}
+$(".moremenu").slideToggle();
+}
+
+
+
+
+function view2() {
+	if($(".moremenu2").css('display')=='none') {
+		if($(".moremenu").css('display')=='block') {
+			$(".moremenu").slideUp();
+		}
+		if($(".sharesub").css('display')=='block'){
+			$(".sharesub").slideUp();
+		}
+	} else if($(".moremenu2").css('display')=='block'){
+	}
+		$(".moremenu2").slideToggle();
+}
+
+
+
+
+function shareview() {
+	if($(".sharesub").css('display')=='none'){
+		if($(".moremenu").css('display')=='block'){
+			$(".moremenu").slideUp();
+		}
+		if($(".moremenu2").css('display')=='block'){
+			$(".moremenu2").slideUp();
+		}
+		
+	} else if($(".sharesub").css('display')=='block'){
+	}
+	$(".sharesub").slideToggle();
+}
+
+
+
+function copy() {
+	var url = '';    // <a>태그에서 호출한 함수인 clip 생성
+    var textarea = document.createElement("textarea");  
+    //url 변수 생성 후, textarea라는 변수에 textarea의 요소를 생성
+    
+    document.body.appendChild(textarea); //</body> 바로 위에 textarea를 추가(임시 공간이라 위치는 상관 없음)
+    url = window.document.location.href;  //url에는 현재 주소값을 넣어줌
+    textarea.value = url;  // textarea 값에 url를 넣어줌
+    textarea.select();  //textarea를 설정
+    document.execCommand("copy");   // 복사
+    document.body.removeChild(textarea); //extarea 요소를 없애줌
+    
+    alert("복사되었습니다.")  // 알림창
+}
+
+
+$(document).ready(function(){
+	$(".listType2 a").mouseenter(function(){
+		$(this).find(".type2").find(".tit").css("color","#fff");
+	});
+	$(".listType2 a").mouseleave(function(){
+		$(this).find(".type2").find(".tit").css("color","#000");
+	});
+	$(".listType2 a").mouseenter(function(){
+		$(this).find(".type2").find(".txt").css("color","#b78edf");
+	});
+	$(".listType2 a").mouseleave(function(){
+		$(this).find(".type2").find(".txt").css("color","#555");
+	});
+	$(".listType2 a").mouseenter(function(){
+		$(this).find(".type2").find(".date").css("color","#b78edf");
+	});
+	$(".listType2 a").mouseleave(function(){
+		$(this).find(".type2").find(".date").css("color","#555");
+	});
+
+	var select = $(".moremenu2box").text();
+	var list = $(".moremenu2List");
+	for(var i = 0; i <= 3; i++){
+		if(list.eq(i).text() == select){
+			list.eq(i).css('font-family', 'NotoSans-bold');
+			list.eq(i).css('color', '#000');
+			break;
+		}
+	}
+	
+	$(".menu").load("lotte/Menu.jsp");
+	$(".footer").load("lotte/Footer.html");
+});
+</script>
+<style>
+	@font-face { 
+	font-family: "NotoSans-Bold";
+	src: url("font/NotoSansKR-Bold.otf");	
+	}
+	@font-face {
+		font-family: "NotoSans-Light"; 
+		src: url("font/NotoSansKR-Light.otf");	
+	}
+	@font-face {
+		font-family: "NotoSans-Medium";
+		src: url("font/NotoSansKR-Medium.otf");	
+	}
+	@font-face {
+		font-family: "NotoSans-Regular";
+		src: url("font/NotoSansKR-Regular.otf");	
+	}
+	body {
+		font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		font-size: 16px;
+	    color:#555;
+		letter-spacing: -0.6px;
+		line-height: 1;
+		width:100%;
+		margin-left:0px;
+	} 
+	#wrapper{
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+	}
+	#cbody{
+		position: relative;
+		width:100%;
+	}
+	.container{
+		position: relative;
+		width:1170px;
+		margin: 0 auto;
+	}
+	.subWrap{
+		position: relative;
+		padding: 0 0 130px;
+		width: 100%;
+	}
+	.topsubIn a {
+		font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	}
+	.topsub {
+	    position: relative;
+	    max-width: 1170px;
+	    margin: 0 auto;
+	    padding-top: 30px;
+	}
+	.topsub:after {
+	    content: '';
+	    display: block;
+	    clear: both;
+	}
+	.topsub .topsubIn {
+	    float: left;
+	    padding-top: 10px;
+	}
+	.topsub .topsubIn:after {
+	    content: '';
+	    display: block;
+	    clear: both;
+	}
+	.topsub .topsubIn .home {
+	    float: left;
+	    display: block;
+	    width: 36px;
+	    height: 30px;
+	    border-right: 1px solid #e1e1e1;
+	    background: url(https://adventure.lotteworld.com/common/images/btn/home_btn.png) no-repeat 0 50%;
+	}
+	.topsub .topsubIn > div.one {
+	    margin-left: 26px;
+	}
+	.topsub .topsubIn > div {
+	    float: left;
+	    position: relative;
+	    margin-left: 20px;
+	}
+	.topsub .topsubIn > div > a {
+	    display: block;
+	    padding-right: 42px;
+	    height: 30px;
+	    font-size: 16px;
+	    color: #555;
+	    line-height: 28px;
+	    background: url(https://adventure.lotteworld.com/common/images/icon/lnb_icon.png) no-repeat right 0 top 50%;
+	}
+	.topsub .topsubIn > div > div {
+    	position: absolute;
+	    top: 50px;
+	    left: -26px;
+	    padding: 25px;
+	    border: 1px solid #e1e1e1;
+	    background: #fff;
+	    display: none
+	}
+	.topsub .topsubIn > div > div a:first-child {
+	    margin-top: 0;
+	}
+	.topsub .topsubIn > div > div a {
+	    display: block;
+	    font-size: 16px;
+	    color: #555;
+	    white-space: nowrap;
+	    margin-top: 17px;
+	}
+	.shareprint {
+		float: right;
+	}
+	.shareprint a {
+		display: block;
+	    width: 50px;
+	    height: 50px;
+	}
+	.share {
+		position: relative;
+		float : left;
+	}
+	.shareimg {
+		background: url(https://adventure.lotteworld.com/common/images/btn/share_btn.png) no-repeat 50% 50%;
+	}
+	.shareimg:hover {
+		background: url(https://adventure.lotteworld.com/common/images/btn/share_btn_on.png) no-repeat 50% 50%;
+	}
+	.print {
+		float : left;
+		margin-left: 10px;
+		background: url(https://adventure.lotteworld.com/common/images/btn/print_btn.png) no-repeat 50% 50%;
+	}
+	.sharesub {
+		position: absolute;
+	    top: 50px;
+	    left: 0;
+	    display: none;
+	}
+	.sharesub a {
+		margin-top: 10px;
+	}
+	.facebook {
+		background: url(https://adventure.lotteworld.com/common/images/btn/facebook_btn.png) no-repeat 50% 50%;
+	}
+	.facebook:hover {
+		background: url(https://adventure.lotteworld.com/common/images/btn/facebook_btn_on.png) no-repeat 50% 50%;
+	}
+	.twiter {
+		background: url(https://adventure.lotteworld.com/common/images/btn/twitter_btn.png) no-repeat 50% 50%;
+	}
+	.twiter:hover {
+		background: url(https://adventure.lotteworld.com/common/images/btn/twitter_btn_on.png) no-repeat 50% 50%;
+	}
+	.copy {
+		background: url(https://adventure.lotteworld.com/common/images/btn/link_btn.png) no-repeat 50% 50%;
+	}
+	.copy:hover {
+		background: url(https://adventure.lotteworld.com/common/images/btn/link_btn_on.png) no-repeat 50% 50%;
+	}
+	.shareprint:after {
+		content: '';
+	    display: block;
+	    clear: both;
+	}
+	a{
+		text-decoration: none;
+	}
+	body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, table, tr, th, td {
+	    margin: 0;
+	    padding: 0;
+}
+	h2{
+		font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+   	 	font-size: 50px;
+    	color: #000;
+    	text-align: center;
+    	padding-top: 40px;
+    	margin: 0px;
+	}
+	.program{
+		margin-top: 80px;
+	}
+	.listType2{
+		margin-top: 80px;
+	}
+	.listType2 a:first-child, .listType2 a:nth-child(2), .listType2 a:nth-child(3), .listType2 a:nth-child(4) {
+	   margin-top: 0;
+}
+	.listType2 a{
+		display: block;
+	    float: left;
+	    width: 276px;
+	    border: 1px solid #e1e1e1;
+	    box-sizing: border-box;
+	    margin-top: 22px;
+	    margin-right: 22px;
+	    -moz-transition: .3s ease;
+	    -webkit-transition: .3s ease;
+	    -ms-transition: .3s ease;
+	    -o-transition: .3s ease;
+	    transition: .3s ease;
+	}
+	.listType2 a .thumb{
+		position: relative;
+		max-height: 246px;
+		overflow: hidden;
+	}
+	.listType2 a span{
+		display: block;
+	}
+	.listType2 a .thumb .label {
+	    position: absolute;
+	    top: 20px;
+	    left: 20px;
+	    padding: 0 10px;
+	    height: 36px;
+	    line-height: 34px;
+	    font-size: 15px;
+	    color: #fff;
+	    text-align: center;
+	    background: rgba(0,0,0,0.5);
+	    border-radius: 2px;
+	}
+	.listType2 a .thumb img{
+		width: 100%;
+	}
+	.listType2 a .titArea.type2{
+		padding: 27px 25px 24px;
+	}
+	.listType2 a .titArea.type2 .tit {
+	    height: 60px;
+	    overflow: hidden;
+	    white-space: normal;
+	    word-wrap: break-word;
+	    display: -webkit-box;
+	    -webkit-line-clamp: 2;
+	    -webkit-box-orient: vertical;
+	}
+.listType2 a .titArea .tit {
+	    height: 60px;
+	    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	    font-size: 22px;
+	    line-height: 1.4;
+	    color: #000;
+	}
+.listType2 a .titArea .txt {
+	    font-size: 16px;
+	    font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	    line-height: 1.2;
+	    margin-top: 15px;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    height: 40px;
+	    word-wrap: break-word;
+	    display: -webkit-box;
+	    -webkit-line-clamp: 2;
+	    -webkit-box-orient: vertical;
+	    color: #555;
+	}
+	.listType2 a:hover{
+		background: #5c11e6;
+		box-shadow: 10px 14px 26px rgb(0 0 0 / 20%);
+	}
+	.listType2 a .titArea .date{
+		font-size: 16px;
+	    font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	    color: #888;
+	    margin-top: 5px;
+	}
+	.listType2:after{
+		content:'';
+		display: block;
+		clear: both;
+	}
+	.paging{
+		position: relative;
+		width: 100%;
+		text-align: center;
+		margin-top: 80px;
+	}
+	.paging .active{
+		border: 1px solid #5c11e6;
+	    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	    font-size: 16px;
+	    color: #fff;
+	    background: rgb(111, 35, 249);
+	    background: -ms-linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+	    background: -o-linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+	    background: -moz-linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+	    background: -webkit-linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+	    background: linear-gradient(to bottom right, rgba(111,35,249,1) 0%, rgba(85,10,223,1) 100%);
+	}
+	.paging a{
+		display: inline-block;
+	    margin-left: 10px;
+	    width: 48px;
+	    height: 48px;
+	    border: 1px solid #dadada;
+	    line-height: 46px;
+	    font-weight: 300;
+	    font-size: 16px;
+	    color: #555;
+	    text-align: center;
+	    vertical-align: top;
+	    background: #fff;
+	    border-radius: 25px;
+	}
+</style>
+</head>
+<body>
+<div id="wrapper">
+	<div class="menu"></div>
+	<div id="cbody">
+		<div class="subWrap">
+			<!-- 참여프로그램 상단바 -->
+			<div class="topsub">
+				<div class="topsubIn">
+					<a href="LotteController?command=lotteMain" class="home"></a>
+						<div class="one">
+							<a href="javascript:void(0)" onclick="view()" class="moremenuclick">참여프로그램</a>
+							<div class="moremenu" style="z-index : 15; display : none;">
+								<a href="LotteController?command=Attraction" class="moremenulist" style="margin-top : 0px;">즐길거리</a>
+								<a href="LotteController?command=Charge" class="moremenulist">요금/우대혜택</a>
+	 							<a href="LotteController?command=Performance" class="moremenulist">참여프로그램</a>
+								<a href="LotteController?command=Suspension" class="moremenulist">이용가이드</a>
+								<a href="LotteController?command=Notice" class="moremenulist">소통서비스</a>
+							</div>
+						</div>
+						<div class="two">
+							<a class="moremenu2box" href="javascript:void(0)" onclick="view2()">공연 참여</a>
+							<div class="moremenu2" style="z-index : 15; display : none;">
+								<a href="LotteController?command=Performance" class="moremenu2List" style="margin-top : 0px;">공연 참여</a>
+	 							<a href="#" class="moremenu2List no">가든스테이지 좌석예약</a>
+							</div>
+						</div>
+			
+				</div> <!-- topsubIn -->
+				<div class="shareprint">
+					<div class="share">
+					<a href="javascript:void(0)" onclick="shareview()"class="shareimg"></a>
+						<div class="sharesub" style="z-index:15; display:none;">
+							<a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fsharer%3Fu%3Dhttps%253A%252F%252Fadventure.lotteworld.com%252Fkor%252Fenjoy%252Frestaurant%252Flist.do&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=ko_KR" class="facebook" target="_blank"></a>
+							<a href="https://twitter.com/intent/tweet?text=&url=https%3A%2F%2Fadventure.lotteworld.com%2Fkor%2Fenjoy%2Frestaurant%2Flist.do" class="twiter" target="_blank"></a>
+							<a href="javascript:void(0)" onclick="copy()" class="copy"></a>
+						</div>
+					</div> <!-- share -->
+					<a href="javascript:void(0)" onclick="window.print()" class="print"></a>
+				</div> <!-- shareprint -->
+			</div> 
+<!-- topsub --><!------------------------- 참여프로그램 상단바 끝 --------------------------------- -->
+			<h2>공연 참여</h2>
+			<div class="container">
+				<div class="program">
+					<div class="listType2">
+						<a href="javascript:notReady()">
+							<span class="thumb">
+								<span class="label">이벤트</span>
+								<img src="IMAGES4/202202140206524320_275.jpg" alt="퍼레이드 워킹">
+							</span>
+							<span class="titArea type2">
+								<span class="tit">퍼레이드 워킹 패키지</span>
+								<span class="txt">어드벤처 1층 퍼레이드 라인</span>
+								<span class="date"> 2022.02.14~2022.12.31</span>
+							</span>
+						</a>
+						<a href="javascript:notReady()">
+							<span class="thumb">
+								<span class="label">이벤트</span>
+								<img src ="IMAGES4/202202140155065550_275.jpg">
+							</span>
+							<span class="titArea type2">
+								<span class="tit">퍼레이드 다인승 트램카 패키지</span>
+								<span class="txt">어드벤처 1층 퍼레이드 라인</span>
+								<span class="date">2022.02.14~2022.12.31</span>
+							</span>
+						</a>
+						<a href="javascript:notReady()">
+							<span class="thumb">
+								<span class="label">이벤트</span>
+								<img src ="IMAGES4/202202140156376800_275.jpg">
+							</span>
+							<span class="titArea type2">
+								<span class="tit">퍼레이드 컨셉카 패키지</span>
+								<span class="txt">어드벤처 1층 퍼레이드 라인</span>
+								<span class="date">2022.02.14~2022.12.31</span>
+							</span>
+						</a>
+					</div>
+					<div class="paging">
+						<a href="javascript:" data-page="1" class="active" onclick="return false;">1</a>
+					</div>
+				</div>
+				<style type="text/css">
+					.moviepop-dim2 { 
+						display: none; 
+						position: fixed; 
+						top: 0; 
+						left: 0; 
+						width: 100%; 
+						height: 100%; 
+						min-height: 100%; 
+						background: rgba(0,0,0,.7); 
+						z-index: 999999; 
+						overflow: hidden; 
+					} 	
+					.moviepop-dim2 .moviepop-warap {
+						max-width:510px; 
+						text-align:center; 
+						padding:50px 30px 30px
+					}
+					@media (max-width:1200px){
+					    .moviepop-dim2 .moviepop-warap img {
+					    width:100%
+					    }
+					}
+				
+				</style>
+			</div>
+		</div>
+	</div>
+	<div class="footer"></div>
+</div> <!-- wrapper -->
+</body>
+</html>

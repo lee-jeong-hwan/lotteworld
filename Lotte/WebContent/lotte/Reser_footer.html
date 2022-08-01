@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+			@font-face { 
+			font-family: "NotoSans-Bold";
+			src: url("font/NotoSansKR-Bold.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Black";
+			src: url("font/NotoSansKR-Black.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Light";
+			src: url("font/NotoSansKR-Light.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Medium";
+			src: url("font/NotoSansKR-Medium.otf");
+		}
+		@font-face {
+			font-family: "NotoSans-Regular";
+			src: url("font/NotoSansKR-Regular.otf");
+		}
+		body {
+		    display: block;
+		    margin-top: 0;
+		}
+		html, body {
+		    height: 100%;
+		    font-family: 'Noto Sans', sans-serif;
+		    font-weight: 400;
+		    font-size: 15px;
+		    color: #333;
+		    -webkit-text-size-adjust: none;
+		    -moz-text-size-adjust: none;
+		    -ms-text-size-adjust: none;
+		    -webkit-overflow-scrolling: touch;
+		}
+		body {
+		    background-image: url(https://mticket.lotteworld.com/images/adventure/bg_pc_visual.png);
+		    background-repeat: no-repeat;
+		    background-position: 50% 0;
+		}
+		html, body {
+		    font-size: 14px;
+		}
+		body {
+		    overflow-x: hidden !important;
+		}
+		body header {
+			margin-bottom: 0;
+		}
+		body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, select, input, textarea, p, blockquote, th, td, figure, figcaption {
+		    margin: 0;
+		    padding: 0;
+		}
+		.footer{
+			background: #4e4e5b url(IMAGES4/bg_foot_line.png)repeat-x 0 57px;
+			box-sizing: border-box;
+		}
+		.footer > div{
+			width: 880px;
+			margin: 0 auto;
+			padding: 17px 20px 18px 0;
+			border-bottom:none;
+		}
+		.footmenu_wrap ul{
+			display: block;
+			margin: 0 -8px;
+		}
+		.footmenu_wrap li{
+			float: left;
+			display: inline-block;
+			position: relative;
+			margin: 2px 0;
+		}
+		.footmenu_wrap li a{
+			padding-right: 12px;
+			padding-left: 12px;
+			display: block;
+			color: #fff;
+			letter-spacing: -0.04em;
+		}
+		.footmenu_wrap ul:after{
+			content:"";
+			display: block;
+			clear: both;
+			height: 0;
+			visibility:hidden;
+		}
+		.footinfo_wrap{
+			position: relative;
+			color: #d6d8dc;
+		}
+		.footinfo_wrap:after{
+			content: "";
+			display: block;
+			clear: both;
+			height: 0;
+			visibility: hidden;
+		}
+		.footinfo_wrap address{
+			text-align: left;	
+			margin-bottom: 10px;
+			font-style: normal;
+		}
+		address{
+			display: block;
+		}
+		.footinfo_wrap small{
+			display: inline-block;
+			margin-top: 10px;
+			font-family: 'Lato', sans-serif;
+			color: #b0b4bb;
+		}
+		.foot_link{
+			float: left;
+			position: absolute;
+			bottom: 55px;
+			right: 15px;
+		}
+		.foot_link_area > div:first-child{
+			margin-right:5px;
+		}
+		.foot_link_area > div{
+			width: auto;
+			position: relative;
+			box-sizing: border-box;
+		}
+		.language_select1{
+			float: left;
+			margin-bottom: 10px;
+		}
+		.foot_link_area > div button span{
+			display: block;
+			padding-right: 18px;
+			
+		}
+		.language_select1 .btn_language_open {
+		    width: 145px;
+		}
+		.foot_link_area > div button {
+		    display: block;
+		    height: 32px;
+		    padding-left: 10px;
+		    border: 1px solid #a2a2b7;
+		    background: #4e4e5b;
+		    color: #a2a2b7;
+		    text-align: left;
+		}
+		.foot_link_area > div button span {
+		    display: block;
+		    padding-right: 18px;
+		    background: url(/IMAGES4/ico_family_arrow.png) no-repeat 100% 3px;
+		    background-size: 16px 31px;
+		}
+		.language_select1 .language_select2 {
+		    width: 145px;
+		    height: 143px;
+		}
+		.foot_link_area > div li:first-child {
+		    margin-top: 0;
+		}
+		.foot_link_area > div a {
+		    font-size: 14px;
+		    color: #fff;
+		}
+		a{
+			text-decoration: none;
+		}
+		.footinfo_wrap .isms{
+			margin-top: 15px;
+			display: block;
+			flex-direction: column;
+			height: 100%;
+			width: 100%;
+			justify-content: center;
+			align-items: center;
+		}
+		.footinfo_wrap .isms a{
+			display: block;
+		    padding-top: 3px;
+		    padding-left: 36px;
+		    height: 37px;
+		    background: url(IMAGES4/icon_isms.png) no-repeat 0 60%;
+		    background-size: 30px;
+		}
+		.footinfo_wrap .isms a > p{
+			position: relative;
+			display: block;
+			font-family: 'Lato', sans-serif;
+			font-size: 12px;
+			color: #e1e1e1;
+			line-height: 16px;
+		}
+		.footinfo_wrap .isms a > p span:first-child{
+			position: relative;
+			padding-right: 9px;
+			margin-right: 6px;
+		}
+		.footinfo_wrap .isms a > p span:first-child:after{
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 0;
+			margin-top: -5.5px;
+			width: 1px;
+			height: 11px;
+			background: #e1e1e1;
+		}
+</style>
+</head>
+<body>
+<footer class="footer" style="margin-top:0px; height:224px;">
+	<div class="footmenu_wrap">
+		<ul>
+			<li>
+				<a href="#" target="_blank" title="새창">이용약관</a>
+			</li>
+			<li>
+			<a href="#" target="_blank" title="새창" style="color:red;">개인정보처리방침</a>
+			</li>
+		</ul>
+	</div>
+	<div class="footinfo_wrap">
+		<address>
+			<p>호텔롯데롯데월드 / 대표자 : 최홍훈</p>
+			<p>서울특별시 송파구 올림픽로 240 / 
+				<span class="inlineblock">고객센터 : 1661-2000</span>
+			</p>
+			<p>사업자등록번호: 219-85-00014 / 
+				<span class="inlineblock">통신판매업신고번호 : 2007-서울송파-5513</span>
+			</p>
+			<small>COPYRIGHTⓒ2016 LOTTE WORLD. ALL RIGHTS RESERVED.</small>
+		</address>
+		<div class="isms">
+			<a href="https://isms.kisa.or.kr/main/ispims/issue/" target="_blank">
+				<p>
+					<span>
+						인증범위
+					</span>
+					<span>온라인 예매 서비스 운영(롯데월드)</span>
+				</p>
+				<p>
+					<span>
+						유효기간
+					</span>
+					<span>2020.11.18 ~ 2023.11.17</span>
+				</p>
+			</a>
+		</div>
+	</div>
+</footer>
+</body>
+</html>

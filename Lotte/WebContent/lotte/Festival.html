@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	 <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+    />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+	<title>Ice World | 페스티벌</title>
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<style>
+
+@font-face {
+	font-family: "NotoSans-Light";
+	src: url(font/NotoSansKR-Light.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Bold";
+	src: url(font/NotoSansKR-Bold.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Medium";
+	src: url(font/NotoSansKR-Medium.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Regular";
+	src: url(font/NotoSansKR-Regular.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Black";
+	src: url(font/NotoSansKR-Black.otf);
+}
+
+@font-face {
+	font-family: "NotoSans-Thin";
+	src: url(font/NotoSansKR-Thin.otf);
+}
+#wrapper {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+}
+
+#cBody {
+	position: relative;
+	width: 100%;
+}
+
+.subWrap {
+	position: relative;
+	padding: 0 0 130px;
+	width: 100%;
+}
+.container{
+	position: relative;
+    width: 1170px;
+    margin: 0 auto;
+}
+body {
+    position: relative;
+    font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+    font-size: 16px;
+    color: #555;
+    letter-spacing: -0.6px;
+    height: 100%;
+    line-height: 1;
+}
+.subVisArea.type4 {
+    height: 480px;
+    background: url(Img/top_festival.jpg) no-repeat 50% 0;
+}
+.subVisArea.type4 .cWhite {
+    text-shadow: 2px 2px 2px rgb(0 0 0 / 50%);
+}
+.h2Txt {
+    font-size: 18px;
+    color: #555;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 28px;
+}
+h2.cWhite {
+    padding-top: 90px;
+}
+.cWhite {
+    color: #fff !important;
+}
+h2 {
+    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+    font-size: 50px;
+    color: #000;
+    text-align: center;
+    padding-top: 40px;
+}
+.festivalMain {
+    position: relative;
+    z-index: 2;
+}
+.festivalMain .visualWrap {
+    height: 1010px;
+    background: url(Img/bg_main.jpg) no-repeat center center;
+}
+.festivalMain .storyWrap {
+    padding-top: 62px;
+    height: 318px;
+    background: url(Img/bg_story.jpg) no-repeat center center;
+    box-sizing: border-box;
+}
+.festivalMain .storyWrap .txtWrap {
+    margin: 0 auto;
+    max-width: 1300px;
+    text-align: center;
+}
+.festivalMain .storyWrap .txtWrap .tit {
+    margin: 0 auto;
+    width: 323px;
+    height: 57px;
+    background: url(Img/text_story_tit.png) no-repeat center center;
+    font-size: 0;
+}
+.festivalMain .storyWrap .txtWrap .txt {
+    margin-top: 23px;
+    font-family: "SpoqaHanSans-Regular";
+    font-size: 18px;
+    line-height: 28px;
+    color: #fff;
+}
+.mo {
+    display: none;
+}
+.festivalCont.sc1 {
+    padding-top: 300px;
+    height: 1790px;
+    background: url(Img/bg_sc1.jpg) no-repeat center center;
+    box-sizing: border-box;
+}
+.festivalCont .inner {
+    margin: 0 auto;
+    max-width: 1300px;
+}
+.festivalCont.sc1 .inner > .tit {
+    margin-bottom: 68px;
+    width: 380px;
+    height: 185px;
+    background: url(Img/tit_sc1.png) no-repeat center center;
+}
+.festivalCont .inner > .tit {
+    margin: 0 auto;
+    font-size: 0;
+}
+.festivalCont .tabList {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    width: 1299px;
+}
+
+.festivalCont .tabList li {
+    flex: 1;
+    background: #e2e9f0;
+    text-align: center;
+}
+.festivalCont .tabList li .on{
+    background: #e85398;
+}
+
+.festivalCont .tabList li a {
+    padding: 31px 0;
+    display: block;
+    border: 3px solid #5a308e;
+    cursor: pointer;
+}
+.festivalCont .tabList li a span {
+    display: inline-block;
+    font-family: "NotoSans-Regular", "맑은 고딕", "Malgun Gothic", sans-serif !important;
+    font-size: 18px;
+    line-height: 20px;
+    color: #111;
+}
+.festivalCont .tabList li .on span {
+    font-size: 20px;
+    color: #fff;
+    font-family: "NotoSans-Black", "맑은 고딕", "Malgun Gothic", sans-serif !important;
+    
+}
+.festivalCont .tabList li + li a {
+    border-left: none;
+}
+a {
+    text-decoration: none;
+    color: #555;
+}
+ul, ol, li {
+    list-style: none;
+}
+.festivalCont .tabCont .txtWrap {
+	position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2.6vw 0 3.39vw;
+    color: #111;
+    background: #fff;
+    word-wrap: break-word;
+    word-break: keep-all;
+    height: 642px;
+}
+.festivalCont .tabCont .txtWrap .tabContTit {
+    margin-bottom: 30px;
+    font-family: "NotoSans-Black", "맑은 고딕", "Malgun Gothic", sans-serif !important;
+    font-size: 42px;
+    line-height: 52px;
+    word-break: keep-all;
+}
+.festivalCont .tabCont .txtWrap .tabContTxt {
+    display: inline-block;
+    font-family: "NotoSans-Light", "맑은 고딕", "Malgun Gothic", sans-serif !important;
+    font-size: 18px;
+    line-height: 32px;
+    word-break: keep-all;
+}
+.festivalCont .tabCont .txtWrap .place {
+    margin-top: 65px;
+    font-size: 0;
+}
+.festivalCont .tabCont .txtWrap .place em {
+    margin-right: 10px;
+    padding: 3.5px 10px;
+    display: inline-block;
+    font-family: "NotoSans-Bold", "맑은 고딕", "Malgun Gothic", sans-serif !important;
+    font-size: 17px;
+    color: #fff;
+    background: #111;
+    font-style: normal;
+}
+.festivalCont .tabCont .txtWrap .place span {
+    display: inline-block;
+    font-size: 18px;
+    font-family: "NotoSans-Light", "맑은 고딕", "Malgun Gothic", sans-serif !important;
+}
+
+.festivalCont.sc1 .tabCont::after {
+    position: absolute;
+    top: 2541px;
+    left: 252px;
+    content: "";
+    display: block;
+    width: 1554px;
+    height: 775px;
+    background: url(Img/bg_sc1_slide.png) no-repeat center center;
+}
+.img_after{
+	border-left : 3px solid #5a308e;
+    border-top : 3px solid #5a308e;
+    float: left;
+}
+.festivalCont .tabCont .txtWrap .time {
+    display: block;
+    margin-top: 77px;
+    position: relative;
+    font-weight: BOLDER;
+    font-size: 26px;
+    color: #111;
+    z-index: 10;
+}
+.festivalCont .tabCont .txtWrap .time::after {
+    position: absolute;
+    left: 0;
+    top: 9px;
+    content: "";
+    display: inline-block;
+    width: 295px;
+    height: 64px;
+    background: url(Img/ico_time.png) no-repeat center center;
+}
+.festivalCont .tabCont .txtWrap .place em {
+    margin-right: 10px;
+    padding: 3.5px 10px;
+    display: inline-block;
+    font-family: "NotoSans-Bold", "맑은 고딕", "Malgun Gothic", sans-serif !important;
+    font-size: 17px;
+    color: #fff;
+    background: #111;
+}
+
+.fullBgWrap {
+    padding-top: 225px;
+    height: 3479px;
+    background: url(Img/bg_sc2_sc3.jpg) no-repeat center center;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+}
+.festivalCont.sc2 .inner > .tit {
+    width: 402px;
+    height: 210px;
+    background: url(Img/tit_sc2.png) no-repeat center center;
+}
+.festivalCont.sc2 .tabListWrap {
+    margin-top: 66px;
+}
+.festivalCont .tabCont .txtWrap2 {
+	border-left : 3px solid #5a308e;
+    position: relative;
+    top: 0px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2.6vw 0 3.39vw;
+    color: #111;
+    background: #fff;
+    word-wrap: break-word;
+    word-break: keep-all;
+    width: 349px;
+    height: 642px;
+    float:left;
+}
+.img_udate {
+	width: 830px;
+	height: 641px;
+}
+.img_udate img {
+	top: -642px;
+    right: -466px;
+    position: relative
+}
+.festivalCont.sc2 .tabCont::after {
+    position: absolute;
+    top: 3938px;
+    left: 150px;
+    content: "";
+    display: block;
+    width: 1644px;
+    height: 1114px;
+    background: url(Img/bg_sc2_slide.png) no-repeat center center;
+}
+.festivalCont.sc3 {
+    position: relative;
+    margin-top: 734px;
+}
+.festivalCont.sc3 .inner > .tit {
+    width: 380px;
+    height: 200px;
+    background: url(Img/tit_sc3.png) no-repeat center center;
+}
+.festivalCont.sc3 .tabListWrap {
+    margin-top: 64px;
+}
+.ico_duck {
+  	position: relative;
+    margin-left: 464px;
+    top: -65px;
+}
+.fullBgWrap {
+    padding-top: 225px;
+    height: 3479px;
+    background: url(Img/bg_sc2_sc3.jpg) no-repeat center center;
+    background-size: 100% 100%;
+    box-sizing: border-box;
+}
+.festivalCont.sc3 .tabCont::after {
+    position: absolute;
+    top: 993px;
+    left: 251px;
+    content: "";
+    display: block;
+    width: 1403px;
+    height: 224px;
+    background: url(Img/bg_sc3_slide.png) no-repeat center center;
+}
+.festivalCont.sc4 .inner .titWrap {
+    padding-top: 132px;
+    height: 550px;
+    background: url(Img/bg_sc4.jpg) no-repeat top center;
+    box-sizing: border-box;
+}
+.festivalCont.sc4 .inner {
+    max-width: 100%;
+}
+.festivalCont.sc4 .inner .tit {
+    margin: 0 auto;
+    width: 378px;
+    height: 220px;
+    background: url(Img/tit_sc4.png) no-repeat center center;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap {
+    margin-top: -100px;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabList {
+    margin: 0 auto;
+    display: block;
+    max-width: 1300px;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabList ul {
+    font-size: 0;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabList li.food {
+    background: #21afcc !important;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabList li a {
+    padding: 0;
+    border: none;
+    display: block;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabList li a span {
+    position: relative;
+    padding: 28px 0;
+    font-family: "NotoSans-Black", "맑은 고딕", "Malgun Gothic", sans-serif !important;
+    font-size: 24px;
+    color: #111;
+    line-height: 1;
+    font-weight: 900;
+}
+
+.festivalCont.sc4 .inner .tabSt2Wrap .tabList li.good {
+    background: #67c5d8 !important;
+}
+
+.festivalCont.sc4 .inner .tabSt2Wrap .tabList li {
+    position: relative;
+    width: 50%;
+    flex: none;
+    display: inline-block;
+    vertical-align: bottom;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabList li. on a {
+    border-top: 8px solid #5a308e;
+    border-left: 2px solid #5a308e;
+    border-right: 2px solid #5a308e;
+}
+
+.festivalCont.sc4 .inner .tabSt2Wrap .tabList li.good.on span::after {
+    position: absolute;
+    left: -45px;
+    top: 30px;
+    content: "";
+    display: inline-block;
+    width: 34px;
+    height: 37px;
+    background: url(Img/ico_tit_goods.png) no-repeat top center;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabList li.food .on span::after {
+    position: absolute;
+    left: -42px;
+    top: 29px;
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 40px;
+    background: url(Img/ico_tit_food.png) no-repeat top center;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabcont.food {
+    background: url(Img/bg_sc4_food.jpg) no-repeat top center;
+    background-size: cover;
+    height: 1015px;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabcont ul {
+    padding-top: 65px;
+    margin: 0 auto;
+    max-width: 1300px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabcont ul li {
+    flex: 1;
+    text-align: center;
+}	
+img, fieldset {
+    border: none;
+    vertical-align: top;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabcont.food ul li span {
+    margin: 20px 0 12px;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabcont.food ul li span.shop {
+    margin: 0 0 0 0;
+    display: inline-block;
+    position: relative;
+    font-family: "NotoSans-Medium", "맑은 고딕", "Malgun Gothic", sans-serif !important;
+    font-size: 18px;
+    line-height: 25px;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabcont.food ul li span.shop img {
+    margin-right: 10px;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabcont ul li span {
+    margin: 30px 0 55px;
+    display: block;
+    font-family: "NotoSans-Bold", "맑은 고딕", "Malgun Gothic", sans-serif !important;
+    font-size: 22px;
+    color: #111;
+    font-weight: 900;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabcont.goods {
+    background: url(Img/bg_sc4_goods.jpg) no-repeat top center;
+    background-size: cover;
+    height: 1015px;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabList li.good .on span::after {
+    position: absolute;
+    left: -45px;
+    top: 30px;
+    content: "";
+    display: inline-block;
+    width: 34px;
+    height: 37px;
+    background: url(Img/ico_tit_goods.png) no-repeat top center;
+}
+
+.festivalCont.sc4 .inner .tabSt2Wrap .tabList li  .on{
+	border-top : 8px solid #5a308e;
+	border-left : 2px solid #5a308e;
+	border-right: 2px solid #5a308e;
+	background : none;
+}
+.tabSt2Wrap .tabList li .on a span {
+    padding: 38px 0 26px!important;
+    font-size: 28px!important;
+}
+.festivalCont .tabSt2Wrap .tabList li .on span {
+      padding: 38px 0 26px!important;
+    font-size: 28px!important;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabcont {
+    min-height: 1015px;
+    border-top: 2px solid #5a308e;
+}
+.festivalCont.sc4 .inner .tabSt2Wrap .tabList li.good .on::after {
+    position: absolute;
+    bottom: -2px;
+    left: 2px;
+    content: "";
+    display: block;
+    width: calc(100% - 4px);
+    height: 2px;
+    background: #67c5d8;
+}
+
+.festivalCont.sc4 .inner .tabSt2Wrap .tabList li.food .on::after {
+    position: absolute;
+    bottom: -2px;
+    left: 2px;
+    content: "";
+    display: block;
+    width: calc(100% - 4px);
+    height: 2px;
+    background: #21afcc;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  object-fit: cover;
+}
+
+.mySwiper .swiper-pagination {
+    display: inline-block;
+    padding: 15px 65px 15px 31px;
+    width: auto;
+    height: 11px;
+    left: 50%;
+    bottom: 50px;
+    background: rgba(0,0,0,0.5);
+    overflow: hidden;
+    border-radius: 20.5px;
+    transform: translate(-50%, 0);
+}
+.mySwiper .swiper-pagination .swiper-pagination-bullet:first-child {
+    margin: 0;
+}
+.mySwiper .swiper-pagination .swiper-pagination-bullet {
+    vertical-align: top;
+    width: 11px;
+    height: 11px;
+    margin: 0 0 0 10px;
+    background: url(Img/imgRoll_indi.png) no-repeat 50% 50%;
+}
+.mySwiper .swiper-pagination .swiper-pagination-bullet-active {
+    background: url(Img/imgRoll_indi_on.png) no-repeat 50% 50%;
+}
+.mySwiper .swiper-pagination .playBtn {
+    display: block;
+    width: 41px;
+    height: 41px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0,0,0,0.2) url(Img/play_bt.png) no-repeat 50% 50%;
+    border-radius: 20.5px;
+}
+.mySwiper .swiper-pagination .playBtn.onSwiper {
+    background: rgba(0,0,0,0.2) url(Img/play_bt_on.png) no-repeat 50% 50%; 
+}
+a {
+		    text-decoration: none;
+		    color: #555;
+		}
+		a:-webkit-any-link {
+		    /*color: -webkit-link;*/
+		    cursor: pointer;
+		    /*text-decoration: underline;*/
+		}
+		/*a:hover, a:focus, a:active {
+		    text-decoration: none;
+		}*/
+		.topsubIn a {
+			font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		}
+		.topsub {
+		    position: relative;
+		    max-width: 1170px;
+		    margin: 0 auto;
+		    padding-top: 30px;
+		}
+		.topsub:after {
+		    content: '';
+		    display: block;
+		    clear: both;
+		}
+		.topsub .topsubIn {
+		    float: left;
+		    padding-top: 10px;
+		}
+		.topsub .topsubIn:after {
+		    content: '';
+		    display: block;
+		    clear: both;
+		}
+		.topsub .topsubIn .home {
+		    float: left;
+		    display: block;
+		    width: 36px;
+		    height: 30px;
+		    border-right: 1px solid #e1e1e1;
+		    background: url(https://adventure.lotteworld.com/common/images/btn/w_home_btn.png) no-repeat 0 50%;
+		    border-color: rgba(255,255,255,0.3);
+		}
+		.topsub .topsubIn > div.one {
+		    margin-left: 26px;
+		}
+		.topsub .topsubIn > div {
+		    float: left;
+		    position: relative;
+		    margin-left: 20px;
+		}
+		.topsub .topsubIn > div > a {
+		    display: block;
+		    padding-right: 42px;
+		    height: 30px;
+		    font-size: 16px;
+		    color: #fff;
+		    line-height: 28px;
+		    background: url(https://adventure.lotteworld.com/common/images/icon/w_lnb_icon.png) no-repeat right 0 top 50%;
+		}
+		.topsub .topsubIn > div > div {
+	    	position: absolute;
+		    top: 50px;
+		    left: -26px;
+		    padding: 25px;
+		    border: 1px solid #e1e1e1;
+		    background: #fff;
+		    display: none
+		}
+		.topsub .topsubIn > div > div a:first-child {
+		    margin-top: 0;
+		}
+		.topsub .topsubIn > div > div a {
+		    display: block;
+		    font-size: 16px;
+		    color: #555;
+		    white-space: nowrap;
+		    margin-top: 17px;
+		}
+		.shareprint {
+			float: right;
+		}
+		.shareprint a {
+			display: block;
+		    width: 50px;
+		    height: 50px;
+		}
+		.share {
+			position: relative;
+			float : left;
+		}
+		.shareimg {
+			background: url(https://adventure.lotteworld.com/common/images/btn/w_share_btn.png) no-repeat 50% 50%;
+		}
+		.shareimg:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/share_btn_on.png) no-repeat 50% 50%;
+		}
+		.print {
+			float : left;
+			margin-left: 10px;
+			background: url(https://adventure.lotteworld.com/common/images/btn/w_print_btn.png) no-repeat 50% 50%;
+		}
+		.sharesub {
+			position: absolute;
+		    top: 50px;
+		    left: 0;
+		    display: none;
+		}
+		.sharesub a {
+			margin-top: 10px;
+		}
+		.facebook {
+			background: url(https://adventure.lotteworld.com/common/images/btn/facebook_btn.png) no-repeat 50% 50%;
+		}
+		.facebook:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/facebook_btn_on.png) no-repeat 50% 50%;
+		}
+		.twiter {
+			background: url(https://adventure.lotteworld.com/common/images/btn/twitter_btn.png) no-repeat 50% 50%;
+		}
+		.twiter:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/twitter_btn_on.png) no-repeat 50% 50%;
+		}
+		.copy {
+			background: url(https://adventure.lotteworld.com/common/images/btn/link_btn.png) no-repeat 50% 50%;
+		}
+		.copy:hover {
+			background: url(https://adventure.lotteworld.com/common/images/btn/link_btn_on.png) no-repeat 50% 50%;
+		}
+		.shareprint:after {
+			content: '';
+		    display: block;
+		    clear: both;
+		}
+		.swiper-wrapper .swiper-slide img {
+		    width: 100%;
+		    max-width: 100%;
+		}
+    </style>
+<script>
+	function address() {
+		$(".mySwiper").find(".swiper-pagination").append("<a href='javascript:' class='playBtn'></a>");
+	}
+	window.onload=address;
+	$(function() {
+		$(".menu").load("lotte/Menu.jsp");
+		$(".footer").load("lotte/Footer.html");
+		
+		var select = $(".moremenu2box").text();
+		var list = $(".moremenu2List");
+		for(var i = 0; i <= 3; i++){
+			if(list.eq(i).text() == select){
+				list.eq(i).css('font-family', 'NotoSans-bold');
+				list.eq(i).css('color', '#000');
+				break;
+			}
+		}
+		
+		$('#div1').show();
+		$('#div2').hide();
+		$('#div3').hide();
+		$('#div4').hide();
+		$('#btn1').addClass("on");
+		 
+		$("#btn1").click(function() {
+			$('#div1').show();
+			$('#div2').hide();
+			$('#div3').hide();
+			$('#div4').hide();
+			$('#btn1').addClass("on");
+			$('#btn2').removeClass("on");
+			$('#btn3').removeClass("on");
+			$('#btn4').removeClass("on");
+		});
+		$("#btn2").click(function() {
+			$('#div1').hide();
+			$('#div2').show();
+			$('#div3').hide();
+			$('#div4').hide();
+		    $('#btn1').removeClass("on");
+		    $('#btn2').addClass("on");
+		    $('#btn3').removeClass("on");
+		    $('#btn4').removeClass("on");
+		});
+		$("#btn3").click(function(){
+			$('#div1').hide();
+			$('#div2').hide();
+			$('#div3').show();
+			$('#div4').hide();
+			$('#btn1').removeClass("on");
+		    $('#btn2').removeClass("on");
+		    $('#btn3').addClass("on");
+		    $('#btn4').removeClass("on");
+		});
+		$("#btn4").click(function(){
+			$('#div1').hide();
+			$('#div2').hide();
+			$('#div3').hide();
+			$('#div4').show();
+			$('#btn1').removeClass("on");
+		    $('#btn2').removeClass("on");
+		    $('#btn3').removeClass("on");
+		    $('#btn4').addClass("on");
+		});
+	});
+</script>
+</head>
+<body>
+	<div id ="wrapper">
+		<div class="menu"></div>
+		<div id = "cBody">
+			<div id ="subWrap">
+				<div class ="subVisArea type4">
+				<div class="topsub">
+				<div class="topsubIn">
+					<a href="LotteController?command=lotteMain" class="home"></a>
+						<div class="one">
+							<a href="javascript:void(0)" onclick="view()" class="moremenuclick">즐길거리</a>
+							<div class="moremenu" style="z-index : 15; display : none;">
+								<a href="LotteController?command=Attraction" class="moremenulist" style="margin-top : 0px;">즐길거리</a>
+								<a href="LotteController?command=Charge" class="moremenulist">요금/우대혜택</a>
+	 							<a href="LotteController?command=Performance" class="moremenulist">참여프로그램</a>
+								<a href="LotteController?command=Suspension" class="moremenulist">이용가이드</a>
+								<a href="LotteController?command=Notice" class="moremenulist">소통서비스</a>
+							</div>
+						</div>
+						<div class="two">
+							<a class="moremenu2box" href="javascript:void(0)" onclick="view2()">페스티벌</a>
+							<div class="moremenu2" style="z-index : 15; display : none;">
+								<a href="LotteController?command=Attraction" class="moremenu2List" style="margin-top : 0px;">어트랙션</a>
+	 							<a href="LotteController?command=Festival" class="moremenu2List">페스티벌</a>
+								<a href="LotteController?command=ShowMain" class="moremenu2List">공연</a>
+								<a href="LotteController?command=Restaurant" class="moremenu2List">다이닝/쇼핑</a>
+							</div>
+						</div>
+				</div> <!-- topsubIn -->
+				<div class="shareprint">
+					<div class="share">
+					<a href="javascript:void(0)" onclick="shareview()"class="shareimg"></a>
+						<div class="sharesub" style="z-index:15; display:none;">
+							<a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fsharer%3Fu%3Dhttps%253A%252F%252Fadventure.lotteworld.com%252Fkor%252Fenjoy%252Frestaurant%252Flist.do&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=ko_KR" class="facebook" target="_blank"></a>
+							<a href="https://twitter.com/intent/tweet?text=&url=https%3A%2F%2Fadventure.lotteworld.com%2Fkor%2Fenjoy%2Frestaurant%2Flist.do" class="twiter" target="_blank"></a>
+							<a href="javascript:void(0)" onclick="copy()" class="copy"></a>
+						</div>
+					</div> <!-- share -->
+					<a href="javascript:void(0)" onclick="window.print()" class="print"></a>
+				</div> <!-- shareprint -->
+			</div> <!-- topsub -->
+					<h2 class= "cWhite">페스티벌</h2>
+					<p class= "h2Txt cWhite">시즌별로 새로워지는 롯데월드 페스티벌을 만나보세요!</p>
+				</div>
+				<div class= "festivalMain">
+					<div class= "visualWrap">
+					</div>
+					<div class= "storyWrap">
+						<div class ="txtWrap">
+						<p class= "tit"></p>
+						<p class= "txt">
+						무더위가 기승을 부리는 여름날,
+						<br>
+						<br class= "mo">
+						친구들과 더위를 이겨내기 위해
+						<br class= "mo">
+						직접 아이스크림을 만들기로 결심한 로티와 로리!
+						<br>
+						<br class="mo">
+						파크 곳곳에 녹아있는 아이스크림들을 발견하고,
+						<br>
+						<br class= "mo">
+						절대 녹지 않는 다양한 맛과
+						<br class= "mo">
+						모양의 아이스크림을 만들어낸다!
+						</p>
+						</div>
+					</div>
+				</div>
+				<div class= "festivalCont sc1">
+					<div class= "inner">
+						<p class= "tit"></p>
+						<div class="tabListWrap2">
+			                <ul class="tabList">
+			                    <li class="item1"><a id ="btn1"><span>빅로티 포토존</span></a></li>
+			                    <li class="item2"><a id ="btn2"><span>하나.둘.셋! 아이스크림!</span></a></li>
+			                    <li class="item3"><a id ="btn3"><span>아이스크림 포토존</span></a></li>
+			                    <li class="item4"><a id ="btn4"><span>그럴싸진관</span></a></li>
+			                </ul>
+			            </div>
+			            <div class= "tabWrap">
+			             	 <div id = "div1">
+			             		<div class = tabCont>
+			            			<div class ="img_after">
+			            				<img src="Img/commingsoon.jpg">
+			            			</div>
+			            			<div class = txtWrap>
+			            				<p class="tabContTit">빅로티 포토존</p>
+			            				<span class="tabContTxt">빅로티와 함께 화이트베어의 아이스크림 공장에 놀러가요!</span>
+			            				<p class="place">
+			            				<em>장소</em> 
+			            				<span>어드벤처 1층 만남의 광장</span>
+			            				</p>
+			            			</div>
+			            		</div>
+			            	</div> <!-- div1 --> 
+			          		<div id= "div2">
+			           			<div class = tabCont>
+			            			<div class ="img_after">
+			            				<img src="Img/commingsoon.jpg">
+			                        </div>
+			                    	<div class="txtWrap">
+			                       	 <p class="tabContTit">하나.둘.셋! 아이스크림!</p>
+			                        <span class="tabContTxt">롯데월드 대표 캐릭터 친구들과 함께 즐기는 아이스크림 테마 공연, 어떠세요?</span>
+			                        <p class="place">
+			                        	<em>장소</em> 
+			                        	<span>어드벤처 1층 전역</span>
+			                        </p>
+			                        <a href="https://adventure.lotteworld.com/kor/enjoy/performance/view.do?detailsKey=1153" title="하나.둘.셋! 아이스크림! 공연시간 확인하기" class="time">공연시간 확인하기</a>
+			                    	</div>
+			              	   </div>
+			           		</div>
+			           		<div id ="div3">
+			           			<div class= "tabCont">
+			           				<div class = "img_after">
+			           					<img src="Img/commingsoon.jpg">
+			           				</div>
+			           				<div class="txtWrap">
+			                        <p class="tabContTit">아이스크림 포토존</p>
+			                        <span class="tabContTxt">로티와 로리가 발견한 녹아있는 아이스크림이 매직아일랜드 곳곳에 있어요! 녹아내리는 아이스크림과 함께 다양한 사진을 찍어보세요!</span>
+			                        <p class="place">
+			                        <em>장소</em> 
+			                        <span>매직아일랜드 매직캐슬, 아트란티스 출구</span>
+			                        </p>
+			                   	 	</div>
+			           			</div>
+			            	</div>
+				            <div id ="div4">
+				            	<div class = "tabCont">
+				            		<div class= "img_after">
+				            			<img src="Img/commingsoon.jpg">
+				            		</div>
+				            		<div class="txtWrap">
+				                        <p class="tabContTit">그럴싸진관</p>
+				                        <span class="tabContTxt">네온빛 아이스크림이 가득한 포토존에서 힙한 감성을 느껴보세요!</span>
+				                        <p class="place"><em>장소</em> <span>어드벤처 4층 그럴싸진관</span></p>
+			                    	</div>
+			            		</div>
+			            	</div>
+			        	</div>
+					</div>
+				</div>
+		<script>
+		function view() {
+			if($(".moremenu").css('display')=='none') {
+				if($(".moremenu2").css('display')=='block') {
+					$(".moremenu2").slideUp();
+				}
+				if($(".moremenu3").css('display')=='block') {
+					$(".moremenu3").slideUp();
+				}
+				if($(".sharesub").css('display')=='block'){
+					$(".sharesub").slideUp();
+				}
+			} else if($(".moremenu").css('display')=='block'){
+			}
+			$(".moremenu").slideToggle();
+		}
+		function view2() {
+			if($(".moremenu2").css('display')=='none') {
+				if($(".moremenu").css('display')=='block') {
+					$(".moremenu").slideUp();
+				}
+				if($(".moremenu3").css('display')=='block') {
+					$(".moremenu3").slideUp();
+				}
+				if($(".sharesub").css('display')=='block'){
+					$(".sharesub").slideUp();
+				}
+			} else if($(".moremenu2").css('display')=='block'){
+			}
+				$(".moremenu2").slideToggle();
+		}
+		function shareview() {
+			if($(".sharesub").css('display')=='none'){
+				if($(".moremenu").css('display')=='block'){
+					$(".moremenu").slideUp();
+				}
+				if($(".moremenu2").css('display')=='block'){
+					$(".moremenu2").slideUp();
+				}
+				if($(".moremenu3").css('display')=='block'){
+					$(".moremenu3").slideUp();
+				}
+			} else if($(".sharesub").css('display')=='block'){
+			}
+			$(".sharesub").slideToggle();
+		}
+		function copy() {
+			var url = '';    // <a>태그에서 호출한 함수인 clip 생성
+	        var textarea = document.createElement("textarea");  
+	        //url 변수 생성 후, textarea라는 변수에 textarea의 요소를 생성
+	        
+	        document.body.appendChild(textarea); //</body> 바로 위에 textarea를 추가(임시 공간이라 위치는 상관 없음)
+	        url = window.document.location.href;  //url에는 현재 주소값을 넣어줌
+	        textarea.value = url;  // textarea 값에 url를 넣어줌
+	        textarea.select();  //textarea를 설정
+	        document.execCommand("copy");   // 복사
+	        document.body.removeChild(textarea); //extarea 요소를 없애줌
+	        
+	        alert("복사되었습니다.")  // 알림창
+		}
+		</script>
+        <div class = "fullBgWrap">
+        	<div class="festivalCont sc2">
+            	<div class="inner">
+                	<p class="tit"></p>
+               		<div class="tabListWrap placeTabWrap">
+                   	 	<ul class="tabList">
+                        	<li class="item1"><a id ="btn_1"><span>워터 해변 포토존</span></a></li>
+                        	<li class="item2"><a id ="btn_2"><span>아이스캐슬<br class="mo">(매직캐슬)</span></a></li>
+                        	<li class="item3"><a id ="btn_3"><span>렛츠드림<br class="mo"> 나이트 퍼레이드</span></a></li>
+                   	 	</ul>
+                	</div>
+                	<div class="tabWrap">
+                    <!-- 워터 해변 포토존 -->
+                    	<div id = "div_1">
+                    		<div class="tabCont">
+                        		<div class="txtWrap txtWrap2">
+		                            <p class="tabContTit">워터 해변 포토존</p>
+		                            <span class="tabContTxt">여름 바캉스는 해변에서 보내는게 국룰!<br>시원한 파도를 배경으로 여름 바캉스에 온 느낌을<br>한껏 뽐내보세요!</span>
+		                            <p class="place">
+		                            	<em>장소</em> 
+		                            	<span style="top: -23px; right: -56px; position: relative">
+		                            		어드벤처 1층 퍼레이드 동선(드림캐슬 앞)
+		                            	</span>
+		                            </p>
+		                        </div>
+		                        <div class="img_udate">
+		                            <img src="Img/commingsoon.jpg" style ="border-right: 3px solid #5a308e;">
+                        		</div>
+                   			</div>
+                    	</div>
+                    <!-- 아이스캐슬(매직캐슬) -->
+                    <div id ="div_2">
+                    <div class="tabCont">
+                        <div class="txtWrap txtWrap2">
+                            <p class="tabContTit">아이스캐슬(매직캐슬)</p>
+                            <span class="tabContTxt">무더운 여름, 매직캐슬이 꽁꽁 얼어버렸어요! 보기만 해도 시원해지는 매직캐슬 앞에서 사진을 남겨보세요!</span>
+                            <p class="place">
+                            	<em>장소</em> 
+                            	<span>매직아일랜드 매직캐슬</span>
+                            </p>
+                        </div>
+                        <div class= "img_udate">
+                        <img src="Img/cont02_02_1.jpg" style ="border-right: 3px solid #5a308e">
+                        </div>
+                    </div>
+                    </div>
+                    <!-- 렛츠드림 나이트 퍼레이드 -->
+                    <div id = "div_3">
+                    <div class="tabCont">
+                        <div class="txtWrap txtWrap2">
+                            <p class="tabContTit">렛츠드림 나이트 퍼레이드</p>
+                            <span class="tabContTxt">로티가 펼쳐보이는 별빛 마법의 세계! 스펙타클한 멀티미디어 쇼와 함께하는 환상의 나이트 퍼레이드!</span>
+                            <p class="place">
+                            	<em>장소</em> 
+                            	<span>어드벤처 1층 퍼레이드 코스</span>
+                            </p>
+                            <a href="https://adventure.lotteworld.com/kor/enjoy/performance/view.do?detailsKey=1107&amp;" title="렛츠드림 나이트 퍼레이드 공연시간 확인하기" class="time">공연시간 확인하기</a>
+                        </div>
+                        <div class= "img_udate">
+                            <img src="Img/cont02_03_1.jpg" style = "border-right: 3px solid #5a308e">
+                    	</div>
+                    </div>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+     
+        
+        <script>
+$(function () {
+	$('#div_1').show();
+	$('#div_2').hide();
+	$('#div_3').hide();
+    $('#btn_1').addClass("on");
+	
+	$("#btn_1").click(function() {
+		$('#div_1').show();
+		$('#div_2').hide();
+		$('#div_3').hide();
+		$('#btn_1').addClass("on");
+		$('#btn_2').removeClass("on");
+		$('#btn_3').removeClass("on");
+	});
+	
+	$("#btn_2").click(function() {
+		$('#div_1').hide();
+		$('#div_2').show();
+		$('#div_3').hide();
+	 	$('#btn_1').removeClass("on");
+		$('#btn_2').addClass("on");
+		$('#btn_3').removeClass("on");
+	});
+	
+	$("#btn_3").click(function(){
+		$('#div_1').hide();
+		$('#div_2').hide();
+		$('#div_3').show();
+		$('#btn_1').removeClass("on");
+		$('#btn_2').removeClass("on");
+		$('#btn_3').addClass("on");
+	});
+	
+});
+</script> 
+		<div class="festivalCont sc3">
+           <div class="inner">
+               <p class="tit"></p>
+               <div class="tabListWrap showTabWrap">
+                   <ul class="tabList">
+                       <li class="item1"><a id = "btn3_1"><span>로티스 어드벤처<br class="mo">퍼레이드</span></a></li>
+                       <li class="item2"><a id = "btn3_2"><span>고!고!바캉스</span></a></li>
+                       <li class="item3"><a id = "btn3_3"><span>좀비프리즌</span></a></li>
+                   </ul>
+               </div>
+               <div class="tabWrap">
+                   <!-- 로티스 어드벤처 퍼레이드 -->
+                   <div id ="div3_1">
+                   <div class="tabCont">
+                       <div class="txtWrap txtWrap2">
+                           <p class="tabContTit">로티스 어드벤처 퍼레이드</p>
+                           <span class="tabContTxt">롯데월드를 대표하는 어트랙션들이 주인공이 돼서 펼쳐지는 환타지 퍼레이드!</span>
+                           <p class="place">
+                           	<em>장소</em> 
+                           	<span>어드벤처 1층 퍼레이드 코스</span>
+                           </p>
+                           <a href="https://adventure.lotteworld.com/kor/enjoy/performance/view.do?detailsKey=1137" class="time">공연시간 확인하기</a>
+                       </div>
+					    <div class="swiper mySwiper">
+					      <div class="swiper-wrapper">
+					        <div class="swiper-slide"><img src = "Img/cont03_01_1.jpg" style ="border-right: 3px solid #5a308e;"/></div>
+					        <div class="swiper-slide"><img src = "Img/cont03_01_2.jpg" style ="border-right: 3px solid #5a308e;"/></div>
+					       	<div class="swiper-slide"><img src = "Img/cont03_01_3.jpg" style ="border-right: 3px solid #5a308e;"/></div>
+					      </div>
+					      <div class="swiper-pagination"></div>
+					    </div>
+					
+					    <!-- Swiper JS -->
+					    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+					
+					    <!-- Initialize Swiper -->
+						  <script>
+						   var swiper = new Swiper(".mySwiper", {
+						      spaceBetween: 30,
+						      centeredSlides: true,
+						      speed : 1000,
+						      autoplay: {
+						        delay: 5000,
+						        disableOnInteraction: false,
+						      },
+						      pagination: {
+						        el: ".swiper-pagination",
+						        clickable: true,
+						      },
+						    });
+						    
+						    $(function() {
+								$(".playBtn").click(function() {
+									var element = $(this);
+									var elementClass = element.attr("class");
+									var val = "playBtn";
+									
+									if(elementClass==val){
+										element.addClass("onSwiper");
+										swiper.autoplay.stop();
+									} else {
+										element.removeClass("onSwiper");
+										swiper.autoplay.start();
+									}
+								});
+						});
+						  </script>
+					</div>
+                     	</div>
+                   </div>
+                   </div>
+                   <!-- 고!고!바캉스 -->
+                   <div id= "div3_2">
+                   	<div class="tabCont" style ="margin-left: 302px;">
+                       	<div class="txtWrap txtWrap2">
+                            <p class="tabContTit">고!고!바캉스</p>
+                            <span class="tabContTxt">어드벤처에서 즐기는 신나는 여름휴가, 화려한 댄스 바캉스!</span>
+                            <p class="place">
+                            	<em>장소</em> 
+                            	<span>어드벤처 1층 퍼레이드 코스</span>
+                            </p>
+                            <a href="https://adventure.lotteworld.com/kor/enjoy/performance/view.do?detailsKey=1154" title="고!고!바캉스 공연시간 확인하기" class="time">공연시간 확인하기</a>
+                        </div>
+                        <div class="img_udate">
+                            <img src="Img/cont03_02_1.jpg" style ="border-right: 3px solid #5a308e;">
+                        </div>
+                    </div>
+                   </div>
+                   <!-- 좀비프리즌 -->
+                   <div id= "div3_3">
+                    	<div class="tabCont" style= "margin-left: 302px">
+                       		<div class="txtWrap txtWrap2">
+                            <p class="tabContTit">좀비프리즌</p>
+                            <span class="tabContTxt">무더위엔 공포가 제격! 복잡하게 얽힌 공간 곳곳에서 튀어나오는 좀비를 피해 탈출하세요!</span>
+                            <p class="place">
+                            	<em>장소</em> 
+                            	<span>매직아일랜드 매직캐슬 뒷편</span>
+                            </p>
+                            <p class="place" style="margin-top:10px"><span>※ 유료</span></p>
+                        	</div>
+                        	<div class="img_update">
+                            	<img src="Img/cont04_01_1.jpg" style ="border-right: 3px solid #5a308e;">
+                         	</div>
+                     	</div>
+                   </div>
+                 </div>
+            <img src="Img/ico_sc3.png" class="ico_duck"/>
+        </div>
+     </div>
+<script>
+$(function () {
+	$('#div3_1').show();
+	$('#div3_2').hide();
+	$('#div3_3').hide();
+	$('#btn3_1').addClass("on");
+	
+	$("#btn3_1").click(function() {
+		$('#div3_1').show();
+		$('#div3_2').hide();
+		$('#div3_3').hide();
+		$('#btn3_1').addClass("on");
+		$('#btn3_2').removeClass("on");
+		$('#btn3_3').removeClass("on");
+	});
+	
+	$("#btn3_2").click(function() {
+		$('#div3_1').hide();
+		$('#div3_2').show();
+		$('#div3_3').hide();
+		$('#btn3_1').removeClass("on");
+		$('#btn3_2').addClass("on");
+		$('#btn3_3').removeClass("on");
+	});
+	
+	$("#btn3_3").click(function(){
+		$('#div3_1').hide();
+		$('#div3_2').hide();
+		$('#div3_3').show();
+		$('#btn3_1').removeClass("on");
+		$('#btn3_2').removeClass("on");
+		$('#btn3_3').addClass("on");
+		
+	});
+	
+});
+</script>
+	<div class="festivalCont sc4">
+		<div class="inner">
+			<div class="titWrap">
+				<p class="tit"></p>
+			</div>
+		
+			<div class="tabSt2Wrap">
+				<div class="tabList">
+					<ul>
+						<li class="food"><a id = "btn4_1" style = "padding : 0px 0px"><span>시즌 푸드</span></a></li>
+						<li class="good"><a id = "btn4_2"><span>시즌 굿즈</span></a></li>
+					</ul>
+				</div>
+				<div id = "div4_1">
+					<div class="tabcont food">
+						<ul>
+							<li><img alt="냉면" src="Img/ico_food01.jpg"> <span>냉면</span> <span class="shop"><img src="Img/ico_sc4_food.png">중화루</span></li>
+							<li><img alt="하와이안 쉬림프 플랫 브레드" src="Img/ico_food02.jpg"> <span>하와이안 쉬림프 플랫 브레드</span> <span class="shop"><img src="Img/ico_sc4_food.png">TGIF</span></li>
+							<li><img alt="오션블루에이드" src="Img/ico_food03.jpg"> <span>오션블루에이드</span> <span class="shop"><img src="Img/ico_sc4_food.png">뉴욕핫도그</span></li>
+							<li><img alt="서핑스페셜마리" src="Img/ico_food04.jpg"> <span>서핑스페셜마리</span> <span class="shop"><img src="Img/ico_sc4_food.png">스쿨푸드</span></li>
+						</ul>
+					</div>
+				</div> 
+				<div id = "div4_2">
+					<div class="tabcont goods">
+						<ul>
+							<li><img alt="아이스크림 로리헤어밴드" src="Img/img_goods01.jpg"> <span>아이스크림 로리헤어밴드</span></li>
+							<li><img alt="아이스크림 헤어밴드" src="Img/img_goods02.jpg"> <span>아이스크림 헤어밴드</span></li>
+							<li><img alt="아이스크림 리본헤어밴드" src="Img/img_goods03.jpg"> <span>아이스크림 리본헤어밴드</span></li>
+							<li><img alt="아이스크림 숄더백" src="Img/img_goods04.jpg"> <span>아이스크림 숄더백</span></li>
+							<li><img alt="아이스크림 스퀴시" src="Img/img_goods05.jpg"> <span>아이스크림 스퀴시</span></li>
+							<li><img alt="아이스크림바 젤펜" src="Img/img_goods06.jpg"> <span>아이스크림바 젤펜</span></li>
+							<li><img alt="아이스크림바 키링" src="Img/img_goods07.jpg"> <span>아이스크림바 키링</span></li>
+							<li><img alt="아이스크림콘 콘키링" src="Img/img_goods08.jpg"> <span>아이스크림콘 콘키링</span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="footer"></div>
+</div><!-- #wrapper -->
+<script>
+$(function () {
+	$('#div4_1').show();
+	$('#div4_2').hide();
+	$('#btn4_1').addClass("on");
+	$("#btn4_1").click(function() {
+		
+	
+		$('#div4_1').show();
+		$('#div4_2').hide();
+		$('#btn4_1').addClass("on");
+		$('#btn4_2').removeClass("on");
+	});
+	
+	$("#btn4_2").click(function() {
+		$('#div4_1').hide();
+		$('#div4_2').show();
+		$('#btn4_1').removeClass("on");
+		$('#btn4_2').addClass("on");
+	});
+});
+</script>
+</body>
+</html>

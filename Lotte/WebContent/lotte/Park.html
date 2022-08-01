@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>park</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<script type="text/javacript" charset="utf-8" async data-requirecontext="_" data-requiremodule="comtroller/COSrchController" src="/common/js/controller/COSrchController/js?bust=1654585790582"></script>
+<script>
+function view() {
+	if($(".moremenu").css('display')=='none') {
+		if($(".moremenu2").css('display')=='block') {
+			$(".moremenu2").slideUp();
+		}
+		if($(".sharesub").css('display')=='block'){
+			$(".sharesub").slideUp();
+			}
+		} else if($(".moremenu").css('display')=='block'){
+	}
+$(".moremenu").slideToggle();
+}
+
+
+
+
+function view2() {
+	if($(".moremenu2").css('display')=='none') {
+		if($(".moremenu").css('display')=='block') {
+			$(".moremenu").slideUp();
+		}
+		if($(".sharesub").css('display')=='block'){
+			$(".sharesub").slideUp();
+		}
+	} else if($(".moremenu2").css('display')=='block'){
+	}
+		$(".moremenu2").slideToggle();
+}
+
+
+
+
+function shareview() {
+	if($(".sharesub").css('display')=='none'){
+		if($(".moremenu").css('display')=='block'){
+			$(".moremenu").slideUp();
+		}
+		if($(".moremenu2").css('display')=='block'){
+			$(".moremenu2").slideUp();
+		}
+		
+	} else if($(".sharesub").css('display')=='block'){
+	}
+	$(".sharesub").slideToggle();
+}
+
+
+
+function copy() {
+	var url = '';    // <a>태그에서 호출한 함수인 clip 생성
+    var textarea = document.createElement("textarea");  
+    //url 변수 생성 후, textarea라는 변수에 textarea의 요소를 생성
+    
+    document.body.appendChild(textarea); //</body> 바로 위에 textarea를 추가(임시 공간이라 위치는 상관 없음)
+    url = window.document.location.href;  //url에는 현재 주소값을 넣어줌
+    textarea.value = url;  // textarea 값에 url를 넣어줌
+    textarea.select();  //textarea를 설정
+    document.execCommand("copy");   // 복사
+    document.body.removeChild(textarea); //extarea 요소를 없애줌
+    
+    alert("복사되었습니다.")  // 알림창
+}
+
+
+
+$(function() {
+	var select = $(".moremenu2box").text();
+	var list = $(".moremenu2List");
+	for(var i = 0; i <= 3; i++){
+		if(list.eq(i).text() == select){
+			list.eq(i).css('font-family', 'NotoSans-bold');
+			list.eq(i).css('color', '#000');
+			break;
+		}
+	}
+	$(".menu").load("lotte/Menu.jsp");
+	$(".footer").load("lotte/Footer.html");
+});
+</script>
+<style>
+	@font-face { 
+	font-family: "NotoSans-Bold";
+	src: url("font/NotoSansKR-Bold.otf");	
+	}
+	@font-face {
+		font-family: "NotoSans-Light"; 
+		src: url("font/NotoSansKR-Light.otf");	
+	}
+	@font-face {
+		font-family: "NotoSans-Medium";
+		src: url("font/NotoSansKR-Medium.otf");	
+	}
+	@font-face {
+		font-family: "NotoSans-Regular";
+		src: url("font/NotoSansKR-Regular.otf");	
+	}
+	body {
+		font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+		font-size: 16px;
+	    color:#555;
+		letter-spacing: -0.6px;
+		line-height: 1;
+		width:100%;
+		margin-left:0px;
+	} 
+	#wrapper{
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+	}
+	#cbody{
+		position: relative;
+		width:100%;
+	}
+	.container{
+		position: relative;
+		width:1170px;
+		margin: 0 auto;
+	}
+	.subWrap{
+		position: relative;
+		padding: 0 0 130px;
+		width: 100%;
+	}
+	.topsubIn a {
+		font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	}
+	.topsub {
+	    position: relative;
+	    max-width: 1170px;
+	    margin: 0 auto;
+	    padding-top: 30px;
+	}
+	.topsub:after {
+	    content: '';
+	    display: block;
+	    clear: both;
+	}
+	.topsub .topsubIn {
+	    float: left;
+	    padding-top: 10px;
+	}
+	.topsub .topsubIn:after {
+	    content: '';
+	    display: block;
+	    clear: both;
+	}
+	.topsub .topsubIn .home {
+	    float: left;
+	    display: block;
+	    width: 36px;
+	    height: 30px;
+	    border-right: 1px solid #e1e1e1;
+	    background: url(https://adventure.lotteworld.com/common/images/btn/home_btn.png) no-repeat 0 50%;
+	}
+	.topsub .topsubIn > div.one {
+	    margin-left: 26px;
+	}
+	.topsub .topsubIn > div {
+	    float: left;
+	    position: relative;
+	    margin-left: 20px;
+	}
+	.topsub .topsubIn > div > a {
+	    display: block;
+	    padding-right: 42px;
+	    height: 30px;
+	    font-size: 16px;
+	    color: #555;
+	    line-height: 28px;
+	    background: url(https://adventure.lotteworld.com/common/images/icon/lnb_icon.png) no-repeat right 0 top 50%;
+	}
+	.topsub .topsubIn > div > div {
+    	position: absolute;
+	    top: 50px;
+	    left: -26px;
+	    padding: 25px;
+	    border: 1px solid #e1e1e1;
+	    background: #fff;
+	    display: none
+	}
+	.topsub .topsubIn > div > div a:first-child {
+	    margin-top: 0;
+	}
+	.topsub .topsubIn > div > div a {
+	    display: block;
+	    font-size: 16px;
+	    color: #555;
+	    white-space: nowrap;
+	    margin-top: 17px;
+	}
+	.shareprint {
+		float: right;
+	}
+	.shareprint a {
+		display: block;
+	    width: 50px;
+	    height: 50px;
+	}
+	.share {
+		position: relative;
+		float : left;
+	}
+	.shareimg {
+		background: url(https://adventure.lotteworld.com/common/images/btn/share_btn.png) no-repeat 50% 50%;
+	}
+	.shareimg:hover {
+		background: url(https://adventure.lotteworld.com/common/images/btn/share_btn_on.png) no-repeat 50% 50%;
+	}
+	.print {
+		float : left;
+		margin-left: 10px;
+		background: url(https://adventure.lotteworld.com/common/images/btn/print_btn.png) no-repeat 50% 50%;
+	}
+	.sharesub {
+		position: absolute;
+	    top: 50px;
+	    left: 0;
+	    display: none;
+	}
+	.sharesub a {
+		margin-top: 10px;
+	}
+	.facebook {
+		background: url(https://adventure.lotteworld.com/common/images/btn/facebook_btn.png) no-repeat 50% 50%;
+	}
+	.facebook:hover {
+		background: url(https://adventure.lotteworld.com/common/images/btn/facebook_btn_on.png) no-repeat 50% 50%;
+	}
+	.twiter {
+		background: url(https://adventure.lotteworld.com/common/images/btn/twitter_btn.png) no-repeat 50% 50%;
+	}
+	.twiter:hover {
+		background: url(https://adventure.lotteworld.com/common/images/btn/twitter_btn_on.png) no-repeat 50% 50%;
+	}
+	.copy {
+		background: url(https://adventure.lotteworld.com/common/images/btn/link_btn.png) no-repeat 50% 50%;
+	}
+	.copy:hover {
+		background: url(https://adventure.lotteworld.com/common/images/btn/link_btn_on.png) no-repeat 50% 50%;
+	}
+	.shareprint:after {
+		content: '';
+	    display: block;
+	    clear: both;
+	}
+	a{
+		text-decoration: none;
+	}
+	h2{
+		font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+   	 	font-size: 50px;
+    	color: #000;
+    	text-align: center;
+    	padding-top: 40px;
+    	margin: 0px;
+	}
+	.parkdiv {
+		margin-top: 80px;
+	}
+	.parkdiv .infodiv:nth-of-type(1){
+		margin-top: 50px;
+	}
+	.parkdiv .infodiv{
+		border: 1px solid #e1e1e1;
+		padding: 50px 50px 50px 130px;
+		position: relative;
+		margin-top: 20px;
+	}
+	.infodiv{
+		box-sizing: border-box;
+	}
+	.parkdiv > .txt{
+		font-size: 20px;
+		color: #000;
+		text-align: center;
+		margin-top: 0;
+    	margin-bottom: 0;
+	}
+	.parkdiv .infodiv .label {
+	    width: 60px;
+	    height: 60px;
+	    border-radius: 30px;
+	    background: #681df3;
+	    color: #fff;
+	    font-size: 20px;
+	    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	    text-align: center;
+	    line-height: 60px;
+	    position: absolute;
+	    top: 50px;
+	    left: 50px;
+	    margin: 0px;
+    }
+    .parkdiv .infodiv .tit {
+	    font-size: 22px;
+	    font-family: 'NotoSans-Bold', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	    color: #000;
+	    line-height: 60px;
+	    text-align: left;
+	    padding-bottom: 0;
+	    margin: 0px;
+	}
+    .parkdiv .infodiv .txt {
+	    font-size: 16px;
+	    line-height: 26px;
+	    margin: 0px;
+	}
+	.parkdiv .infodiv .TopArea {
+	    border-top: 1px solid #e1e1e1;
+	    margin-top: 40px;
+	    padding-top: 40px;
+	}
+	ul, ol, li {
+	    list-style: none;
+	}
+	.parkdiv .infodiv .TopArea li {
+	    width: 329px;
+	    float: left;
+	}
+	.parkdiv .infodiv .TopArea li div {
+	    display: table;
+	    table-layout: fixed;
+	    width: 100%;
+	}
+	.parkdiv .infodiv .TopArea li p:first-child {
+	    width: 90px;
+	    padding-right: 20px;
+	}
+	.parkdiv .infodiv .TopArea li p {
+	    display: table-cell;
+	    vertical-align: middle;
+	    padding: 10px 0;
+	    font-size: 16px;
+	    line-height: 26px;
+	}
+	img{
+    border: none;
+    vertical-align: top;
+	}
+	.parkdiv .infodiv .TopArea:after{
+		content: "";
+		display: block;
+		clear: both;
+	}
+	.parkdiv .infodiv .bPurpleBtn{
+		margin-top: 35px;
+		padding: 0 50px;
+	}
+	.bPurpleBtn{
+		display: inline-block;
+	    padding: 0 68px;
+	    height: 52px;
+	    line-height: 50px;
+	    font-size: 18px;
+	    font-family: 'NotoSans-Light', '맑은 고딕', 'Malgun Gothic', sans-serif;
+	    color: #550adf;
+	    text-align: center;
+	    border: 2px solid #550adf;
+	    border-radius: 30px;
+	}
+	.parkdiv .infodiv .cannot{
+		margin-top: 35px;
+		border-top: 1px solid #e1e1e1;
+		padding-top: 40px;
+	}
+    .parkdiv .infodiv .cannot li{
+    	position: relative;
+    	padding-left: 15px;
+    	font-size: 16px;
+    	line-height: 30px;
+    }
+    .parkdiv .infodiv .cannot li:before{
+    	display: block;
+	    content: "";
+	    background: url(IMAGES4/dot_list.png) no-repeat 0 center;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 4px;
+	    height: 30px;
+    }
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="menu"></div>
+	<div class="cbody">
+		<div class="subWrap">
+			<!-- 참여프로그램 상단바 -->
+			<div class="topsub">
+				<div class="topsubIn">
+					<a href="LotteController?command=lotteMain" class="home"></a>
+						<div class="one">
+							<a href="javascript:void(0)" onclick="view()" class="moremenuclick">이용가이드</a>
+							<div class="moremenu" style="z-index : 15; display : none;">
+								<a href="LotteController?command=Attraction" class="moremenulist" style="margin-top : 0px;">즐길거리</a>
+								<a href="LotteController?command=Charge" class="moremenulist">요금/우대혜택</a>
+	 							<a href="LotteController?command=Perfotmance" class="moremenulist">참여프로그램</a>
+								<a href="LotteController?command=Suspension" class="moremenulist">이용가이드</a>
+								<a href="LotteController?command=Notice" class="moremenulist">소통서비스</a>
+							</div>
+						</div>
+						<div class="two">
+							<a class="moremenu2box" href="javascript:void(0)" onclick="view2()">파크 이용안내</a>
+							<div class="moremenu2" style="z-index : 15; display : none;">
+								<a href="LotteController?command=Suspension" class="moremenu2List" style="margin-top : 0px;">운영/운휴</a>
+	 							<a href="LotteController?command=Park" class="moremenu2List">파크 이용안내</a>
+								<a href="LotteController?command=Facility" class="moremenu2List">편의시설/제도</a>
+								<a href="LotteController?command=Comming" class="moremenu2List">오시는 길</a>
+								<a href="LotteController?command=Guidemap" class="moremenu2List">가이드맵</a>
+							</div>
+						</div>
+			
+				</div> <!-- topsubIn -->
+				<div class="shareprint">
+					<div class="share">
+					<a href="javascript:void(0)" onclick="shareview()"class="shareimg"></a>
+						<div class="sharesub" style="z-index:15; display:none;">
+							<a href="https://www.facebook.com/login.php?skip_api_login=1&api_key=966242223397117&signed_next=1&next=https%3A%2F%2Fwww.facebook.com%2Fsharer%3Fu%3Dhttps%253A%252F%252Fadventure.lotteworld.com%252Fkor%252Fenjoy%252Frestaurant%252Flist.do&cancel_url=https%3A%2F%2Fwww.facebook.com%2Fdialog%2Fclose_window%2F%3Fapp_id%3D966242223397117%26connect%3D0%23_%3D_&display=popup&locale=ko_KR" class="facebook" target="_blank"></a>
+							<a href="https://twitter.com/intent/tweet?text=&url=https%3A%2F%2Fadventure.lotteworld.com%2Fkor%2Fenjoy%2Frestaurant%2Flist.do" class="twiter" target="_blank"></a>
+							<a href="javascript:void(0)" onclick="copy()" class="copy"></a>
+						</div>
+					</div> <!-- share -->
+					<a href="javascript:void(0)" onclick="window.print()" class="print"></a>
+				</div> <!-- shareprint -->
+			</div> 
+			<!-- topsub -->
+			<h2>파크 이용안내</h2>
+			<div class="container">
+				<div class="parkdiv">
+					<p class="txt">손님 여러분의 안전하고 즐거운 추억을 위하여 이것만은 꼭 지켜주시기 바랍니다!</p>
+					<div class="infodiv">
+						<p class="label">01</p>
+						<p class="tit">다음의 내용들은 가지고 입장하실 수 없어요.</p>
+						<p class="txt">
+							안전하고 쾌적한 파크 환경을 위해 다음의 내용들은 입장 시에 제한하고 있으니 양해 부탁드립니다.
+							<br>							
+							이 외에도 다른 손님에게 방해가 되거나 위험하다고 판단되는 물품은 파크 내에서 제재할 수 있습니다.
+						</p>
+						<ul class="TopArea">
+							<li>
+								<div>
+									<p>
+										<img src="IMAGES4/park_info_icon1.png">
+									</p>
+									<p>
+										애완동물
+										<br>
+										(안내견 및 도우미견 제외)
+									</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<p>
+										<img src="IMAGES4/park_info_icon2.png">
+									</p>
+									<p>
+										자전거, 인라인, 스쿠터, 킥보드,
+										<br>
+										전동휠, 어린이 전동차
+										<br>
+										<span style="font-size:13px;">※3.1부터 킥보드 보관이 불가합니다.</span>
+									</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<p>
+										<img src="IMAGES4/park_info_icon3.png">
+									</p>
+									<p>주류, 불법약품 및 물질</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<p>
+										<img src="IMAGES4/park_info_icon4.png">
+									</p>
+									<p>버너, 접이식 의자, 대형 돗자리</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<p>
+										<img src="IMAGES4/181031_icon_camera.png">
+									</p>
+									<p>
+										전문 촬영장비
+										<br>
+										(대형 삼각대 및 사다리 등)
+									</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<p>
+										<img src="IMAGES4/park_info_icon6.png">
+									</p>
+									<p>
+										드론, 리모컨으로 조종
+										<br>
+										가능한 장난감 등
+									</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<p>
+										<img src="IMAGES4/park_info_icon7.png">
+									</p>
+									<p>
+										각종 무기 혹은 무기처럼 이용
+										<br>
+										가능한 물품(장난감 총, 창, 칼 등)
+									</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<p>
+										<img src="IMAGES4/park_info_icon8.png">
+									</p>
+									<p style="word-break: keep-all;">
+										스테레오, 라디오, 부부젤라 등 과도한 소음을 유발하여 손님들에게 불편함을 줄 수 있는 음향기기 또는 물품
+									</p>
+								</div>
+							</li>
+							<li>
+								<div>
+									<p>
+										<img src="IMAGES4/park_info_icon9.png">
+									</p>
+									<p style="word-break: keep-all;">
+										페인트,물감,스프레이 등 롯데월드 어드벤처 시설에 해가 되고 다른 손님들에게 피해를 줄 수 있는 물품
+									</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="infodiv">
+						<p class="label">02</p>
+						<p class="tit">흡연은 흡연실에서만 가능해요.</p>
+						<p class="txt">
+							롯데월드 어드벤처 내 모든 구역은 금연입니다.<br>
+							매직아일랜드 범퍼카 뒤에 마련되어 있는 흡연실에서만 흡연하실 수 잇으며, 미성년자의 흡연은 금지되어 있습니다.
+						</p>
+						<a class="bPurpleBtn" href="LotteController?command=Facility&num=4">흡연실 안내 바로가기</a>
+					</div>
+					<div class="infodiv">
+						<p class="label">03</p>
+						<p class="tit">다음의 행위들은 파크에서 금지되어 있습니다.</p>
+						<p class="txt">
+							롯데월드 어드벤처는 다수의 손님이 함께 즐기는 공간입니다.
+							<br>
+							다른 손님에게 불쾌감이나 불편함을 줄 수 있는 다음의 행위들은 파크 내에서 하실 수 없습니다.
+						</p>
+						<ul class="cannot">
+							<li>
+								<p class="txt">
+									<span style="color: #800080;">다른 손님에게 혐오감을 줄 수 있는 과한 분장, 얼굴 식별이 불가능한 헤드기어, 얼굴을&nbsp; 2/3이상&nbsp;가리는 마스크(의료용 마스크 제외) 등 착용</span>
+								</p>
+								<p style="font-size: 14px; margin-top: -5px; color: #681df3;">
+									<span style="color: #800080">※ 파크 내에서 발견 시 보안직원의&nbsp;제지를 받거나, 파크 이용이 제한될 수 있습니다.</span>
+								</p>
+							</li>
+							<li>
+								<p class="txt"> 어드벤처 연기자, CAST와 똑같은 코스튬을 입고 연기자, CAST 행세를 하는 행위</p>
+							</li>
+							<li>
+								<p class="txt">분장하고 있는 롯데월드 어드벤처 연기자, CAST들을 위협, 방해하거나 몸을 접촉하는 행위</p>
+								<p style="font-size: 14px; margin-top: -5px; color: #681df3;">
+									<span style="color: #696969">※ 특히 성희롱이나, 성추행 관련 문제는 경찰과 연계하여 엄격히 대처합니다.</span>
+								</p>
+							</li>
+							<li>
+								<p class="txt">땅바닥에 끌리거나, 과한 금속 장식 등 다른 손님에게 피해를 주는&nbsp;복장</p>
+							</li>
+							<li>
+								<p>화장실에서 다른 의상으로&nbsp;환복하는 행위로 다른 손님들에게 피해를 주는 경우</p>
+								<p style="font-size: 14px; margin-top: -5px; color: #681df3;">
+									<span style="color: #696969">※ 어트랙션 '플라이벤처' 지하 1층 코디룸에서 환복가능</span>
+								</p>
+							</li>
+							<li>
+								<p class="txt">퍼레이드나 공연 전 미리 돗자리나, 깔판으로 자리 선점을 하여 다른 손님들에게 피해를 주는 행위</p>
+							</li>
+							<li>
+								<p class="txt">다른 손님들의 공연 관람에&nbsp;방해가 되는&nbsp;사진, 동영상 등 촬영 행위</p>
+							</li>
+							<li>
+								<p class="txt">전단지&nbsp;배포, 설문조사, 손님 인터뷰 등 다른 손님들의 파크 이용에 불편을 끼치는 행위</p>
+							</li>
+							<li>
+								<p class="txt">집회 및 연설, 허가되지 않은 이벤트 개최</p>
+							</li>
+							<li>
+								<p class="txt">물품의 진영 및 판매 등 영리 목적의 활동을 하는 행위</p>
+							</li>
+						</ul>
+					</div>
+					<div class="infodiv">
+						<p class="label">04</p>
+						<p class="tit">파크 내 촬영 기준은 다음과 같습니다.</p>
+						<ul class="cannot">
+							<li>
+								<p class="txt">
+									<span style="color: #000000;">파크 내에서는 수시로 다양한 영화, 드라마, 예능 및 교양 프로그램 등의 촬영이 이뤄집니다.</span>
+								</p>
+								<p style="font-size: 14px; margin-top: -5px; color: #681df3;">
+									<span style="color: #800080">※ 촬영이 진행되는 동안에는 일부 어트랙션 탑승 및 관림이 제한될 수 있습니다.</span>
+								</p>
+							</li>
+							<li>
+								<p class="txt">
+									<span style="color:#000000;">롯데월드에서 촬영을 진행하고 싶으신 매체 관계자라면 홈페이지 소통서비스 고객소리함의 활영문의를 통해 계획일정의 7일 전까지 접수해주세요.</span>
+								</p>
+							</li>
+							<li>
+								<span style="color:#800000;">개인의 상업적 목적을 위한 영상 및 실시간 스트리밍 촬영은 다른 손님의 쾌적한 파크 이용과 초상권 보호 등의 이슈로 제한됩니다.</span>
+							</li>
+							<li>
+								<span style="color:#800000;">웨딩촬영 및 허가되지 않은 각종 촬영의 경우 현장에서 제지될 수 있으니 이용에 양해 부탁드립니다.</span>
+							</li>
+							
+						</ul>
+					</div>
+					<div class="infodiv">
+						<p class="label">05</p>
+						<p class="tit">어트랙션 이용 시에 지켜주세요.</p>
+						<p class="txt">손님 여러분의 안전을 위해 다음 내용들은 유의해 주시기 바랍니다.</p>
+						<ul class="cannot">
+							<li>
+								음식물은 다 드신 후에 이용해 주시기 바랍니다.
+							</li>
+							<li>
+								탑승 중에는 카메라, 셀카봉, 핸드폰 사용을 삼가 주세요.
+							</li>
+							<li>
+								어트랙션별 탑승기준을 준수해 주시기 바랍니다.
+							</li>
+							<li>
+								손님 여러분의 안전을 위한 센서로 인해 어트랙션이 급작스럽게 멈출 수 잇습니다.
+							</li>
+							<li>
+								어트랙션 탑승 도중 멈추더라도 당황하지 마시고 직원 안내를 기다려 주세요.
+							</li>
+							<li>
+								현장 및 기상상황에 따라 예고 없이 어트랙션 운행이 중단될 수 있습니다.
+							</li>
+							<li>
+								음주 후 어트랙션 탑승은 불가합니다.
+							</li>
+							<li>
+								어트랙션별 탑승기준은 아래 페이지에서 보다 자세하게 검색 혹은 활인하실 수 있습니다.
+							</li>
+						</ul>
+						<a class="bPurpleBtn" href="LotteController?command=Attraction">어트랙션 보기</a>
+					</div>
+					<div class="infodiv">
+						<p class="label">06</p>
+						<p class="tit">미아가 발생하면 이렇게 하세요.</p>
+						<p class="txt">
+							아이를 잃어버린 경우에는 당황하지 마시고, 미아보호소를 찾아주세요.</br>
+							아이의 인상착의 등의 정보를 알려주시면 파크 내 모든 캐스트에게 정보를 전달하여 최대한 빠르게 아이를 찾는데 도움을 드립니다.
+						</p>
+						<a class="bPurpleBtn" href="LotteController?command=Facility&num=6">미아보호소 안내 바로가기</a>
+					</div>
+					<div class="infodiv">
+						<p class="label">07</p>
+						<p class="tit">우리 캐스트들을 존중해 주세요.</p>
+						<p class="txt">
+							명찰을 달고 있는 캐스트를 만난다면 무엇이든 물어보세요. 최대한 친절하게 안내해 드릴수 있도록 하겠습니다.</br>
+							손님의 즐거운 시간을 위해 최선을 다하고 있는 캐스트를 존중해 주세요.</br>
+							실수하고 부족하더라도 반말이나 욕설은 삼가해주세요.</br>
+							혹시 불편 및 건의사항이 있으시다면 아래 게시판을 통해 의견을 남겨주세요.
+						</p>
+						<a class="bPurpleBtn" href="javascript:notReady()">칭찬/불편/건의 문의 바로가기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer"></div>
+</div><!-- wrapper -->
+</body>
+</html>
